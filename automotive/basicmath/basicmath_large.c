@@ -1,4 +1,5 @@
 #include "snipmath.h"
+#include <stdio.h>
 #include <math.h>
 
 /* The printf's may be removed to isolate just the math calculations */
