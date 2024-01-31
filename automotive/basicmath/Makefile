@@ -4,9 +4,9 @@ FILE2 = basicmath_large.c   rad2deg.c  cubic.c   isqrt.c
 all: basicmath_small basicmath_large
 
 basicmath_small: ${FILE1} Makefile
-	clang -static -Os -march=rv64ifd_zca0p70_zcf0p70_zcd0p70 -mabi=lp64d -menable-experimental-extensions -msave-restore ${FILE1} -o basicmath_small -lm
+	clang -static -Os -march=rv64ifdc -mabi=lp64d -menable-experimental-extensions -msave-restore ${FILE1} -o basicmath_small -lm
 basicmath_large: ${FILE2} Makefile
-	clang -static -Os -march=rv64ifd_zca0p70_zcf0p70_zcd0p70 -mabi=lp64d -menable-experimental-extensions  -msave-restore ${FILE2} -o basicmath_large -lm
+	clang -static -Os -march=rv64ifdc -mabi=lp64d -menable-experimental-extensions  -msave-restore ${FILE2} -o basicmath_large -lm
 
 clean:
 	rm -rf basicmath_small basicmath_large output*
