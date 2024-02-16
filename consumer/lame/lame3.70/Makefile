@@ -11,8 +11,8 @@ ARCH = $(shell uname -m)
 
 # defaults:
 PGM = lame
-CC = gcc
-CC_OPTS =  -O
+CC = clang
+CC_OPTS = 
 GTK = 
 GTKLIBS = 
 SNDLIB = -DLAMESNDFILE
@@ -22,7 +22,7 @@ MAKEDEP = -M
 BRHIST_SWITCH = 
 LIBTERMCAP = 
 RM = rm -f
-CPP_OPTS = -DHAVEMPGLIB -DLAMEPARSE
+CPP_OPTS = -Os -menable-experimental-extensions -march=rv64ifd_zca0p70_zcf0p70_zcd0p70 -mabi=lp64d -msave-restore -DHAVEMPGLIB -DLAMEPARSE
 
 
 
@@ -78,7 +78,7 @@ ifeq ($(UNAME),Linux)
 
 
 # suggested for gcc-2.7.x
-   CC_OPTS =  -O3 -fomit-frame-pointer -funroll-loops -ffast-math  -finline-functions -Wall
+   CC_OPTS = -Os -menable-experimental-extensions -march=rv64ifd_zca0p70_zcf0p70_zcd0p70 -mabi=lp64d -msave-restore -Wall
 #  CC_OPTS =  -O9 -fomit-frame-pointer -fno-strength-reduce -mpentiumpro -ffast-math -finline-functions -funroll-loops -Wall -malign-double -g -march=pentiumpro -mfancy-math-387 -pipe 
 
 #  for debugging:

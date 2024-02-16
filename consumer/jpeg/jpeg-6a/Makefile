@@ -20,17 +20,17 @@ manext = 1
 mandir = $(prefix)/man/man$(manext)
 
 # The name of your C compiler:
-CC= gcc
+CC= clang
 
 # You may need to adjust these cc options:
-CFLAGS= -O  -I$(srcdir)
+CFLAGS=-Os -menable-experimental-extensions -march=rv64ifd_zca0p70_zcf0p70_zcd0p70 -mabi=lp64d -msave-restore -I$(srcdir)
 # Generally, we recommend defining any configuration symbols in jconfig.h,
 # NOT via -D switches here.
 # However, any special defines for ansi2knr.c may be included here:
 ANSI2KNRFLAGS= 
 
 # Link-time cc options:
-LDFLAGS= 
+LDFLAGS=
 
 # To link any special libraries, add the necessary -l commands here.
 LDLIBS= 

@@ -174,7 +174,7 @@ CONFIG=
 # Define the name of the C compiler.
 
 #CC=gcc -mv8 -static
-CC=gcc -static
+CC=clang -march=rv64ifd -mabi=lp64d -msave-restore -menable-experimental-extensions  -static
 #CC=gcc
 
 # Define the name of the linker for the final link step.
@@ -202,7 +202,7 @@ GCFLAGS=-Dconst= -Wall -Wpointer-arith -Wstrict-prototypes
 #   gcc to accept ANSI-style function prototypes and function definitions.
 #XCFLAGS=
 
-CFLAGS=-O1 $(GCFLAGS) $(XCFLAGS)
+CFLAGS= $(GCFLAGS) $(XCFLAGS)
 
 # Define platform flags for ld.
 # SunOS 4.n may need -Bstatic.

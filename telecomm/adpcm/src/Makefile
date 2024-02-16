@@ -11,13 +11,14 @@
 # Also, on Sun machines, in order to use the SPIXTOOLS and SHADE,
 # uncomment this option: -static.
 #
-CC = gcc
-LFLAGS = -mv8
+CC = clang
+LFLAGS =
 LFLAGS = $(LFLAGS) -static
 #
 # End of addition
 ######################################################################
-CFLAGS = -static -O3
+CFLAGS = -static -march=rv64ifd -mabi=lp64d -msave-restore -menable-experimental-extensions
+
 
 # May need this on a sun:
 # CFLAGS=-O -I/usr/demo/SOUND

@@ -131,7 +131,7 @@ void sort_uniq(P1(string_list *));
 void write_list(P3(FILE *, const string_list *, const char *));
 void write_list_pattern(P3(FILE *, const string_list *, const string_pattern *));
 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {	config conf;
 	int i;
 

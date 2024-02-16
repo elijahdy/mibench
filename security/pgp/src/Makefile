@@ -50,13 +50,13 @@
 # -DUSE_SELECT to use select() system call
 # -DUSE_NBIO   to use non-blocking read()
 
-CFLAGS= -O -DUNIX -DPORTABLE $(BYTEORDER)
+CFLAGS= -march=rv64ifd -mabi=lp64d -msave-restore -menable-experimental-extensions -DUNIX -DPORTABLE $(BYTEORDER)
 
 # must set byte order for targets "sysv" and "bsd"
 # BYTEORDER= -DHIGHFIRST
 
-CC      = cc
-LD      = cc            # Link command
+CC      = clang
+LD      = clang            # Link command
 LDFLAGS = 
 CPP     = $(CC) -E
 DBG     = -O
@@ -164,8 +164,8 @@ atari:
 	-DUNIT32 -DIDEA32"
 
 linux:
-	$(MAKE) all CC=gcc LD=gcc OBJS_EXT="_80386.o _zmatch.o" \
-	CFLAGS="$(RSAINCDIR) -O6 -g3 -DUNIX -DLINUX -DIDEA32 -DASM"
+	$(MAKE) all CC=$(CC) LD=$(LD) OBJS_EXT="_80386.o _zmatch.o" \
+	CFLAGS="-march=rv64ifd -mabi=lp64d -msave-restore -menable-experimental-extensions -DLINUX -DIDEA32 -DASM"
 
 arm-linux:
 	$(MAKE) all CC=arm-linux-gcc LD=arm-linux-gcc OBJS_EXT="" \

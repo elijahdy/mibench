@@ -92,6 +92,8 @@
 #define TEXINFODIR "/usr/local/info"
 #define MAN1DIR	"/usr/local/man/man1"
 #define MAN4DIR	"/usr/local/man/man4"
+#define CC "clang"
+#define CFLAGS "-march=rv64ifd -mabi=lp64d -msave-restore -menable-experimental-extensions"
 
 /*
  * Place any locally-required #include statements here

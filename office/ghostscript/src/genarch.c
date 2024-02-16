@@ -26,7 +26,7 @@
 /* We should write the result on stdout, but the original Turbo C 'make' */
 /* can't handle output redirection (sigh). */
 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {	char *fname = argv[1];
 	long one = 1;
 #define ffs_strlen 16

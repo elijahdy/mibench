@@ -1,0 +1,12 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:744: checking for a BSD compatible install
+configure:797: checking whether build environment is sane
+configure:854: checking whether make sets ${MAKE}
+configure:900: checking for working aclocal
+configure:913: checking for working autoconf
+configure:926: checking for working automake
+configure:939: checking for working autoheader
+configure:952: checking for working makeinfo
+configure:980: checking host system type

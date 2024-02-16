@@ -18,6 +18,7 @@
 
 /* echogs.c */
 /* 'echo'-like utility */
+#include <stdlib.h>
 #include <stdio.h>
 /* Some brain-damaged environments (e.g. Sun) don't include */
 /* prototypes for fputc/fputs in stdio.h! */
@@ -82,7 +83,7 @@ extern int fputc(), fputs();
 
 static int hputc(), hputs();
 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {	FILE *out = stdout;
 	FILE *in;
 	char *extn = "";

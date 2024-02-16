@@ -7,7 +7,7 @@ search_small: ${FILE1} Makefile
 	gcc -static ${FILE1} -O3 -o search_small
 
 search_large: ${FILE2} Makefile
-	gcc -static ${FILE2} -O3 -o search_large
+	clang -march=rv64ifd -mabi=lp64d -msave-restore -menable-experimental-extensions ${FILE2} -o search_large
 
 clean:
 	rm -rf search_small search_large output*
