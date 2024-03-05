@@ -1,3 +1,13 @@
+FILE = dynamic_baseISA_lame dynamic_C_lame dynamic_Zca_lame dynamic_Zcb_lame dynamic_Zcd_lame dynamic_Zce_lame dynamic_Zcmp_lame dynamic_Zcmt_lame
+objdump: ${FILE} Makefile
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_baseISA_lame > base_lame_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_C_lame > C_lame_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zca_lame > Zca_lame_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcd_lame > Zcd_lame_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcb_lame > Zcb_lame_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcmp_lame > Zcmp_lame_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcmt_lame > Zcmt_lame_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zce_lame > Zce_lame_objdump.txt
 # Makefile for LAME 3.xx
 #
 # LAME is reported to work under:  

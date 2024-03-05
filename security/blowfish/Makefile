@@ -1,3 +1,13 @@
+FILE = dynamic_baseISA_bf dynamic_C_bf dynamic_Zca_bf dynamic_Zcb_bf dynamic_Zcd_bf dynamic_Zce_bf dynamic_Zcmp_bf dynamic_Zcmt_bf
+objdump: ${FILE} Makefile
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_baseISA_bf > base_bf_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_C_bf > C_bf_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zca_bf > Zca_bf_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcd_bf > Zcd_bf_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcb_bf > Zcb_bf_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcmp_bf > Zcmp_bf_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcmt_bf > Zcmt_bf_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zce_bf > Zce_bf_objdump.txt
 # Targets
 # make          - twidle the options yourself :-)
 # make cc       - standard cc options

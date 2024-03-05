@@ -1,3 +1,23 @@
+FILE = dynamic_baseISA_cjpeg dynamic_C_cjpeg dynamic_Zca_cjpeg dynamic_Zcb_cjpeg dynamic_Zcd_cjpeg dynamic_Zce_cjpeg dynamic_Zcmp_cjpeg dynamic_Zcmt_cjpeg
+FILE2 = dynamic_baseISA_djpeg dynamic_C_djpeg dynamic_Zca_djpeg dynamic_Zcb_djpeg dynamic_Zcd_djpeg dynamic_Zce_djpeg dynamic_Zcmp_djpeg dynamic_Zcmt_djpeg
+cobjdump: ${FILE} Makefile
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_baseISA_cjpeg > base_cjpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_C_cjpeg > C_cjpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zca_cjpeg > Zca_cjpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcd_cjpeg > Zcd_cjpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcb_cjpeg > Zcb_cjpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcmp_cjpeg > Zcmp_cjpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcmt_cjpeg > Zcmt_cjpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zce_cjpeg > Zce_cjpeg_objdump.txt
+dobjdump: ${FILE} Makefile
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_baseISA_djpeg > base_djpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_C_djpeg > C_djpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zca_djpeg > Zca_djpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcd_djpeg > Zcd_djpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcb_djpeg > Zcb_djpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcmp_djpeg > Zcmp_djpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcmt_djpeg > Zcmt_djpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zce_djpeg > Zce_djpeg_objdump.txt
 # Generated automatically from makefile.cfg by configure.
 # Makefile for Independent JPEG Group's software
 
@@ -23,7 +43,7 @@ mandir = $(prefix)/man/man$(manext)
 CC= /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/clang
 
 # You may need to adjust these cc options:
-CFLAGS=-Os -march=rv64ifd_zce -mabi=lp64d -msave-restore -I$(srcdir)
+CFLAGS= -march=rv64ifd_zce -mabi=lp64d -msave-restore -I$(srcdir)
 # Generally, we recommend defining any configuration symbols in jconfig.h,
 # NOT via -D switches here.
 # However, any special defines for ansi2knr.c may be included here:
@@ -135,10 +155,10 @@ libjpeg.a:  $(LIBOBJECTS)
 
 cjpeg: $(COBJECTS) libjpeg.a
 	$(LN) $(LDFLAGS) -o cjpeg $(COBJECTS) libjpeg.a $(LDLIBS)
-	mv cjpeg dynamic_Zce_cjpeg
+	mv cjpeg non_os_test_zce_cjpeg
 djpeg: $(DOBJECTS) libjpeg.a
 	$(LN) $(LDFLAGS) -o djpeg $(DOBJECTS) libjpeg.a $(LDLIBS)
-	mv djpeg dynamic_Zce_djpeg
+	mv djpeg non_os_test_zce_djpeg
 jpegtran: $(TROBJECTS) libjpeg.a
 	$(LN) $(LDFLAGS) -o jpegtran $(TROBJECTS) libjpeg.a $(LDLIBS)
 
