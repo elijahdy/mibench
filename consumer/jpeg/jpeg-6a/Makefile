@@ -40,10 +40,17 @@ manext = 1
 mandir = $(prefix)/man/man$(manext)
 
 # The name of your C compiler:
+<<<<<<< HEAD
 CC= /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/clang
 
 # You may need to adjust these cc options:
 CFLAGS= -march=rv64ifd_zce -mabi=lp64d -msave-restore -I$(srcdir)
+=======
+CC= gcc
+
+# You may need to adjust these cc options:
+CFLAGS= -I$(srcdir)
+>>>>>>> 42e864a (some shits)
 # Generally, we recommend defining any configuration symbols in jconfig.h,
 # NOT via -d -M no-aliases switches here.
 # However, any special defines for ansi2knr.c may be included here:
