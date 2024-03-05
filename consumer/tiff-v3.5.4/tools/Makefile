@@ -33,8 +33,8 @@ LIBDIR	= ../libtiff
 
 #
 # VERSION:	v3.5.4
-# DATE:		Wed Jan 31 19:01:25 UTC 2024
-# TARGET:	riscv64-unknown-linux
+# DATE:		Tue 27 Feb 18:42:20 GMT 2024
+# TARGET:	x86_64-unknown-linux
 # CCOMPILER:	/usr/bin/gcc
 #
 SHELL	= /usr/bin/sh
