@@ -32,9 +32,6 @@ MAKEDEP = -M
 BRHIST_SWITCH = 
 LIBTERMCAP = 
 RM = rm -f
-<<<<<<< HEAD
-CPP_OPTS = -Os -march=rv64ifd_zce -mabi=lp64d -msave-restore -d -M no-aliasesHAVEMPGLIB -d -M no-aliasesLAMEPARSE
-=======
 CPP_OPTS = -Os -march=rv64ifd_zce -mabi=lp64d -msave-restore -DHAVEMPGLIB -DLAMEPARSE
 >>>>>>> e5e19ac (Final compile)
 
@@ -86,9 +83,6 @@ ifeq ($(UNAME),Linux)
 #   GTK = -d -M no-aliasesHAVEGTK `gtk-config --cflags`
 #   GTKLIBS = `gtk-config --libs` 
 # Comment out next 2 lines if you want to remove VBR histogram capability
-<<<<<<< HEAD
-   # BRHIST_SWITCH = -d -M no-aliasesBRHIST
-=======
    # BRHIST_SWITCH = -DBRHIST
 >>>>>>> e5e19ac (Final compile)
    # LIBTERMCAP = -lncurses
@@ -96,9 +90,6 @@ ifeq ($(UNAME),Linux)
 
 # suggested for gcc-2.7.x
    CC_OPTS = -Os -march=rv64ifd_zce -mabi=lp64d -msave-restore
-<<<<<<< HEAD
-#  CC_OPTS =  -O9 -fomit-frame-pointer -fno-strength-reduce -mpentiumpro -ffast-math -finline-functions -funroll-loops -Wall -malign-d -M no-aliasesouble -g -march=pentiumpro -mfancy-math-387 -pipe 
-=======
 #  CC_OPTS =  -O9 -fomit-frame-pointer -fno-strength-reduce -mpentiumpro -ffast-math -finline-functions -funroll-loops -Wall -malign-double -g -march=pentiumpro -mfancy-math-387 -pipe 
 >>>>>>> e5e19ac (Final compile)
 
