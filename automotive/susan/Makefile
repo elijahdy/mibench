@@ -1,5 +1,5 @@
 susan: susan.c Makefile
-	clang -static -Os -menable-experimental-extensions -march=rv64ifd_zca0p70_zcf0p70_zcd0p70 -mabi=lp64d -o susan susan.c -lm 
-
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/clang -Os -march=rv64ifd_zce -mabi=lp64d -msave-restore -o susan susan.c -lm 
+	mv susan dynamic_Zce_susan
 clean:
 	rm -rf susan output*

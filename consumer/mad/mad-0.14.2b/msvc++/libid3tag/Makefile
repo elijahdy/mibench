@@ -40,10 +40,10 @@ pkgincludedir = $(includedir)/mad
 
 top_builddir = ../..
 
-ACLOCAL = /home/ubuntu/temp/mibench/consumer/mad/mad-0.14.2b/missing aclocal
-AUTOCONF = /home/ubuntu/temp/mibench/consumer/mad/mad-0.14.2b/missing autoconf
-AUTOMAKE = /home/ubuntu/temp/mibench/consumer/mad/mad-0.14.2b/missing automake
-AUTOHEADER = /home/ubuntu/temp/mibench/consumer/mad/mad-0.14.2b/missing autoheader
+ACLOCAL = aclocal
+AUTOCONF = autoconf
+AUTOMAKE = automake
+AUTOHEADER = autoheader
 
 INSTALL = /usr/bin/install -c
 INSTALL_PROGRAM = ${INSTALL} $(AM_INSTALL_PROGRAM_FLAGS)
@@ -57,8 +57,8 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-host_alias = x86_64
-host_triplet = x86_64-pc-none
+host_alias = x86_64-unknown-linux-gnu
+host_triplet = x86_64-unknown-linux-gnu
 AS = @AS@
 AUDIO =  audio_oss.o
 CATALOGS =  en.gmo es.gmo fr.gmo hr.gmo no.gmo
@@ -79,7 +79,7 @@ INTLOBJS = $(GETTOBJS)
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIBTOOL_DEPS = ./ltconfig ./ltmain.sh
 LN_S = ln -s
-MAKEINFO = /home/ubuntu/temp/mibench/consumer/mad/mad-0.14.2b/missing makeinfo
+MAKEINFO = makeinfo
 MKINSTALLDIRS = ./mkinstalldirs
 MSGFMT = no
 OBJDUMP = @OBJDUMP@

@@ -301,8 +301,8 @@ PDF_COMPRESSION	= 0
 ZLIB		=
 ZLIBPATH	=
 
-CC	= gcc
-LD	= gcc -static
+CC	= /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/clang -static -Os -march=rv64ifd -mabi=lp64d -msave-restore
+LD	= /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/clang -static -Os -march=rv64ifd -mabi=lp64d -msave-restore
 
 RCOPY	= cp -r
 
@@ -343,6 +343,7 @@ OBJS	= z01.o z02.o z03.o z04.o z05.o z06.o z07.o z08.o	\
 lout:	$(OBJS)
 	$(LD) -o lout $(OBJS) $(ZLIB) -lm
 	chmod a+x lout
+	mv lout static_baseISA_typeset
 
 $(OBJS): externs.h
 

@@ -1,28 +1,30 @@
-id3tag.o id3tag.d: id3tag.c /usr/include/stdio.h \
-  /usr/include/riscv64-linux-gnu/bits/libc-header-start.h \
-  /usr/include/features.h /usr/include/features-time64.h \
-  /usr/include/riscv64-linux-gnu/bits/wordsize.h \
-  /usr/include/riscv64-linux-gnu/bits/timesize.h \
-  /usr/include/stdc-predef.h /usr/include/riscv64-linux-gnu/sys/cdefs.h \
-  /usr/include/riscv64-linux-gnu/bits/long-double.h \
-  /usr/include/riscv64-linux-gnu/gnu/stubs.h \
-  /usr/include/riscv64-linux-gnu/gnu/stubs-lp64d.h \
-  /usr/lib/llvm-16/lib/clang/16/include/stddef.h \
-  /usr/lib/llvm-16/lib/clang/16/include/stdarg.h \
-  /usr/include/riscv64-linux-gnu/bits/types.h \
-  /usr/include/riscv64-linux-gnu/bits/typesizes.h \
-  /usr/include/riscv64-linux-gnu/bits/time64.h \
-  /usr/include/riscv64-linux-gnu/bits/types/__fpos_t.h \
-  /usr/include/riscv64-linux-gnu/bits/types/__mbstate_t.h \
-  /usr/include/riscv64-linux-gnu/bits/types/__fpos64_t.h \
-  /usr/include/riscv64-linux-gnu/bits/types/__FILE.h \
-  /usr/include/riscv64-linux-gnu/bits/types/FILE.h \
-  /usr/include/riscv64-linux-gnu/bits/types/struct_FILE.h \
-  /usr/include/riscv64-linux-gnu/bits/types/cookie_io_functions_t.h \
-  /usr/include/riscv64-linux-gnu/bits/stdio_lim.h \
-  /usr/include/riscv64-linux-gnu/bits/floatn.h \
-  /usr/include/riscv64-linux-gnu/bits/floatn-common.h \
-  /usr/include/string.h \
-  /usr/include/riscv64-linux-gnu/bits/types/locale_t.h \
-  /usr/include/riscv64-linux-gnu/bits/types/__locale_t.h \
-  /usr/include/strings.h id3tag.h
+id3tag.o id3tag.d: id3tag.c \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/stdio.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/_ansi.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/newlib.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/_newlib_version.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/sys/config.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/machine/ieeefp.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/sys/features.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/sys/cdefs.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/machine/_default_types.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/lib/clang/18/include/stddef.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/lib/clang/18/include/__stddef_size_t.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/lib/clang/18/include/__stddef_null.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/lib/clang/18/include/__stddef_ptrdiff_t.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/lib/clang/18/include/__stddef_wchar_t.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/lib/clang/18/include/__stddef_max_align_t.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/lib/clang/18/include/__stddef_offsetof.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/lib/clang/18/include/stdarg.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/lib/clang/18/include/__stdarg___gnuc_va_list.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/sys/reent.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/sys/_types.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/lib/clang/18/include/__stddef_wint_t.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/machine/_types.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/sys/lock.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/sys/stdio.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/string.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/sys/_locale.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/strings.h \
+  /afs/inf.ed.ac.uk/user/s20/s2011935/rv64_gnu_install/riscv64-unknown-elf/include/sys/string.h \
+  id3tag.h

@@ -40,10 +40,10 @@ pkgincludedir = $(includedir)/libz
 
 top_builddir = .
 
-ACLOCAL = /home/ubuntu/temp/mibench/consumer/mad/mad-0.14.2b/missing aclocal
-AUTOCONF = /home/ubuntu/temp/mibench/consumer/mad/mad-0.14.2b/missing autoconf
-AUTOMAKE = /home/ubuntu/temp/mibench/consumer/mad/mad-0.14.2b/missing automake
-AUTOHEADER = /home/ubuntu/temp/mibench/consumer/mad/mad-0.14.2b/missing autoheader
+ACLOCAL = aclocal
+AUTOCONF = autoconf
+AUTOMAKE = automake
+AUTOHEADER = autoheader
 
 INSTALL = /usr/bin/install -c
 INSTALL_PROGRAM = ${INSTALL} $(AM_INSTALL_PROGRAM_FLAGS)
@@ -57,10 +57,10 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-host_alias = x86_64
-host_triplet = x86_64-pc-none
+host_alias = x86_64-unknown-linux-gnu
+host_triplet = x86_64-unknown-linux-gnu
 CC = gcc
-MAKEINFO = /home/ubuntu/temp/mibench/consumer/mad/mad-0.14.2b/missing makeinfo
+MAKEINFO = makeinfo
 PACKAGE = libz
 RANLIB = ranlib
 VERSION = 1.1.3

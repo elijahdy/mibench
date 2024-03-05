@@ -20,10 +20,10 @@ manext = 1
 mandir = $(prefix)/man/man$(manext)
 
 # The name of your C compiler:
-CC= clang
+CC= /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/clang
 
 # You may need to adjust these cc options:
-CFLAGS=-Os -menable-experimental-extensions -march=rv64ifd_zca0p70_zcf0p70_zcd0p70 -mabi=lp64d -msave-restore -I$(srcdir)
+CFLAGS=-Os -march=rv64ifd_zce -mabi=lp64d -msave-restore -I$(srcdir)
 # Generally, we recommend defining any configuration symbols in jconfig.h,
 # NOT via -D switches here.
 # However, any special defines for ansi2knr.c may be included here:
@@ -135,10 +135,10 @@ libjpeg.a:  $(LIBOBJECTS)
 
 cjpeg: $(COBJECTS) libjpeg.a
 	$(LN) $(LDFLAGS) -o cjpeg $(COBJECTS) libjpeg.a $(LDLIBS)
-
+	mv cjpeg dynamic_Zce_cjpeg
 djpeg: $(DOBJECTS) libjpeg.a
 	$(LN) $(LDFLAGS) -o djpeg $(DOBJECTS) libjpeg.a $(LDLIBS)
-
+	mv djpeg dynamic_Zce_djpeg
 jpegtran: $(TROBJECTS) libjpeg.a
 	$(LN) $(LDFLAGS) -o jpegtran $(TROBJECTS) libjpeg.a $(LDLIBS)
 

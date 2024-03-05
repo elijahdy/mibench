@@ -1,5 +1,5 @@
 rijndael: aes.c aes.h aestab.h aesxam.c Makefile
-	clang -static -Os -march=rv64ifd_zca0p70_zcf0p70_zcd0p70 -mabi=lp64d -msave-restore -menable-experimental-extensions -o rijndael aes.c aesxam.c
-
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/clang -Os -march=rv64ifd_zce -mabi=lp64d -msave-restore -o rijndael aes.c aesxam.c
+	mv rijndael dynamic_Zce_rijndael
 clean:
 	rm -rf rijndael output*

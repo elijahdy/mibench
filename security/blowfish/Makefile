@@ -20,8 +20,8 @@ MAKE=make -f Makefile
 #CC=
 #CFLAG= 
 
-CC=clang
-CFLAG= -static -Os -march=rv64ifd_zca0p70_zcf0p70_zcd0p70 -mabi=lp64d -msave-restore -menable-experimental-extensions -fomit-frame-pointer
+CC=/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/clang
+CFLAG= -Os -march=rv64ifd_zce -mabi=lp64d -msave-restore -fomit-frame-pointer
 
 CFLAGS=$(OPTS) $(CFLAG)
 CPP=$(CC) -E
@@ -49,7 +49,7 @@ GENERAL=Makefile Makefile.ssl Makefile.uni asm bf_locl.org README \
 
 TESTING=    bftest bfspeed bf
 TESTING_SRC=bftest.c bfspeed.c bf.c
-HEADERS=bf_locl.h blowfish.h bf_pi.h
+HEADERS=bf_locl.h blowfish.h bf_pi.hbaseISA
 
 ALL=	$(GENERAL) $(TESTING_SRC) $(LIBSRC) $(HEADERS)
 
@@ -101,10 +101,11 @@ $(BLIB): $(LIBOBJ)
 	ar cr $(BLIB) $(LIBOBJ)
 	-if test -s ranlib; then ssbig-na-sstrix-ranlib $(BLIB); \
 	else if test -s ranlib; then ssbig-na-sstrix-ranlib $(BLIB); \
-	else exit 0; fi; fi
+	else exit 0; fi; fibaseISA
 
 bf: bf.o $(BLIB)
 	$(CC) $(CFLAGS) -o bf bf.o $(BLIB)
+	mv bf dynamic_Zce_bf
 
 bftest: bftest.o $(BLIB)
 	$(CC) $(CFLAGS) -o bftest bftest.o $(BLIB)

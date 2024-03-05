@@ -11,7 +11,7 @@ ARCH = $(shell uname -m)
 
 # defaults:
 PGM = lame
-CC = clang
+CC = /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/clang
 CC_OPTS = 
 GTK = 
 GTKLIBS = 
@@ -22,8 +22,7 @@ MAKEDEP = -M
 BRHIST_SWITCH = 
 LIBTERMCAP = 
 RM = rm -f
-CPP_OPTS = -Os -menable-experimental-extensions -march=rv64ifd_zca0p70_zcf0p70_zcd0p70 -mabi=lp64d -msave-restore -DHAVEMPGLIB -DLAMEPARSE
-
+CPP_OPTS = -Os -march=rv64ifd_zce -mabi=lp64d -msave-restore -DHAVEMPGLIB -DLAMEPARSE
 
 
 ##########################################################################
@@ -73,12 +72,12 @@ ifeq ($(UNAME),Linux)
 #   GTK = -DHAVEGTK `gtk-config --cflags`
 #   GTKLIBS = `gtk-config --libs` 
 # Comment out next 2 lines if you want to remove VBR histogram capability
-   BRHIST_SWITCH = -DBRHIST
-   LIBTERMCAP = -lncurses
+   # BRHIST_SWITCH = -DBRHIST
+   # LIBTERMCAP = -lncurses
 
 
 # suggested for gcc-2.7.x
-   CC_OPTS = -Os -menable-experimental-extensions -march=rv64ifd_zca0p70_zcf0p70_zcd0p70 -mabi=lp64d -msave-restore -Wall
+   CC_OPTS = -Os -march=rv64ifd_zce -mabi=lp64d -msave-restore
 #  CC_OPTS =  -O9 -fomit-frame-pointer -fno-strength-reduce -mpentiumpro -ffast-math -finline-functions -funroll-loops -Wall -malign-double -g -march=pentiumpro -mfancy-math-387 -pipe 
 
 #  for debugging:
