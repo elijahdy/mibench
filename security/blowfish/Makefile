@@ -1,13 +1,13 @@
 FILE = dynamic_baseISA_bf dynamic_C_bf dynamic_Zca_bf dynamic_Zcb_bf dynamic_Zcd_bf dynamic_Zce_bf dynamic_Zcmp_bf dynamic_Zcmt_bf
 objdump: ${FILE} Makefile
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_baseISA_bf > base_bf_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_C_bf > C_bf_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zca_bf > Zca_bf_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcd_bf > Zcd_bf_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcb_bf > Zcb_bf_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcmp_bf > Zcmp_bf_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcmt_bf > Zcmt_bf_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zce_bf > Zce_bf_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_baseISA_bf > base_bf_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_C_bf > C_bf_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zca_bf > Zca_bf_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zcd_bf > Zcd_bf_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zcb_bf > Zcb_bf_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zcmp_bf > Zcmp_bf_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zcmt_bf > Zcmt_bf_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zce_bf > Zce_bf_objdump.txt
 # Targets
 # make          - twidle the options yourself :-)
 # make cc       - standard cc options
@@ -22,8 +22,8 @@ objdump: ${FILE} Makefile
 # use nothing for Alpha and HP.
 
 # There are 3 possible performance options, experiment :-)
-#OPTS= -DBF_PTR  # usr for sparc and MIPS/SGI
-#OPTS= -DBF_PTR2 # use for pentium
+#OPTS= -d -M no-aliasesBF_PTR  # usr for sparc and MIPS/SGI
+#OPTS= -d -M no-aliasesBF_PTR2 # use for pentium
 OPTS=		 # use for pentium pro, Alpha and HP
 
 MAKE=make -f Makefile
@@ -74,34 +74,34 @@ gcc:
 	$(MAKE) CC=gcc CFLAGS="-O3 -fomit-frame-pointer $(OPTS) $(CFLAG)" all
 
 x86-elf:
-	$(MAKE) BF_ENC='asm/bx86-elf.o' CC=$(CC) CFLAGS="-DELF $(OPTS) $(CFLAG)" all
+	$(MAKE) BF_ENC='asm/bx86-elf.o' CC=$(CC) CFLAGS="-d -M no-aliasesELF $(OPTS) $(CFLAG)" all
 
 x86-out:
-	$(MAKE) BF_ENC='asm/bx86-out.o' CC=$(CC) CFLAGS="-DOUT $(OPTS) $(CFLAG)" all
+	$(MAKE) BF_ENC='asm/bx86-out.o' CC=$(CC) CFLAGS="-d -M no-aliasesOUT $(OPTS) $(CFLAG)" all
 
 x86-solaris:
-	$(MAKE) BF_ENC='asm/bx86-sol.o' CC=$(CC) CFLAGS="-DSOL $(OPTS) $(CFLAG)" all
+	$(MAKE) BF_ENC='asm/bx86-sol.o' CC=$(CC) CFLAGS="-d -M no-aliasesSOL $(OPTS) $(CFLAG)" all
 
 x86-bsdi:
-	$(MAKE) BF_ENC='asm/bx86bsdi.o' CC=$(CC) CFLAGS="-DBSDI $(OPTS) $(CFLAG)" all
+	$(MAKE) BF_ENC='asm/bx86bsdi.o' CC=$(CC) CFLAGS="-d -M no-aliasesBSDI $(OPTS) $(CFLAG)" all
 
 # elf
 asm/bx86-elf.o: asm/bx86-cpp.s asm/bx86unix.cpp
-	$(CPP) -DELF asm/bx86unix.cpp | $(AS) -o asm/bx86-elf.o
+	$(CPP) -d -M no-aliasesELF asm/bx86unix.cpp | $(AS) -o asm/bx86-elf.o
 
 # solaris
 asm/bx86-sol.o: asm/bx86-cpp.s asm/bx86unix.cpp
-	$(CC) -E -DSOL asm/bx86unix.cpp | sed 's/^#.*//' > asm/bx86-sol.s
+	$(CC) -E -d -M no-aliasesSOL asm/bx86unix.cpp | sed 's/^#.*//' > asm/bx86-sol.s
 	as -o asm/bx86-sol.o asm/bx86-sol.s
 	rm -f asm/bx86-sol.s
 
 # a.out
 asm/bx86-out.o: asm/bx86-cpp.s asm/bx86unix.cpp
-	$(CPP) -DOUT asm/bx86unix.cpp | $(AS) -o asm/bx86-out.o
+	$(CPP) -d -M no-aliasesOUT asm/bx86unix.cpp | $(AS) -o asm/bx86-out.o
 
 # bsdi
 asm/bx86bsdi.o: asm/bx86-cpp.s asm/bx86unix.cpp
-	$(CPP) -DBSDI asm/bx86unix.cpp | $(AS) -o asm/bx86bsdi.o
+	$(CPP) -d -M no-aliasesBSDI asm/bx86unix.cpp | $(AS) -o asm/bx86bsdi.o
 
 test:	all
 	./bftest

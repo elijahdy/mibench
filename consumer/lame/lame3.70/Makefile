@@ -1,13 +1,13 @@
 FILE = dynamic_baseISA_lame dynamic_C_lame dynamic_Zca_lame dynamic_Zcb_lame dynamic_Zcd_lame dynamic_Zce_lame dynamic_Zcmp_lame dynamic_Zcmt_lame
 objdump: ${FILE} Makefile
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_baseISA_lame > base_lame_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_C_lame > C_lame_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zca_lame > Zca_lame_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcd_lame > Zcd_lame_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcb_lame > Zcb_lame_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcmp_lame > Zcmp_lame_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcmt_lame > Zcmt_lame_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zce_lame > Zce_lame_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_baseISA_lame > base_lame_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_C_lame > C_lame_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zca_lame > Zca_lame_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zcd_lame > Zcd_lame_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zcb_lame > Zcb_lame_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zcmp_lame > Zcmp_lame_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zcmt_lame > Zcmt_lame_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zce_lame > Zce_lame_objdump.txt
 # Makefile for LAME 3.xx
 #
 # LAME is reported to work under:  
@@ -25,19 +25,19 @@ CC = /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/clang
 CC_OPTS = 
 GTK = 
 GTKLIBS = 
-SNDLIB = -DLAMESNDFILE
+SNDLIB = -d -M no-aliasesLAMESNDFILE
 LIBSNDFILE =  
 LIBS = -lm 
 MAKEDEP = -M
 BRHIST_SWITCH = 
 LIBTERMCAP = 
 RM = rm -f
-CPP_OPTS = -Os -march=rv64ifd_zce -mabi=lp64d -msave-restore -DHAVEMPGLIB -DLAMEPARSE
+CPP_OPTS = -Os -march=rv64ifd_zce -mabi=lp64d -msave-restore -d -M no-aliasesHAVEMPGLIB -d -M no-aliasesLAMEPARSE
 
 
 ##########################################################################
 # To remove support for mp3 *decoding*, 
-# remove -DHAVEMPGLIB to CPP_OPTS
+# remove -d -M no-aliasesHAVEMPGLIB to CPP_OPTS
 ##########################################################################
 
 
@@ -46,20 +46,20 @@ CPP_OPTS = -Os -march=rv64ifd_zce -mabi=lp64d -msave-restore -DHAVEMPGLIB -DLAME
 # Requires ncurses, but libtermcap also works.  
 # If you have any trouble, just dont define these
 ##########################################################################
-#BRHIST_SWITCH = -DBRHIST
+#BRHIST_SWITCH = -d -M no-aliasesBRHIST
 #LIBTERMCAP = -lncurses
 #LIBTERMCAP = -ltermcap
 
 
 ##########################################################################
 # SNDLIB =         no file i/o 
-# SNDLIB = -DLAMESNDFILE  to use internal LAME soundfile routines
-# SNDLIB = -DLIBSNDFILE   to use Erik de Castro Lopo's libsndfile 
+# SNDLIB = -d -M no-aliasesLAMESNDFILE  to use internal LAME soundfile routines
+# SNDLIB = -d -M no-aliasesLIBSNDFILE   to use Erik de Castro Lopo's libsndfile 
 # http://www.zip.com.au/~erikd/libsndfile/
 # otherwise LAME can only read 16bit wav, aiff and pcm inputfiles.
 # Note: at present, libsndfile does not support input from stdin.  
 ##########################################################################
-#SNDLIB = -DLIBSNDFILE
+#SNDLIB = -d -M no-aliasesLIBSNDFILE
 #LIBSNDFILE=-lsndfile 
 # if libsndfile is in a custom location, try:
 #LIBSNDFILE=-L $(LIBSNDHOME) -lsndfile  -I $(LIBSNDHOME)
@@ -67,10 +67,10 @@ CPP_OPTS = -Os -march=rv64ifd_zce -mabi=lp64d -msave-restore -DHAVEMPGLIB -DLAME
 
 ##########################################################################
 # define these to use compile in support for the GTK mp3 frame analyzer
-# Requires  -DHAVEMPGLIB
-# and SNDLIB = -DLAME or -DLIBSNDFILE
+# Requires  -d -M no-aliasesHAVEMPGLIB
+# and SNDLIB = -d -M no-aliasesLAME or -d -M no-aliasesLIBSNDFILE
 ##########################################################################
-#GTK = -DHAVEGTK `gtk-config --cflags`
+#GTK = -d -M no-aliasesHAVEGTK `gtk-config --cflags`
 #GTKLIBS = `gtk-config --libs` 
 
 
@@ -79,36 +79,36 @@ CPP_OPTS = -Os -march=rv64ifd_zce -mabi=lp64d -msave-restore -DHAVEMPGLIB -DLAME
 ##########################################################################
 ifeq ($(UNAME),Linux)
 #  remove these lines if you dont have GTK, or dont want the GTK frame analyzer
-#   GTK = -DHAVEGTK `gtk-config --cflags`
+#   GTK = -d -M no-aliasesHAVEGTK `gtk-config --cflags`
 #   GTKLIBS = `gtk-config --libs` 
 # Comment out next 2 lines if you want to remove VBR histogram capability
-   # BRHIST_SWITCH = -DBRHIST
+   # BRHIST_SWITCH = -d -M no-aliasesBRHIST
    # LIBTERMCAP = -lncurses
 
 
 # suggested for gcc-2.7.x
    CC_OPTS = -Os -march=rv64ifd_zce -mabi=lp64d -msave-restore
-#  CC_OPTS =  -O9 -fomit-frame-pointer -fno-strength-reduce -mpentiumpro -ffast-math -finline-functions -funroll-loops -Wall -malign-double -g -march=pentiumpro -mfancy-math-387 -pipe 
+#  CC_OPTS =  -O9 -fomit-frame-pointer -fno-strength-reduce -mpentiumpro -ffast-math -finline-functions -funroll-loops -Wall -malign-d -M no-aliasesouble -g -march=pentiumpro -mfancy-math-387 -pipe 
 
 #  for debugging:
-#   CC_OPTS =  -UNDEBUG -O -Wall -g -DABORTFP 
+#   CC_OPTS =  -UNDEBUG -O -Wall -g -d -M no-aliasesABORTFP 
 
 #  for lots of debugging:
-#   CC_OPTS =  -DDEBUG -UNDEBUG  -O -Wall -g -DABORTFP 
+#   CC_OPTS =  -d -M no-aliasesDEBUG -UNDEBUG  -O -Wall -g -d -M no-aliasesABORTFP 
 
 
 
 # The following features are experimental code, 
 # so don't use them if you don't know exactly what you do! (RH 2000-01-30)
-#   FEATURES  = -DRH_QUALITY_CONTROL  # tuned VBR quality control
-#   FEATURES += -DRH_SIDE_VBR         # turns side channel reduction off (VBR)
-#   FEATURES += -DRH_SIDE_CBR         # turns side channel reduction off (CBR)
-#   FEATURES += -DRH_ATH              # max noise instead of average noise
+#   FEATURES  = -d -M no-aliasesRH_QUALITY_CONTROL  # tuned VBR quality control
+#   FEATURES += -d -M no-aliasesRH_SIDE_VBR         # turns side channel reduction off (VBR)
+#   FEATURES += -d -M no-aliasesRH_SIDE_CBR         # turns side channel reduction off (CBR)
+#   FEATURES += -d -M no-aliasesRH_ATH              # max noise instead of average noise
 # these options for gcc-2.95.2 to produce fast code
 #   CC_OPTS = $(FEATURES)\
 #	-Wall -O9 -fomit-frame-pointer -march=pentium \
 #	-finline-functions -fexpensive-optimizations \
-#	-ffast-math -malign-double -mfancy-math-387 \
+#	-ffast-math -malign-d -M no-aliasesouble -mfancy-math-387 \
 #	-funroll-loops -funroll-all-loops -pipe -fschedule-insns2 \
 #	-fno-strength-reduce 
 
@@ -121,7 +121,7 @@ ifeq ($(ARCH),alpha)
 CC_OPTS =       -O4 -Wall -fomit-frame-pointer -ffast-math -funroll-loops \
                 -mfp-regs -fschedule-insns -fschedule-insns2 \
                 -finline-functions \
-#                -DFLOAT=double
+#                -d -M no-aliasesFLOAT=double
 # add "-mcpu=21164a -Wa,-m21164a" to optimize for 21164a (ev56) CPU
 
 # Compaq's C Compiler
@@ -145,10 +145,10 @@ endif
 ##########################################################################
 ifeq ($(UNAME),FreeBSD)
 #  remove if you do not have GTK or do not want the GTK frame analyzer
-#   GTK = -DHAVEGTK `gtk12-config --cflags`
+#   GTK = -d -M no-aliasesHAVEGTK `gtk12-config --cflags`
 #   GTKLIBS = `gtk12-config --libs` 
 # Comment out next 2 lines if you want to remove VBR histogram capability
-   BRHIST_SWITCH = -DBRHIST
+   BRHIST_SWITCH = -d -M no-aliasesBRHIST
    LIBTERMCAP = -lncurses
 
 endif
@@ -225,23 +225,23 @@ ifeq ($(UNAME),OS/2)
 #   CC_OPTS = -O6 -ffast-math -funroll-loops -mpentiumpro -march=pentiumpro
 
 # Comment out next 2 lines if you want to remove VBR histogram capability
-   BRHIST_SWITCH = -DBRHIST
+   BRHIST_SWITCH = -d -M no-aliasesBRHIST
    LIBTERMCAP = -ltermcap
 
 # Uncomment & inspect the 2 GTK lines to use MP3x GTK frame analyzer.
 # Properly installed XFree86/devlibs & GTK+ is a prerequisite.
 # The following works for me using Xfree86/OS2 3.3.5 and GTK+ 1.2.3:
-#   GTK = -DHAVEGTK -IC:/XFree86/include/gtk12 -Zmt -D__ST_MT_ERRNO__ -IC:/XFree86/include/glib12 -IC:/XFree86/include
+#   GTK = -d -M no-aliasesHAVEGTK -IC:/XFree86/include/gtk12 -Zmt -d -M no-aliases__ST_MT_ERRNO__ -IC:/XFree86/include/glib12 -IC:/XFree86/include
 #   GTKLIBS = -LC:/XFree86/lib -Zmtd -Zsysv-signals -Zbin-files -lgtk12 -lgdk12 -lgmodule -lglib12 -lXext -lX11 -lshm -lbsd -lsocket -lm
 endif
 
 
 
 
-# 10/99 added -D__NO_MATH_INLINES to fix a bug in *all* versions of
+# 10/99 added -d -M no-aliases__NO_MATH_INLINES to fix a bug in *all* versions of
 # gcc 2.8+ as of 10/99.  
 
-CC_SWITCHES = -DNDEBUG -D__NO_MATH_INLINES $(CC_OPTS) $(SNDLIB) $(GTK) $(BRHIST_SWITCH)
+CC_SWITCHES = -d -M no-aliasesNDEBUG -d -M no-aliases__NO_MATH_INLINES $(CC_OPTS) $(SNDLIB) $(GTK) $(BRHIST_SWITCH)
 c_sources = \
         brhist.c \
 	formatBitstream.c \

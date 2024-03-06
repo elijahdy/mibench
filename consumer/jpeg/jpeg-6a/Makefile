@@ -1,23 +1,23 @@
 FILE = dynamic_baseISA_cjpeg dynamic_C_cjpeg dynamic_Zca_cjpeg dynamic_Zcb_cjpeg dynamic_Zcd_cjpeg dynamic_Zce_cjpeg dynamic_Zcmp_cjpeg dynamic_Zcmt_cjpeg
 FILE2 = dynamic_baseISA_djpeg dynamic_C_djpeg dynamic_Zca_djpeg dynamic_Zcb_djpeg dynamic_Zcd_djpeg dynamic_Zce_djpeg dynamic_Zcmp_djpeg dynamic_Zcmt_djpeg
 cobjdump: ${FILE} Makefile
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_baseISA_cjpeg > base_cjpeg_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_C_cjpeg > C_cjpeg_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zca_cjpeg > Zca_cjpeg_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcd_cjpeg > Zcd_cjpeg_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcb_cjpeg > Zcb_cjpeg_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcmp_cjpeg > Zcmp_cjpeg_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcmt_cjpeg > Zcmt_cjpeg_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zce_cjpeg > Zce_cjpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_baseISA_cjpeg > base_cjpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_C_cjpeg > C_cjpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zca_cjpeg > Zca_cjpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zcd_cjpeg > Zcd_cjpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zcb_cjpeg > Zcb_cjpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zcmp_cjpeg > Zcmp_cjpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zcmt_cjpeg > Zcmt_cjpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zce_cjpeg > Zce_cjpeg_objdump.txt
 dobjdump: ${FILE} Makefile
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_baseISA_djpeg > base_djpeg_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_C_djpeg > C_djpeg_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zca_djpeg > Zca_djpeg_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcd_djpeg > Zcd_djpeg_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcb_djpeg > Zcb_djpeg_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcmp_djpeg > Zcmp_djpeg_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zcmt_djpeg > Zcmt_djpeg_objdump.txt
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d dynamic_Zce_djpeg > Zce_djpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_baseISA_djpeg > base_djpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_C_djpeg > C_djpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zca_djpeg > Zca_djpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zcd_djpeg > Zcd_djpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zcb_djpeg > Zcb_djpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zcmp_djpeg > Zcmp_djpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zcmt_djpeg > Zcmt_djpeg_objdump.txt
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_Zce_djpeg > Zce_djpeg_objdump.txt
 # Generated automatically from makefile.cfg by configure.
 # Makefile for Independent JPEG Group's software
 
@@ -45,7 +45,7 @@ CC= /afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/clang
 # You may need to adjust these cc options:
 CFLAGS= -march=rv64ifd_zce -mabi=lp64d -msave-restore -I$(srcdir)
 # Generally, we recommend defining any configuration symbols in jconfig.h,
-# NOT via -D switches here.
+# NOT via -d -M no-aliases switches here.
 # However, any special defines for ansi2knr.c may be included here:
 ANSI2KNRFLAGS= 
 
@@ -55,12 +55,12 @@ LDFLAGS=
 # To link any special libraries, add the necessary -l commands here.
 LDLIBS= 
 
-# Put here the object file name for the correct system-dependent memory
+# Put here the object file name for the correct system-d -M no-aliasesependent memory
 # manager file.  For Unix this is usually jmemnobs.o, but you may want
 # to use jmemansi.o or jmemname.o if you have limited swap space.
 SYSDEPMEM= jmemnobs.o
 
-# miscellaneous OS-dependent stuff
+# miscellaneous OS-d -M no-aliasesependent stuff
 SHELL= /bin/sh
 # linker
 LN= $(CC)
@@ -169,7 +169,7 @@ wrjpgcom: wrjpgcom.o
 	$(LN) $(LDFLAGS) -o wrjpgcom wrjpgcom.o $(LDLIBS)
 
 jconfig.h: jconfig.doc
-	echo You must prepare a system-dependent jconfig.h file.
+	echo You must prepare a system-d -M no-aliasesependent jconfig.h file.
 	echo Please read the installation directions in install.doc.
 	exit 1
 
@@ -205,11 +205,11 @@ distribute:
 
 test: cjpeg djpeg jpegtran
 	$(RM) testout*
-	./djpeg -dct int -ppm -outfile testout.ppm  $(srcdir)/testorig.jpg
-	./djpeg -dct int -gif -outfile testout.gif  $(srcdir)/testorig.jpg
-	./cjpeg -dct int -outfile testout.jpg  $(srcdir)/testimg.ppm
-	./djpeg -dct int -ppm -outfile testoutp.ppm $(srcdir)/testprog.jpg
-	./cjpeg -dct int -progressive -opt -outfile testoutp.jpg $(srcdir)/testimg.ppm
+	./djpeg -d -M no-aliasesct int -ppm -outfile testout.ppm  $(srcdir)/testorig.jpg
+	./djpeg -d -M no-aliasesct int -gif -outfile testout.gif  $(srcdir)/testorig.jpg
+	./cjpeg -d -M no-aliasesct int -outfile testout.jpg  $(srcdir)/testimg.ppm
+	./djpeg -d -M no-aliasesct int -ppm -outfile testoutp.ppm $(srcdir)/testprog.jpg
+	./cjpeg -d -M no-aliasesct int -progressive -opt -outfile testoutp.jpg $(srcdir)/testimg.ppm
 	./jpegtran -outfile testoutt.jpg $(srcdir)/testprog.jpg
 	cmp $(srcdir)/testimg.ppm testout.ppm
 	cmp $(srcdir)/testimg.gif testout.gif
