@@ -1,0 +1,674 @@
+00000000000101d8 <main>:
+   101d8: ef c2 00 05  	jal	t0, 0x1c228 <__riscv_save_7>
+   101dc: 35 71        	c.addi16sp	sp, -0xa0
+   101de: 22 ad        	c.fsdsp	fs0, 0x98(sp)
+   101e0: 26 a9        	c.fsdsp	fs1, 0x90(sp)
+   101e2: 4a a5        	c.fsdsp	fs2, 0x88(sp)
+   101e4: 4e a1        	c.fsdsp	fs3, 0x80(sp)
+   101e6: d2 bc        	c.fsdsp	fs4, 0x78(sp)
+   101e8: d6 b8        	c.fsdsp	fs5, 0x70(sp)
+   101ea: da b4        	c.fsdsp	fs6, 0x68(sp)
+   101ec: de b0        	c.fsdsp	fs7, 0x60(sp)
+   101ee: e2 ac        	c.fsdsp	fs8, 0x58(sp)
+   101f0: e6 a8        	c.fsdsp	fs9, 0x50(sp)
+   101f2: ea a4        	c.fsdsp	fs10, 0x48(sp)
+   101f4: ee a0        	c.fsdsp	fs11, 0x40(sp)
+   101f6: 71 65        	c.lui	a0, 0x1c
+   101f8: 13 05 e5 32  	addi	a0, a0, 0x32e
+   101fc: ef 20 c0 56  	jal	ra, 0x12768 <puts>
+   10200: 07 b4 81 09  	fld	fs0, 0x98(gp)
+   10204: 87 b5 01 0a  	fld	fa1, 0xa0(gp)
+   10208: 07 b6 81 0a  	fld	fa2, 0xa8(gp)
+   1020c: 87 b4 01 0b  	fld	fs1, 0xb0(gp)
+   10210: 48 10        	c.addi4spn	a0, sp, 0x24
+   10212: 2c 10        	c.addi4spn	a1, sp, 0x28
+   10214: 20 10        	c.addi4spn	s0, sp, 0x28
+   10216: 53 05 84 22  	fsgnj.d	fa0, fs0, fs0
+   1021a: d3 86 94 22  	fsgnj.d	fa3, fs1, fs1
+   1021e: ef 00 00 41  	jal	ra, 0x1062e <SolveCubic>
+   10222: 71 65        	c.lui	a0, 0x1c
+   10224: 13 09 05 2c  	addi	s2, a0, 0x2c0
+   10228: 4a 85        	c.mv	a0, s2
+   1022a: ef 20 e0 47  	jal	ra, 0x126a8 <printf>
+   1022e: 12 55        	c.lwsp	a0, 0x24(sp)
+   10230: 63 5f a0 00  	bge	zero, a0, 0x1024e <main+0x76>
+   10234: 81 44        	c.li	s1, 0x0
+   10236: 71 65        	c.lui	a0, 0x1c
+   10238: 93 09 b5 2c  	addi	s3, a0, 0x2cb
+   1023c: 0c 60        	c.ld	a1, 0x0(s0)
+   1023e: 4e 85        	c.mv	a0, s3
+   10240: ef 20 80 46  	jal	ra, 0x126a8 <printf>
+   10244: 12 55        	c.lwsp	a0, 0x24(sp)
+   10246: 85 04        	c.addi	s1, 0x1
+   10248: 21 04        	c.addi	s0, 0x8
+   1024a: e3 c9 a4 fe  	blt	s1, a0, 0x1023c <main+0x64>
+   1024e: 29 45        	c.li	a0, 0xa
+   10250: ef 20 a0 48  	jal	ra, 0x126da <putchar>
+   10254: 87 b5 81 0b  	fld	fa1, 0xb8(gp)
+   10258: 07 b6 01 0c  	fld	fa2, 0xc0(gp)
+   1025c: 48 10        	c.addi4spn	a0, sp, 0x24
+   1025e: 2c 10        	c.addi4spn	a1, sp, 0x28
+   10260: 24 10        	c.addi4spn	s1, sp, 0x28
+   10262: 53 05 84 22  	fsgnj.d	fa0, fs0, fs0
+   10266: d3 86 94 22  	fsgnj.d	fa3, fs1, fs1
+   1026a: ef 00 40 3c  	jal	ra, 0x1062e <SolveCubic>
+   1026e: 4a 85        	c.mv	a0, s2
+   10270: ef 20 80 43  	jal	ra, 0x126a8 <printf>
+   10274: 12 55        	c.lwsp	a0, 0x24(sp)
+   10276: 63 5f a0 00  	bge	zero, a0, 0x10294 <main+0xbc>
+   1027a: 01 44        	c.li	s0, 0x0
+   1027c: 71 65        	c.lui	a0, 0x1c
+   1027e: 13 09 b5 2c  	addi	s2, a0, 0x2cb
+   10282: 8c 60        	c.ld	a1, 0x0(s1)
+   10284: 4a 85        	c.mv	a0, s2
+   10286: ef 20 20 42  	jal	ra, 0x126a8 <printf>
+   1028a: 12 55        	c.lwsp	a0, 0x24(sp)
+   1028c: 05 04        	c.addi	s0, 0x1
+   1028e: a1 04        	c.addi	s1, 0x8
+   10290: e3 49 a4 fe  	blt	s0, a0, 0x10282 <main+0xaa>
+   10294: 29 45        	c.li	a0, 0xa
+   10296: ef 20 40 44  	jal	ra, 0x126da <putchar>
+   1029a: 07 b4 81 09  	fld	fs0, 0x98(gp)
+   1029e: 87 b5 81 0c  	fld	fa1, 0xc8(gp)
+   102a2: 07 b6 01 0d  	fld	fa2, 0xd0(gp)
+   102a6: 87 b6 81 0d  	fld	fa3, 0xd8(gp)
+   102aa: 48 10        	c.addi4spn	a0, sp, 0x24
+   102ac: 2c 10        	c.addi4spn	a1, sp, 0x28
+   102ae: 20 10        	c.addi4spn	s0, sp, 0x28
+   102b0: 53 05 84 22  	fsgnj.d	fa0, fs0, fs0
+   102b4: ef 00 a0 37  	jal	ra, 0x1062e <SolveCubic>
+   102b8: 71 65        	c.lui	a0, 0x1c
+   102ba: 13 09 05 2c  	addi	s2, a0, 0x2c0
+   102be: 4a 85        	c.mv	a0, s2
+   102c0: ef 20 80 3e  	jal	ra, 0x126a8 <printf>
+   102c4: 12 55        	c.lwsp	a0, 0x24(sp)
+   102c6: 63 5f a0 00  	bge	zero, a0, 0x102e4 <main+0x10c>
+   102ca: 81 44        	c.li	s1, 0x0
+   102cc: 71 65        	c.lui	a0, 0x1c
+   102ce: 93 09 b5 2c  	addi	s3, a0, 0x2cb
+   102d2: 0c 60        	c.ld	a1, 0x0(s0)
+   102d4: 4e 85        	c.mv	a0, s3
+   102d6: ef 20 20 3d  	jal	ra, 0x126a8 <printf>
+   102da: 12 55        	c.lwsp	a0, 0x24(sp)
+   102dc: 85 04        	c.addi	s1, 0x1
+   102de: 21 04        	c.addi	s0, 0x8
+   102e0: e3 c9 a4 fe  	blt	s1, a0, 0x102d2 <main+0xfa>
+   102e4: 29 45        	c.li	a0, 0xa
+   102e6: ef 20 40 3f  	jal	ra, 0x126da <putchar>
+   102ea: 87 b5 01 0e  	fld	fa1, 0xe0(gp)
+   102ee: 87 b6 81 0e  	fld	fa3, 0xe8(gp)
+   102f2: 48 10        	c.addi4spn	a0, sp, 0x24
+   102f4: 2c 10        	c.addi4spn	a1, sp, 0x28
+   102f6: 24 10        	c.addi4spn	s1, sp, 0x28
+   102f8: 53 05 84 22  	fsgnj.d	fa0, fs0, fs0
+   102fc: 53 06 84 22  	fsgnj.d	fa2, fs0, fs0
+   10300: ef 00 e0 32  	jal	ra, 0x1062e <SolveCubic>
+   10304: 4a 85        	c.mv	a0, s2
+   10306: ef 20 20 3a  	jal	ra, 0x126a8 <printf>
+   1030a: 12 55        	c.lwsp	a0, 0x24(sp)
+   1030c: 63 5f a0 00  	bge	zero, a0, 0x1032a <main+0x152>
+   10310: 01 44        	c.li	s0, 0x0
+   10312: 71 65        	c.lui	a0, 0x1c
+   10314: 13 09 b5 2c  	addi	s2, a0, 0x2cb
+   10318: 8c 60        	c.ld	a1, 0x0(s1)
+   1031a: 4a 85        	c.mv	a0, s2
+   1031c: ef 20 c0 38  	jal	ra, 0x126a8 <printf>
+   10320: 12 55        	c.lwsp	a0, 0x24(sp)
+   10322: 05 04        	c.addi	s0, 0x1
+   10324: a1 04        	c.addi	s1, 0x8
+   10326: e3 49 a4 fe  	blt	s0, a0, 0x10318 <main+0x140>
+   1032a: 29 45        	c.li	a0, 0xa
+   1032c: ef 20 e0 3a  	jal	ra, 0x126da <putchar>
+   10330: 07 b5 01 0f  	fld	fa0, 0xf0(gp)
+   10334: 87 b5 81 0f  	fld	fa1, 0xf8(gp)
+   10338: 07 b6 01 10  	fld	fa2, 0x100(gp)
+   1033c: 87 b6 81 10  	fld	fa3, 0x108(gp)
+   10340: 48 10        	c.addi4spn	a0, sp, 0x24
+   10342: 2c 10        	c.addi4spn	a1, sp, 0x28
+   10344: 20 10        	c.addi4spn	s0, sp, 0x28
+   10346: ef 00 80 2e  	jal	ra, 0x1062e <SolveCubic>
+   1034a: 71 65        	c.lui	a0, 0x1c
+   1034c: 13 09 05 2c  	addi	s2, a0, 0x2c0
+   10350: 4a 85        	c.mv	a0, s2
+   10352: ef 20 60 35  	jal	ra, 0x126a8 <printf>
+   10356: 12 55        	c.lwsp	a0, 0x24(sp)
+   10358: 63 5f a0 00  	bge	zero, a0, 0x10376 <main+0x19e>
+   1035c: 81 44        	c.li	s1, 0x0
+   1035e: 71 65        	c.lui	a0, 0x1c
+   10360: 93 09 b5 2c  	addi	s3, a0, 0x2cb
+   10364: 0c 60        	c.ld	a1, 0x0(s0)
+   10366: 4e 85        	c.mv	a0, s3
+   10368: ef 20 00 34  	jal	ra, 0x126a8 <printf>
+   1036c: 12 55        	c.lwsp	a0, 0x24(sp)
+   1036e: 85 04        	c.addi	s1, 0x1
+   10370: 21 04        	c.addi	s0, 0x8
+   10372: e3 c9 a4 fe  	blt	s1, a0, 0x10364 <main+0x18c>
+   10376: 29 45        	c.li	a0, 0xa
+   10378: ef 20 20 36  	jal	ra, 0x126da <putchar>
+   1037c: 07 b5 01 11  	fld	fa0, 0x110(gp)
+   10380: 87 b5 81 11  	fld	fa1, 0x118(gp)
+   10384: 07 b6 01 12  	fld	fa2, 0x120(gp)
+   10388: 87 b6 81 12  	fld	fa3, 0x128(gp)
+   1038c: 48 10        	c.addi4spn	a0, sp, 0x24
+   1038e: 2c 10        	c.addi4spn	a1, sp, 0x28
+   10390: 24 10        	c.addi4spn	s1, sp, 0x28
+   10392: ef 00 c0 29  	jal	ra, 0x1062e <SolveCubic>
+   10396: 4a 85        	c.mv	a0, s2
+   10398: ef 20 00 31  	jal	ra, 0x126a8 <printf>
+   1039c: 12 55        	c.lwsp	a0, 0x24(sp)
+   1039e: 63 5f a0 00  	bge	zero, a0, 0x103bc <main+0x1e4>
+   103a2: 01 44        	c.li	s0, 0x0
+   103a4: 71 65        	c.lui	a0, 0x1c
+   103a6: 13 09 b5 2c  	addi	s2, a0, 0x2cb
+   103aa: 8c 60        	c.ld	a1, 0x0(s1)
+   103ac: 4a 85        	c.mv	a0, s2
+   103ae: ef 20 a0 2f  	jal	ra, 0x126a8 <printf>
+   103b2: 12 55        	c.lwsp	a0, 0x24(sp)
+   103b4: 05 04        	c.addi	s0, 0x1
+   103b6: a1 04        	c.addi	s1, 0x8
+   103b8: e3 49 a4 fe  	blt	s0, a0, 0x103aa <main+0x1d2>
+   103bc: 29 45        	c.li	a0, 0xa
+   103be: ef 20 c0 31  	jal	ra, 0x126da <putchar>
+   103c2: 07 b5 01 13  	fld	fa0, 0x130(gp)
+   103c6: 87 b5 81 13  	fld	fa1, 0x138(gp)
+   103ca: 07 b6 01 14  	fld	fa2, 0x140(gp)
+   103ce: 87 b6 81 14  	fld	fa3, 0x148(gp)
+   103d2: 48 10        	c.addi4spn	a0, sp, 0x24
+   103d4: 2c 10        	c.addi4spn	a1, sp, 0x28
+   103d6: 20 10        	c.addi4spn	s0, sp, 0x28
+   103d8: ef 00 60 25  	jal	ra, 0x1062e <SolveCubic>
+   103dc: 71 65        	c.lui	a0, 0x1c
+   103de: 93 09 05 2c  	addi	s3, a0, 0x2c0
+   103e2: 4e 85        	c.mv	a0, s3
+   103e4: ef 20 40 2c  	jal	ra, 0x126a8 <printf>
+   103e8: 12 55        	c.lwsp	a0, 0x24(sp)
+   103ea: 63 5f a0 00  	bge	zero, a0, 0x10408 <main+0x230>
+   103ee: 81 44        	c.li	s1, 0x0
+   103f0: 71 65        	c.lui	a0, 0x1c
+   103f2: 13 09 b5 2c  	addi	s2, a0, 0x2cb
+   103f6: 0c 60        	c.ld	a1, 0x0(s0)
+   103f8: 4a 85        	c.mv	a0, s2
+   103fa: ef 20 e0 2a  	jal	ra, 0x126a8 <printf>
+   103fe: 12 55        	c.lwsp	a0, 0x24(sp)
+   10400: 85 04        	c.addi	s1, 0x1
+   10402: 21 04        	c.addi	s0, 0x8
+   10404: e3 c9 a4 fe  	blt	s1, a0, 0x103f6 <main+0x21e>
+   10408: 29 45        	c.li	a0, 0xa
+   1040a: 29 49        	c.li	s2, 0xa
+   1040c: ef 20 e0 2c  	jal	ra, 0x126da <putchar>
+   10410: 07 b5 01 15  	fld	fa0, 0x150(gp)
+   10414: 87 b5 81 15  	fld	fa1, 0x158(gp)
+   10418: 07 b6 01 16  	fld	fa2, 0x160(gp)
+   1041c: 87 b6 81 16  	fld	fa3, 0x168(gp)
+   10420: 48 10        	c.addi4spn	a0, sp, 0x24
+   10422: 2c 10        	c.addi4spn	a1, sp, 0x28
+   10424: 24 10        	c.addi4spn	s1, sp, 0x28
+   10426: ef 00 80 20  	jal	ra, 0x1062e <SolveCubic>
+   1042a: 4e 85        	c.mv	a0, s3
+   1042c: ef 20 c0 27  	jal	ra, 0x126a8 <printf>
+   10430: 12 55        	c.lwsp	a0, 0x24(sp)
+   10432: 63 5f a0 00  	bge	zero, a0, 0x10450 <main+0x278>
+   10436: 01 44        	c.li	s0, 0x0
+   10438: 71 65        	c.lui	a0, 0x1c
+   1043a: 93 09 b5 2c  	addi	s3, a0, 0x2cb
+   1043e: 8c 60        	c.ld	a1, 0x0(s1)
+   10440: 4e 85        	c.mv	a0, s3
+   10442: ef 20 60 26  	jal	ra, 0x126a8 <printf>
+   10446: 12 55        	c.lwsp	a0, 0x24(sp)
+   10448: 05 04        	c.addi	s0, 0x1
+   1044a: a1 04        	c.addi	s1, 0x8
+   1044c: e3 49 a4 fe  	blt	s0, a0, 0x1043e <main+0x266>
+   10450: 29 45        	c.li	a0, 0xa
+   10452: ef 20 80 28  	jal	ra, 0x126da <putchar>
+   10456: 85 49        	c.li	s3, 0x1
+   10458: 07 b4 81 09  	fld	fs0, 0x98(gp)
+   1045c: 87 b7 01 17  	fld	fa5, 0x170(gp)
+   10460: 3e a4        	c.fsdsp	fa5, 0x8(sp)
+   10462: 87 bb 01 10  	fld	fs7, 0x100(gp)
+   10466: 07 bc 81 17  	fld	fs8, 0x178(gp)
+   1046a: 71 65        	c.lui	a0, 0x1c
+   1046c: 13 0a 05 2c  	addi	s4, a0, 0x2c0
+   10470: 87 bc 01 18  	fld	fs9, 0x180(gp)
+   10474: 07 bd 81 18  	fld	fs10, 0x188(gp)
+   10478: 87 bd 01 19  	fld	fs11, 0x190(gp)
+   1047c: 07 bb 81 19  	fld	fs6, 0x198(gp)
+   10480: 87 ba 01 1a  	fld	fs5, 0x1a0(gp)
+   10484: 71 65        	c.lui	a0, 0x1c
+   10486: 93 0a b5 2c  	addi	s5, a0, 0x2cb
+   1048a: 53 0a 00 f2  	fmv.d.x	fs4, zero
+   1048e: 22 a8        	c.fsdsp	fs0, 0x10(sp)
+   10490: a2 24        	c.fldsp	fs1, 0x8(sp)
+   10492: 53 89 7b 23  	fsgnj.d	fs2, fs7, fs7
+   10496: d3 09 8c 23  	fsgnj.d	fs3, fs8, fs8
+   1049a: 48 10        	c.addi4spn	a0, sp, 0x24
+   1049c: 2c 10        	c.addi4spn	a1, sp, 0x28
+   1049e: 53 05 84 22  	fsgnj.d	fa0, fs0, fs0
+   104a2: d3 85 94 22  	fsgnj.d	fa1, fs1, fs1
+   104a6: 53 06 29 23  	fsgnj.d	fa2, fs2, fs2
+   104aa: d3 86 39 23  	fsgnj.d	fa3, fs3, fs3
+   104ae: ef 00 00 18  	jal	ra, 0x1062e <SolveCubic>
+   104b2: 52 85        	c.mv	a0, s4
+   104b4: ef 20 40 1f  	jal	ra, 0x126a8 <printf>
+   104b8: 12 55        	c.lwsp	a0, 0x24(sp)
+   104ba: 63 5d a0 00  	bge	zero, a0, 0x104d4 <main+0x2fc>
+   104be: 01 44        	c.li	s0, 0x0
+   104c0: 24 10        	c.addi4spn	s1, sp, 0x28
+   104c2: 8c 60        	c.ld	a1, 0x0(s1)
+   104c4: 56 85        	c.mv	a0, s5
+   104c6: ef 20 20 1e  	jal	ra, 0x126a8 <printf>
+   104ca: 12 55        	c.lwsp	a0, 0x24(sp)
+   104cc: 05 04        	c.addi	s0, 0x1
+   104ce: a1 04        	c.addi	s1, 0x8
+   104d0: e3 49 a4 fe  	blt	s0, a0, 0x104c2 <main+0x2ea>
+   104d4: 29 45        	c.li	a0, 0xa
+   104d6: ef 20 40 20  	jal	ra, 0x126da <putchar>
+   104da: d3 f9 99 03  	fadd.d	fs3, fs3, fs9, dyn
+   104de: 53 15 3d a3  	flt.d	a0, fs10, fs3
+   104e2: 45 fd        	c.bnez	a0, 0x1049a <main+0x2c2>
+   104e4: 53 79 b9 03  	fadd.d	fs2, fs2, fs11, dyn
+   104e8: 53 15 69 a3  	flt.d	a0, fs2, fs6
+   104ec: 4d f5        	c.bnez	a0, 0x10496 <main+0x2be>
+   104ee: d3 f4 54 03  	fadd.d	fs1, fs1, fs5, dyn
+   104f2: 53 15 9a a2  	flt.d	a0, fs4, fs1
+   104f6: 51 fd        	c.bnez	a0, 0x10492 <main+0x2ba>
+   104f8: 85 29        	c.addiw	s3, 0x1
+   104fa: c2 27        	c.fldsp	fa5, 0x10(sp)
+   104fc: 53 74 f4 02  	fadd.d	fs0, fs0, fa5, dyn
+   10500: e3 98 29 f9  	bne	s3, s2, 0x10490 <main+0x2b8>
+   10504: 71 65        	c.lui	a0, 0x1c
+   10506: 13 05 45 35  	addi	a0, a0, 0x354
+   1050a: ef 20 e0 25  	jal	ra, 0x12768 <puts>
+   1050e: 01 44        	c.li	s0, 0x0
+   10510: f9 54        	c.li	s1, -0x2
+   10512: 71 65        	c.lui	a0, 0x1c
+   10514: 13 09 f5 2c  	addi	s2, a0, 0x2cf
+   10518: 61 65        	c.lui	a0, 0x18
+   1051a: 9b 09 e5 69  	addiw	s3, a0, 0x69e
+   1051e: 89 04        	c.addi	s1, 0x2
+   10520: 6c 08        	c.addi4spn	a1, sp, 0x1c
+   10522: 26 85        	c.mv	a0, s1
+   10524: ef 00 80 41  	jal	ra, 0x1093c <usqrt>
+   10528: 72 46        	c.lwsp	a2, 0x1c(sp)
+   1052a: 4a 85        	c.mv	a0, s2
+   1052c: a2 85        	c.mv	a1, s0
+   1052e: ef 20 a0 17  	jal	ra, 0x126a8 <printf>
+   10532: 09 24        	c.addiw	s0, 0x2
+   10534: e3 e5 34 ff  	bltu	s1, s3, 0x1051e <main+0x346>
+   10538: 29 45        	c.li	a0, 0xa
+   1053a: ef 20 00 1a  	jal	ra, 0x126da <putchar>
+   1053e: 37 05 ed 3f  	lui	a0, 0x3fed0
+   10542: 1b 04 95 16  	addiw	s0, a0, 0x169
+   10546: 71 65        	c.lui	a0, 0x1c
+   10548: 13 09 05 2e  	addi	s2, a0, 0x2e0
+   1054c: 37 45 ed 3f  	lui	a0, 0x3fed4
+   10550: 9b 04 95 16  	addiw	s1, a0, 0x169
+   10554: 6c 08        	c.addi4spn	a1, sp, 0x1c
+   10556: 22 85        	c.mv	a0, s0
+   10558: ef 00 40 3e  	jal	ra, 0x1093c <usqrt>
+   1055c: 72 46        	c.lwsp	a2, 0x1c(sp)
+   1055e: 4a 85        	c.mv	a0, s2
+   10560: a2 85        	c.mv	a1, s0
+   10562: ef 20 60 14  	jal	ra, 0x126a8 <printf>
+   10566: 05 04        	c.addi	s0, 0x1
+   10568: e3 16 94 fe  	bne	s0, s1, 0x10554 <main+0x37c>
+   1056c: 71 65        	c.lui	a0, 0x1c
+   1056e: 13 05 c5 37  	addi	a0, a0, 0x37c
+   10572: ef 20 60 1f  	jal	ra, 0x12768 <puts>
+   10576: 07 b4 81 1a  	fld	fs0, 0x1a8(gp)
+   1057a: 87 b4 01 1b  	fld	fs1, 0x1b0(gp)
+   1057e: 07 b9 81 1b  	fld	fs2, 0x1b8(gp)
+   10582: 87 b9 01 1c  	fld	fs3, 0x1c0(gp)
+   10586: 71 65        	c.lui	a0, 0x1c
+   10588: 13 04 05 2f  	addi	s0, a0, 0x2f0
+   1058c: d3 77 8a 12  	fmul.d	fa5, fs4, fs0, dyn
+   10590: d3 f7 97 1a  	fdiv.d	fa5, fa5, fs1, dyn
+   10594: 53 86 07 e2  	fmv.x.d	a2, fa5
+   10598: d3 05 0a e2  	fmv.x.d	a1, fs4
+   1059c: 22 85        	c.mv	a0, s0
+   1059e: ef 20 a0 10  	jal	ra, 0x126a8 <printf>
+   105a2: 53 7a 2a 03  	fadd.d	fs4, fs4, fs2, dyn
+   105a6: 53 05 3a a3  	fle.d	a0, fs4, fs3
+   105aa: 6d f1        	c.bnez	a0, 0x1058c <main+0x3b4>
+   105ac: 29 45        	c.li	a0, 0xa
+   105ae: ef 20 c0 12  	jal	ra, 0x126da <putchar>
+   105b2: 07 b4 01 1b  	fld	fs0, 0x1b0(gp)
+   105b6: 87 b4 81 1a  	fld	fs1, 0x1a8(gp)
+   105ba: 07 b9 81 1c  	fld	fs2, 0x1c8(gp)
+   105be: 87 b9 01 1d  	fld	fs3, 0x1d0(gp)
+   105c2: 53 0a 00 f2  	fmv.d.x	fs4, zero
+   105c6: 71 65        	c.lui	a0, 0x1c
+   105c8: 13 04 f5 30  	addi	s0, a0, 0x30f
+   105cc: d3 77 8a 12  	fmul.d	fa5, fs4, fs0, dyn
+   105d0: d3 f7 97 1a  	fdiv.d	fa5, fa5, fs1, dyn
+   105d4: 53 86 07 e2  	fmv.x.d	a2, fa5
+   105d8: d3 05 0a e2  	fmv.x.d	a1, fs4
+   105dc: 22 85        	c.mv	a0, s0
+   105de: ef 20 a0 0c  	jal	ra, 0x126a8 <printf>
+   105e2: 53 7a 2a 03  	fadd.d	fs4, fs4, fs2, dyn
+   105e6: 53 05 3a a3  	fle.d	a0, fs4, fs3
+   105ea: 6d f1        	c.bnez	a0, 0x105cc <main+0x3f4>
+   105ec: 6a 24        	c.fldsp	fs0, 0x98(sp)
+   105ee: ca 24        	c.fldsp	fs1, 0x90(sp)
+   105f0: 2a 29        	c.fldsp	fs2, 0x88(sp)
+   105f2: 8a 29        	c.fldsp	fs3, 0x80(sp)
+   105f4: 66 3a        	c.fldsp	fs4, 0x78(sp)
+   105f6: c6 3a        	c.fldsp	fs5, 0x70(sp)
+   105f8: 26 3b        	c.fldsp	fs6, 0x68(sp)
+   105fa: 86 3b        	c.fldsp	fs7, 0x60(sp)
+   105fc: 66 2c        	c.fldsp	fs8, 0x58(sp)
+   105fe: c6 2c        	c.fldsp	fs9, 0x50(sp)
+   10600: 26 2d        	c.fldsp	fs10, 0x48(sp)
+   10602: 86 2d        	c.fldsp	fs11, 0x40(sp)
+   10604: 0d 61        	c.addi16sp	sp, 0xa0
+   10606: 6f b0 10 46  	jal	zero, 0x1c266 <__riscv_restore_7>
+
+000000000001060a <rad2deg>:
+   1060a: 87 b7 81 1d  	fld	fa5, 0x1d8(gp)
+   1060e: 07 b7 01 1e  	fld	fa4, 0x1e0(gp)
+   10612: d3 77 f5 12  	fmul.d	fa5, fa0, fa5, dyn
+   10616: 53 f5 e7 1a  	fdiv.d	fa0, fa5, fa4, dyn
+   1061a: 82 80        	c.jr	ra
+
+000000000001061c <deg2rad>:
+   1061c: 87 b7 81 1e  	fld	fa5, 0x1e8(gp)
+   10620: 07 b7 01 1f  	fld	fa4, 0x1f0(gp)
+   10624: d3 77 f5 12  	fmul.d	fa5, fa0, fa5, dyn
+   10628: 53 f5 e7 1a  	fdiv.d	fa0, fa5, fa4, dyn
+   1062c: 82 80        	c.jr	ra
+
+000000000001062e <SolveCubic>:
+   1062e: ef b2 f0 3d  	jal	t0, 0x1c20c <__riscv_save_12>
+   10632: 39 71        	c.addi16sp	sp, -0x40
+   10634: 22 bc        	c.fsdsp	fs0, 0x38(sp)
+   10636: 26 b8        	c.fsdsp	fs1, 0x30(sp)
+   10638: 4a b4        	c.fsdsp	fs2, 0x28(sp)
+   1063a: 4e b0        	c.fsdsp	fs3, 0x20(sp)
+   1063c: 52 ac        	c.fsdsp	fs4, 0x18(sp)
+   1063e: 56 a8        	c.fsdsp	fs5, 0x10(sp)
+   10640: 2e e4        	c.sdsp	a1, 0x8(sp)
+   10642: 2a e0        	c.sdsp	a0, 0x0(sp)
+   10644: 53 84 d6 22  	fsgnj.d	fs0, fa3, fa3
+   10648: d3 04 c6 22  	fsgnj.d	fs1, fa2, fa2
+   1064c: 53 09 a5 22  	fsgnj.d	fs2, fa0, fa0
+   10650: 53 f5 a5 1a  	fdiv.d	fa0, fa1, fa0, dyn
+   10654: ef b0 90 0d  	jal	ra, 0x1bf2c <__extenddftf2>
+   10658: aa 8b        	c.mv	s7, a0
+   1065a: 2e 8b        	c.mv	s6, a1
+   1065c: 53 f5 24 1b  	fdiv.d	fa0, fs1, fs2, dyn
+   10660: ef b0 d0 0c  	jal	ra, 0x1bf2c <__extenddftf2>
+   10664: 2a 8d        	c.mv	s10, a0
+   10666: ae 8d        	c.mv	s11, a1
+   10668: 53 75 24 1b  	fdiv.d	fa0, fs0, fs2, dyn
+   1066c: ef b0 10 0c  	jal	ra, 0x1bf2c <__extenddftf2>
+   10670: 2a 8c        	c.mv	s8, a0
+   10672: ae 8c        	c.mv	s9, a1
+   10674: b7 16 00 f8  	lui	a3, 0xf8001
+   10678: 8e 16        	c.slli	a3, 0x23
+   1067a: 6a 85        	c.mv	a0, s10
+   1067c: ee 85        	c.mv	a1, s11
+   1067e: 01 46        	c.li	a2, 0x0
+   10680: ef a0 30 18  	jal	ra, 0x1b002 <__multf3>
+   10684: 2a 84        	c.mv	s0, a0
+   10686: ae 84        	c.mv	s1, a1
+   10688: 5e 85        	c.mv	a0, s7
+   1068a: da 85        	c.mv	a1, s6
+   1068c: 5e 86        	c.mv	a2, s7
+   1068e: da 86        	c.mv	a3, s6
+   10690: ef a0 30 17  	jal	ra, 0x1b002 <__multf3>
+   10694: 22 86        	c.mv	a2, s0
+   10696: a6 86        	c.mv	a3, s1
+   10698: ef 90 70 11  	jal	ra, 0x19fae <__addtf3>
+   1069c: b7 16 01 20  	lui	a3, 0x20011
+   106a0: 86 16        	c.slli	a3, 0x21
+   106a2: 01 46        	c.li	a2, 0x0
+   106a4: ef a0 20 0f  	jal	ra, 0x1a796 <__divtf3>
+   106a8: 2a 8a        	c.mv	s4, a0
+   106aa: ae 89        	c.mv	s3, a1
+   106ac: 5e 85        	c.mv	a0, s7
+   106ae: da 85        	c.mv	a1, s6
+   106b0: 5e 86        	c.mv	a2, s7
+   106b2: da 86        	c.mv	a3, s6
+   106b4: ef 90 b0 0f  	jal	ra, 0x19fae <__addtf3>
+   106b8: 5e 86        	c.mv	a2, s7
+   106ba: da 86        	c.mv	a3, s6
+   106bc: ef a0 70 14  	jal	ra, 0x1b002 <__multf3>
+   106c0: 2a 89        	c.mv	s2, a0
+   106c2: ae 8a        	c.mv	s5, a1
+   106c4: b7 16 01 e0  	lui	a3, 0xe0011
+   106c8: 86 16        	c.slli	a3, 0x21
+   106ca: 5e 85        	c.mv	a0, s7
+   106cc: da 85        	c.mv	a1, s6
+   106ce: 01 46        	c.li	a2, 0x0
+   106d0: ef a0 30 13  	jal	ra, 0x1b002 <__multf3>
+   106d4: 6a 86        	c.mv	a2, s10
+   106d6: ee 86        	c.mv	a3, s11
+   106d8: ef a0 b0 12  	jal	ra, 0x1b002 <__multf3>
+   106dc: 2a 84        	c.mv	s0, a0
+   106de: ae 84        	c.mv	s1, a1
+   106e0: 4a 85        	c.mv	a0, s2
+   106e2: d6 85        	c.mv	a1, s5
+   106e4: 5e 86        	c.mv	a2, s7
+   106e6: da 86        	c.mv	a3, s6
+   106e8: ef a0 b0 11  	jal	ra, 0x1b002 <__multf3>
+   106ec: 22 86        	c.mv	a2, s0
+   106ee: a6 86        	c.mv	a3, s1
+   106f0: ef 90 f0 0b  	jal	ra, 0x19fae <__addtf3>
+   106f4: 2a 84        	c.mv	s0, a0
+   106f6: ae 84        	c.mv	s1, a1
+   106f8: b7 b6 03 40  	lui	a3, 0x4003b
+   106fc: 82 16        	c.slli	a3, 0x20
+   106fe: 62 85        	c.mv	a0, s8
+   10700: e6 85        	c.mv	a1, s9
+   10702: 01 46        	c.li	a2, 0x0
+   10704: ef a0 f0 0f  	jal	ra, 0x1b002 <__multf3>
+   10708: 22 86        	c.mv	a2, s0
+   1070a: a6 86        	c.mv	a3, s1
+   1070c: ef 90 30 0a  	jal	ra, 0x19fae <__addtf3>
+   10710: b7 b6 04 40  	lui	a3, 0x4004b
+   10714: 82 16        	c.slli	a3, 0x20
+   10716: 01 46        	c.li	a2, 0x0
+   10718: ef a0 e0 07  	jal	ra, 0x1a796 <__divtf3>
+   1071c: aa 8c        	c.mv	s9, a0
+   1071e: 2e 8c        	c.mv	s8, a1
+   10720: 52 85        	c.mv	a0, s4
+   10722: ce 85        	c.mv	a1, s3
+   10724: 52 86        	c.mv	a2, s4
+   10726: ce 86        	c.mv	a3, s3
+   10728: ef a0 b0 0d  	jal	ra, 0x1b002 <__multf3>
+   1072c: 2a 86        	c.mv	a2, a0
+   1072e: ae 86        	c.mv	a3, a1
+   10730: 52 85        	c.mv	a0, s4
+   10732: ce 85        	c.mv	a1, s3
+   10734: ef a0 f0 0c  	jal	ra, 0x1b002 <__multf3>
+   10738: aa 84        	c.mv	s1, a0
+   1073a: 2e 84        	c.mv	s0, a1
+   1073c: 66 85        	c.mv	a0, s9
+   1073e: e2 85        	c.mv	a1, s8
+   10740: 66 86        	c.mv	a2, s9
+   10742: e2 86        	c.mv	a3, s8
+   10744: ef a0 f0 0b  	jal	ra, 0x1b002 <__multf3>
+   10748: 26 86        	c.mv	a2, s1
+   1074a: a2 86        	c.mv	a3, s0
+   1074c: ef a0 d0 6a  	jal	ra, 0x1b5f8 <__subtf3>
+   10750: ef b0 d0 09  	jal	ra, 0x1bfec <__trunctfdf2>
+   10754: d3 07 00 f2  	fmv.d.x	fa5, zero
+   10758: 53 05 f5 a2  	fle.d	a0, fa0, fa5
+   1075c: 49 e9        	c.bnez	a0, 0x107ee <SolveCubic+0x1c0>
+   1075e: 05 45        	c.li	a0, 0x1
+   10760: 53 74 05 5a  	fsqrt.d	fs0, fa0, dyn
+   10764: d3 25 84 a2  	feq.d	a1, fs0, fs0
+   10768: 02 66        	c.ldsp	a2, 0x0(sp)
+   1076a: 08 c2        	c.sw	a0, 0x0(a2)
+   1076c: 63 8d 05 18  	beq	a1, zero, 0x10906 <SolveCubic+0x2d8>
+   10770: 66 85        	c.mv	a0, s9
+   10772: e2 85        	c.mv	a1, s8
+   10774: ef b0 90 07  	jal	ra, 0x1bfec <__trunctfdf2>
+   10778: d3 27 a5 22  	fsgnjx.d	fa5, fa0, fa0
+   1077c: 53 f5 87 02  	fadd.d	fa0, fa5, fs0, dyn
+   10780: 87 b5 81 21  	fld	fa1, 0x218(gp)
+   10784: ef 00 60 24  	jal	ra, 0x109ca <pow>
+   10788: ef b0 40 7a  	jal	ra, 0x1bf2c <__extenddftf2>
+   1078c: 2a 84        	c.mv	s0, a0
+   1078e: ae 84        	c.mv	s1, a1
+   10790: 52 85        	c.mv	a0, s4
+   10792: ce 85        	c.mv	a1, s3
+   10794: 22 86        	c.mv	a2, s0
+   10796: a6 86        	c.mv	a3, s1
+   10798: ef 90 f0 7f  	jal	ra, 0x1a796 <__divtf3>
+   1079c: 22 86        	c.mv	a2, s0
+   1079e: a6 86        	c.mv	a3, s1
+   107a0: ef 90 f0 00  	jal	ra, 0x19fae <__addtf3>
+   107a4: ef b0 90 04  	jal	ra, 0x1bfec <__trunctfdf2>
+   107a8: 53 04 a5 22  	fsgnj.d	fs0, fa0, fa0
+   107ac: 66 85        	c.mv	a0, s9
+   107ae: e2 85        	c.mv	a1, s8
+   107b0: 01 46        	c.li	a2, 0x0
+   107b2: 81 46        	c.li	a3, 0x0
+   107b4: ef a0 00 7b  	jal	ra, 0x1af64 <__lttf2>
+   107b8: 63 44 05 00  	blt	a0, zero, 0x107c0 <SolveCubic+0x192>
+   107bc: 53 14 84 22  	fsgnjn.d	fs0, fs0, fs0
+   107c0: b7 16 00 f8  	lui	a3, 0xf8001
+   107c4: 8e 16        	c.slli	a3, 0x23
+   107c6: 5e 85        	c.mv	a0, s7
+   107c8: da 85        	c.mv	a1, s6
+   107ca: 01 46        	c.li	a2, 0x0
+   107cc: ef 90 b0 7c  	jal	ra, 0x1a796 <__divtf3>
+   107d0: 2a 84        	c.mv	s0, a0
+   107d2: ae 84        	c.mv	s1, a1
+   107d4: 53 05 84 22  	fsgnj.d	fa0, fs0, fs0
+   107d8: ef b0 40 75  	jal	ra, 0x1bf2c <__extenddftf2>
+   107dc: 22 86        	c.mv	a2, s0
+   107de: a6 86        	c.mv	a3, s1
+   107e0: ef 90 e0 7c  	jal	ra, 0x19fae <__addtf3>
+   107e4: ef b0 90 00  	jal	ra, 0x1bfec <__trunctfdf2>
+   107e8: 22 65        	c.ldsp	a0, 0x8(sp)
+   107ea: 08 a1        	c.fsd	fa0, 0x0(a0)
+   107ec: 21 a2        	c.j	0x108f4 <SolveCubic+0x2c6>
+   107ee: 0d 45        	c.li	a0, 0x3
+   107f0: 82 65        	c.ldsp	a1, 0x0(sp)
+   107f2: 88 c1        	c.sw	a0, 0x0(a1)
+   107f4: 26 85        	c.mv	a0, s1
+   107f6: a2 85        	c.mv	a1, s0
+   107f8: ef b0 40 7f  	jal	ra, 0x1bfec <__trunctfdf2>
+   107fc: d3 07 a5 22  	fsgnj.d	fa5, fa0, fa0
+   10800: 53 75 05 5a  	fsqrt.d	fa0, fa0, dyn
+   10804: 53 25 a5 a2  	feq.d	a0, fa0, fa0
+   10808: 63 04 05 10  	beq	a0, zero, 0x10910 <SolveCubic+0x2e2>
+   1080c: ef b0 00 72  	jal	ra, 0x1bf2c <__extenddftf2>
+   10810: 2a 86        	c.mv	a2, a0
+   10812: ae 86        	c.mv	a3, a1
+   10814: 66 85        	c.mv	a0, s9
+   10816: e2 85        	c.mv	a1, s8
+   10818: ef 90 f0 77  	jal	ra, 0x1a796 <__divtf3>
+   1081c: ef b0 00 7d  	jal	ra, 0x1bfec <__trunctfdf2>
+   10820: ef 00 60 15  	jal	ra, 0x10976 <acos>
+   10824: 53 04 a5 22  	fsgnj.d	fs0, fa0, fa0
+   10828: 52 85        	c.mv	a0, s4
+   1082a: ce 85        	c.mv	a1, s3
+   1082c: ef b0 00 7c  	jal	ra, 0x1bfec <__trunctfdf2>
+   10830: 53 09 a5 22  	fsgnj.d	fs2, fa0, fa0
+   10834: d3 74 05 5a  	fsqrt.d	fs1, fa0, dyn
+   10838: 53 aa 94 a2  	feq.d	s4, fs1, fs1
+   1083c: 53 85 94 22  	fsgnj.d	fa0, fs1, fs1
+   10840: 63 0d 0a 0c  	beq	s4, zero, 0x1091a <SolveCubic+0x2ec>
+   10844: 87 b9 81 1f  	fld	fs3, 0x1f8(gp)
+   10848: 07 ba 01 20  	fld	fs4, 0x200(gp)
+   1084c: d3 7a 35 13  	fmul.d	fs5, fa0, fs3, dyn
+   10850: 53 75 44 1b  	fdiv.d	fa0, fs0, fs4, dyn
+   10854: ef 00 00 28  	jal	ra, 0x10ad4 <cos>
+   10858: 53 f5 aa 12  	fmul.d	fa0, fs5, fa0, dyn
+   1085c: ef b0 00 6d  	jal	ra, 0x1bf2c <__extenddftf2>
+   10860: 2a 84        	c.mv	s0, a0
+   10862: ae 84        	c.mv	s1, a1
+   10864: b7 16 00 08  	lui	a3, 0x8001
+   10868: 8e 16        	c.slli	a3, 0x23
+   1086a: 5e 85        	c.mv	a0, s7
+   1086c: da 85        	c.mv	a1, s6
+   1086e: 01 46        	c.li	a2, 0x0
+   10870: ef 90 70 72  	jal	ra, 0x1a796 <__divtf3>
+   10874: 2a 89        	c.mv	s2, a0
+   10876: ae 89        	c.mv	s3, a1
+   10878: 22 85        	c.mv	a0, s0
+   1087a: a6 85        	c.mv	a1, s1
+   1087c: 4a 86        	c.mv	a2, s2
+   1087e: ce 86        	c.mv	a3, s3
+   10880: ef a0 90 57  	jal	ra, 0x1b5f8 <__subtf3>
+   10884: ef b0 80 76  	jal	ra, 0x1bfec <__trunctfdf2>
+   10888: 22 64        	c.ldsp	s0, 0x8(sp)
+   1088a: 08 a0        	c.fsd	fa0, 0x0(s0)
+   1088c: 53 85 94 22  	fsgnj.d	fa0, fs1, fs1
+   10890: 63 0a 0a 08  	beq	s4, zero, 0x10924 <SolveCubic+0x2f6>
+   10894: 87 b7 81 20  	fld	fa5, 0x208(gp)
+   10898: d3 79 35 13  	fmul.d	fs3, fa0, fs3, dyn
+   1089c: d3 77 f4 02  	fadd.d	fa5, fs0, fa5, dyn
+   108a0: 53 f5 47 1b  	fdiv.d	fa0, fa5, fs4, dyn
+   108a4: ef 00 00 23  	jal	ra, 0x10ad4 <cos>
+   108a8: 53 f5 a9 12  	fmul.d	fa0, fs3, fa0, dyn
+   108ac: ef b0 00 68  	jal	ra, 0x1bf2c <__extenddftf2>
+   108b0: 4a 86        	c.mv	a2, s2
+   108b2: ce 86        	c.mv	a3, s3
+   108b4: ef a0 50 54  	jal	ra, 0x1b5f8 <__subtf3>
+   108b8: ef b0 40 73  	jal	ra, 0x1bfec <__trunctfdf2>
+   108bc: 08 a4        	c.fsd	fa0, 0x8(s0)
+   108be: 63 08 0a 06  	beq	s4, zero, 0x1092e <SolveCubic+0x300>
+   108c2: 87 b7 81 1f  	fld	fa5, 0x1f8(gp)
+   108c6: 07 b7 01 21  	fld	fa4, 0x210(gp)
+   108ca: 87 b6 01 20  	fld	fa3, 0x200(gp)
+   108ce: d3 f4 f4 12  	fmul.d	fs1, fs1, fa5, dyn
+   108d2: d3 77 e4 02  	fadd.d	fa5, fs0, fa4, dyn
+   108d6: 53 f5 d7 1a  	fdiv.d	fa0, fa5, fa3, dyn
+   108da: ef 00 a0 1f  	jal	ra, 0x10ad4 <cos>
+   108de: 53 f5 a4 12  	fmul.d	fa0, fs1, fa0, dyn
+   108e2: ef b0 a0 64  	jal	ra, 0x1bf2c <__extenddftf2>
+   108e6: 4a 86        	c.mv	a2, s2
+   108e8: ce 86        	c.mv	a3, s3
+   108ea: ef a0 f0 50  	jal	ra, 0x1b5f8 <__subtf3>
+   108ee: ef b0 e0 6f  	jal	ra, 0x1bfec <__trunctfdf2>
+   108f2: 08 a8        	c.fsd	fa0, 0x10(s0)
+   108f4: 62 34        	c.fldsp	fs0, 0x38(sp)
+   108f6: c2 34        	c.fldsp	fs1, 0x30(sp)
+   108f8: 22 39        	c.fldsp	fs2, 0x28(sp)
+   108fa: 82 39        	c.fldsp	fs3, 0x20(sp)
+   108fc: 62 2a        	c.fldsp	fs4, 0x18(sp)
+   108fe: c2 2a        	c.fldsp	fs5, 0x10(sp)
+   10900: 21 61        	c.addi16sp	sp, 0x40
+   10902: 6f b0 50 15  	jal	zero, 0x1c256 <__riscv_restore_12>
+   10906: ef 00 c0 18  	jal	ra, 0x10a92 <sqrt>
+   1090a: 53 04 a5 22  	fsgnj.d	fs0, fa0, fa0
+   1090e: 8d b5        	c.j	0x10770 <SolveCubic+0x142>
+   10910: 53 85 f7 22  	fsgnj.d	fa0, fa5, fa5
+   10914: ef 00 e0 17  	jal	ra, 0x10a92 <sqrt>
+   10918: d5 bd        	c.j	0x1080c <SolveCubic+0x1de>
+   1091a: 53 05 29 23  	fsgnj.d	fa0, fs2, fs2
+   1091e: ef 00 40 17  	jal	ra, 0x10a92 <sqrt>
+   10922: 0d b7        	c.j	0x10844 <SolveCubic+0x216>
+   10924: 53 05 29 23  	fsgnj.d	fa0, fs2, fs2
+   10928: ef 00 a0 16  	jal	ra, 0x10a92 <sqrt>
+   1092c: a5 b7        	c.j	0x10894 <SolveCubic+0x266>
+   1092e: 53 05 29 23  	fsgnj.d	fa0, fs2, fs2
+   10932: ef 00 00 16  	jal	ra, 0x10a92 <sqrt>
+   10936: d3 04 a5 22  	fsgnj.d	fs1, fa0, fa0
+   1093a: 61 b7        	c.j	0x108c2 <SolveCubic+0x294>
+
+000000000001093c <usqrt>:
+   1093c: 01 47        	c.li	a4, 0x0
+   1093e: 01 46        	c.li	a2, 0x0
+   10940: 93 06 00 02  	addi	a3, zero, 0x20
+   10944: 0a 07        	c.slli	a4, 0x2
+   10946: 9b 57 e5 01  	srliw	a5, a0, 0x1e
+   1094a: 5d 8f        	c.or	a4, a5
+   1094c: 0a 05        	c.slli	a0, 0x2
+   1094e: 13 18 16 00  	slli	a6, a2, 0x1
+   10952: 0a 06        	c.slli	a2, 0x2
+   10954: b3 37 e6 00  	sltu	a5, a2, a4
+   10958: 93 48 f6 ff  	xori	a7, a2, -0x1
+   1095c: 33 66 f8 00  	or	a2, a6, a5
+   10960: b3 07 f0 40  	sub	a5, zero, a5
+   10964: b3 f7 17 01  	and	a5, a5, a7
+   10968: fd 36        	c.addiw	a3, -0x1
+   1096a: 3e 97        	c.add	a4, a5
+   1096c: e1 fe        	c.bnez	a3, 0x10944 <usqrt+0x8>
+   1096e: 90 c1        	c.sw	a2, 0x0(a1)
+   10970: 01 92        	c.srli	a2, 0x20
+   10972: d0 c1        	c.sw	a2, 0x4(a1)
+   10974: 82 80        	c.jr	ra
