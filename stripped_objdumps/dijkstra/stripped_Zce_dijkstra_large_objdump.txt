@@ -1,0 +1,60 @@
+00000000000103c0 <main>:
+   103c0: c6 b8        	cm.push	{ra, s0-s7}, -96
+   103c2: 05 46        	c.li	a2, 0x1
+   103c4: 2e 84        	c.mv	s0, a1
+   103c6: 63 49 a6 02  	blt	a2, a0, 0x103f8 <main+0x38>
+   103ca: 03 b5 81 8e  	ld	a0, -0x718(gp)
+   103ce: 14 6d        	c.ld	a3, 0x18(a0)
+   103d0: 37 35 02 00  	lui	a0, 0x23
+   103d4: 13 05 45 c6  	addi	a0, a0, -0x39c
+   103d8: ed 45        	c.li	a1, 0x1b
+   103da: 05 46        	c.li	a2, 0x1
+   103dc: ef 00 70 59  	jal	ra, 0x11172 <fwrite>
+   103e0: 03 b5 81 8e  	ld	a0, -0x718(gp)
+   103e4: 14 6d        	c.ld	a3, 0x18(a0)
+   103e6: 37 35 02 00  	lui	a0, 0x23
+   103ea: 13 05 05 c8  	addi	a0, a0, -0x380
+   103ee: 93 05 80 02  	addi	a1, zero, 0x28
+   103f2: 05 46        	c.li	a2, 0x1
+   103f4: ef 00 f0 57  	jal	ra, 0x11172 <fwrite>
+   103f8: 08 64        	c.ld	a0, 0x8(s0)
+   103fa: b7 35 02 00  	lui	a1, 0x23
+   103fe: 93 85 95 ca  	addi	a1, a1, -0x357
+   10402: ef 00 b0 40  	jal	ra, 0x1100c <fopen>
+   10406: 2a 8b        	c.mv	s6, a0
+   10408: 01 49        	c.li	s2, 0x0
+   1040a: 37 55 02 00  	lui	a0, 0x25
+   1040e: 93 09 05 0e  	addi	s3, a0, 0xe0
+   10412: 37 35 02 00  	lui	a0, 0x23
+   10416: 93 0b 95 c2  	addi	s7, a0, -0x3d7
+   1041a: 13 0a 40 06  	addi	s4, zero, 0x64
+   1041e: ce 8a        	c.mv	s5, s3
+   10420: 93 05 00 19  	addi	a1, zero, 0x190
+   10424: 4a 85        	c.mv	a0, s2
+   10426: ef 20 61 6f  	jal	ra, 0x22b1c <__muldi3>
+   1042a: 4e 95        	c.add	a0, s3
+   1042c: 13 04 05 19  	addi	s0, a0, 0x190
+   10430: d6 84        	c.mv	s1, s5
+   10432: 70 00        	c.addi4spn	a2, sp, 0xc
+   10434: 7e af        	cm.mva01s	s6, s7
+   10436: ef 00 30 3e  	jal	ra, 0x11018 <fscanf>
+   1043a: 32 45        	c.lwsp	a0, 0xc(sp)
+   1043c: 88 c0        	c.sw	a0, 0x0(s1)
+   1043e: 91 04        	c.addi	s1, 0x4
+   10440: e3 99 84 fe  	bne	s1, s0, 0x10432 <main+0x72>
+   10444: 05 09        	c.addi	s2, 0x1
+   10446: 93 8a 0a 19  	addi	s5, s5, 0x190
+   1044a: e3 1b 49 fd  	bne	s2, s4, 0x10420 <main+0x60>
+   1044e: 01 44        	c.li	s0, 0x0
+   10450: 13 05 20 03  	addi	a0, zero, 0x32
+   10454: 13 09 40 06  	addi	s2, zero, 0x64
+   10458: 93 05 40 06  	addi	a1, zero, 0x64
+   1045c: ef 20 c1 75  	jal	ra, 0x22bb8 <__modsi3>
+   10460: aa 84        	c.mv	s1, a0
+   10462: 66 ac        	cm.mva01s	s0, s1
+   10464: ef f0 9f e3  	jal	ra, 0x1029c <dijkstra>
+   10468: 05 24        	c.addiw	s0, 0x1
+   1046a: 1b 85 14 00  	addiw	a0, s1, 0x1
+   1046e: e3 15 24 ff  	bne	s0, s2, 0x10458 <main+0x98>
+   10472: 01 45        	c.li	a0, 0x0
+   10474: ef f0 df ca  	jal	ra, 0x10120 <exit>

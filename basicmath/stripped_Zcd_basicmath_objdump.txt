@@ -1,0 +1,1053 @@
+00000000000101d8 <main>:
+   101d8: ef c2 50 10  	jal	t0, 0x1cadc <__riscv_save_1>
+   101dc: 75 71        	c.addi16sp	sp, -0x90
+   101de: 00 11        	c.addi4spn	s0, sp, 0xa0
+   101e0: 01 45        	c.li	a0, 0x0
+   101e2: 23 30 a4 f8  	sd	a0, -0x80(s0)
+   101e6: 23 26 a4 fe  	sw	a0, -0x14(s0)
+   101ea: 93 05 f0 3f  	addi	a1, zero, 0x3ff
+   101ee: d2 15        	c.slli	a1, 0x34
+   101f0: 23 30 b4 fe  	sd	a1, -0x20(s0)
+   101f4: b7 55 02 fc  	lui	a1, 0xfc025
+   101f8: 92 15        	c.slli	a1, 0x24
+   101fa: 23 3c b4 fc  	sd	a1, -0x28(s0)
+   101fe: 93 05 10 10  	addi	a1, zero, 0x101
+   10202: da 15        	c.slli	a1, 0x36
+   10204: 23 38 b4 fc  	sd	a1, -0x30(s0)
+   10208: b7 f5 01 fe  	lui	a1, 0xfe01f
+   1020c: 96 15        	c.slli	a1, 0x25
+   1020e: 23 34 b4 fc  	sd	a1, -0x38(s0)
+   10212: b7 05 ed 3f  	lui	a1, 0x3fed0
+   10216: 9b 85 95 16  	addiw	a1, a1, 0x169
+   1021a: 23 3c b4 f8  	sd	a1, -0x68(s0)
+   1021e: 23 34 a4 f8  	sd	a0, -0x78(s0)
+   10222: 37 d5 01 00  	lui	a0, 0x1d
+   10226: 13 05 85 b4  	addi	a0, a0, -0x4b8
+   1022a: ef 20 30 5c  	jal	ra, 0x12fec <printf>
+   1022e: 07 35 04 fe  	fld	fa0, -0x20(s0)
+   10232: 87 35 84 fd  	fld	fa1, -0x28(s0)
+   10236: 07 36 04 fd  	fld	fa2, -0x30(s0)
+   1023a: 87 36 84 fc  	fld	fa3, -0x38(s0)
+   1023e: 13 05 44 fa  	addi	a0, s0, -0x5c
+   10242: 93 05 04 fb  	addi	a1, s0, -0x50
+   10246: ef 00 30 0d  	jal	ra, 0x10b18 <SolveCubic>
+   1024a: 37 d5 01 00  	lui	a0, 0x1d
+   1024e: 13 05 f5 b6  	addi	a0, a0, -0x491
+   10252: ef 20 b0 59  	jal	ra, 0x12fec <printf>
+   10256: 03 35 04 f8  	ld	a0, -0x80(s0)
+   1025a: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   1025e: 6f 00 40 00  	jal	zero, 0x10262 <main+0x8a>
+   10262: 03 25 04 fa  	lw	a0, -0x60(s0)
+   10266: 83 25 44 fa  	lw	a1, -0x5c(s0)
+   1026a: 63 44 b5 00  	blt	a0, a1, 0x10272 <main+0x9a>
+   1026e: 6f 00 60 03  	jal	zero, 0x102a4 <main+0xcc>
+   10272: 6f 00 40 00  	jal	zero, 0x10276 <main+0x9e>
+   10276: 03 25 04 fa  	lw	a0, -0x60(s0)
+   1027a: 93 15 35 00  	slli	a1, a0, 0x3
+   1027e: 13 05 04 fb  	addi	a0, s0, -0x50
+   10282: 2e 95        	c.add	a0, a1
+   10284: 0c 61        	c.ld	a1, 0x0(a0)
+   10286: 37 d5 01 00  	lui	a0, 0x1d
+   1028a: 13 05 a5 b7  	addi	a0, a0, -0x486
+   1028e: ef 20 f0 55  	jal	ra, 0x12fec <printf>
+   10292: 6f 00 40 00  	jal	zero, 0x10296 <main+0xbe>
+   10296: 03 25 04 fa  	lw	a0, -0x60(s0)
+   1029a: 05 25        	c.addiw	a0, 0x1
+   1029c: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   102a0: 6f f0 3f fc  	jal	zero, 0x10262 <main+0x8a>
+   102a4: 37 d5 01 00  	lui	a0, 0x1d
+   102a8: 13 05 e5 be  	addi	a0, a0, -0x412
+   102ac: ef 20 10 54  	jal	ra, 0x12fec <printf>
+   102b0: 13 05 f0 3f  	addi	a0, zero, 0x3ff
+   102b4: 52 15        	c.slli	a0, 0x34
+   102b6: 23 30 a4 fe  	sd	a0, -0x20(s0)
+   102ba: 37 95 00 fe  	lui	a0, 0xfe009
+   102be: 16 15        	c.slli	a0, 0x25
+   102c0: 23 3c a4 fc  	sd	a0, -0x28(s0)
+   102c4: 37 15 03 04  	lui	a0, 0x4031
+   102c8: 12 15        	c.slli	a0, 0x24
+   102ca: 23 38 a4 fc  	sd	a0, -0x30(s0)
+   102ce: 37 f5 01 fe  	lui	a0, 0xfe01f
+   102d2: 16 15        	c.slli	a0, 0x25
+   102d4: 23 34 a4 fc  	sd	a0, -0x38(s0)
+   102d8: 07 35 04 fe  	fld	fa0, -0x20(s0)
+   102dc: 87 35 84 fd  	fld	fa1, -0x28(s0)
+   102e0: 07 36 04 fd  	fld	fa2, -0x30(s0)
+   102e4: 87 36 84 fc  	fld	fa3, -0x38(s0)
+   102e8: 13 05 44 fa  	addi	a0, s0, -0x5c
+   102ec: 93 05 04 fb  	addi	a1, s0, -0x50
+   102f0: ef 00 90 02  	jal	ra, 0x10b18 <SolveCubic>
+   102f4: 37 d5 01 00  	lui	a0, 0x1d
+   102f8: 13 05 f5 b6  	addi	a0, a0, -0x491
+   102fc: ef 20 10 4f  	jal	ra, 0x12fec <printf>
+   10300: 01 45        	c.li	a0, 0x0
+   10302: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   10306: 6f 00 40 00  	jal	zero, 0x1030a <main+0x132>
+   1030a: 03 25 04 fa  	lw	a0, -0x60(s0)
+   1030e: 83 25 44 fa  	lw	a1, -0x5c(s0)
+   10312: 63 44 b5 00  	blt	a0, a1, 0x1031a <main+0x142>
+   10316: 6f 00 60 03  	jal	zero, 0x1034c <main+0x174>
+   1031a: 6f 00 40 00  	jal	zero, 0x1031e <main+0x146>
+   1031e: 03 25 04 fa  	lw	a0, -0x60(s0)
+   10322: 93 15 35 00  	slli	a1, a0, 0x3
+   10326: 13 05 04 fb  	addi	a0, s0, -0x50
+   1032a: 2e 95        	c.add	a0, a1
+   1032c: 0c 61        	c.ld	a1, 0x0(a0)
+   1032e: 37 d5 01 00  	lui	a0, 0x1d
+   10332: 13 05 a5 b7  	addi	a0, a0, -0x486
+   10336: ef 20 70 4b  	jal	ra, 0x12fec <printf>
+   1033a: 6f 00 40 00  	jal	zero, 0x1033e <main+0x166>
+   1033e: 03 25 04 fa  	lw	a0, -0x60(s0)
+   10342: 05 25        	c.addiw	a0, 0x1
+   10344: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   10348: 6f f0 3f fc  	jal	zero, 0x1030a <main+0x132>
+   1034c: 37 d5 01 00  	lui	a0, 0x1d
+   10350: 13 05 e5 be  	addi	a0, a0, -0x412
+   10354: ef 20 90 49  	jal	ra, 0x12fec <printf>
+   10358: 13 05 f0 3f  	addi	a0, zero, 0x3ff
+   1035c: 52 15        	c.slli	a0, 0x34
+   1035e: 23 30 a4 fe  	sd	a0, -0x20(s0)
+   10362: 37 35 00 ff  	lui	a0, 0xff003
+   10366: 1a 15        	c.slli	a0, 0x26
+   10368: 23 3c a4 fc  	sd	a0, -0x28(s0)
+   1036c: 37 b5 01 02  	lui	a0, 0x201b
+   10370: 16 15        	c.slli	a0, 0x25
+   10372: 23 38 a4 fc  	sd	a0, -0x30(s0)
+   10376: 37 f5 03 fc  	lui	a0, 0xfc03f
+   1037a: 12 15        	c.slli	a0, 0x24
+   1037c: 23 34 a4 fc  	sd	a0, -0x38(s0)
+   10380: 07 35 04 fe  	fld	fa0, -0x20(s0)
+   10384: 87 35 84 fd  	fld	fa1, -0x28(s0)
+   10388: 07 36 04 fd  	fld	fa2, -0x30(s0)
+   1038c: 87 36 84 fc  	fld	fa3, -0x38(s0)
+   10390: 13 05 44 fa  	addi	a0, s0, -0x5c
+   10394: 93 05 04 fb  	addi	a1, s0, -0x50
+   10398: ef 00 00 78  	jal	ra, 0x10b18 <SolveCubic>
+   1039c: 37 d5 01 00  	lui	a0, 0x1d
+   103a0: 13 05 f5 b6  	addi	a0, a0, -0x491
+   103a4: ef 20 90 44  	jal	ra, 0x12fec <printf>
+   103a8: 01 45        	c.li	a0, 0x0
+   103aa: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   103ae: 6f 00 40 00  	jal	zero, 0x103b2 <main+0x1da>
+   103b2: 03 25 04 fa  	lw	a0, -0x60(s0)
+   103b6: 83 25 44 fa  	lw	a1, -0x5c(s0)
+   103ba: 63 44 b5 00  	blt	a0, a1, 0x103c2 <main+0x1ea>
+   103be: 6f 00 60 03  	jal	zero, 0x103f4 <main+0x21c>
+   103c2: 6f 00 40 00  	jal	zero, 0x103c6 <main+0x1ee>
+   103c6: 03 25 04 fa  	lw	a0, -0x60(s0)
+   103ca: 93 15 35 00  	slli	a1, a0, 0x3
+   103ce: 13 05 04 fb  	addi	a0, s0, -0x50
+   103d2: 2e 95        	c.add	a0, a1
+   103d4: 0c 61        	c.ld	a1, 0x0(a0)
+   103d6: 37 d5 01 00  	lui	a0, 0x1d
+   103da: 13 05 a5 b7  	addi	a0, a0, -0x486
+   103de: ef 20 f0 40  	jal	ra, 0x12fec <printf>
+   103e2: 6f 00 40 00  	jal	zero, 0x103e6 <main+0x20e>
+   103e6: 03 25 04 fa  	lw	a0, -0x60(s0)
+   103ea: 05 25        	c.addiw	a0, 0x1
+   103ec: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   103f0: 6f f0 3f fc  	jal	zero, 0x103b2 <main+0x1da>
+   103f4: 37 d5 01 00  	lui	a0, 0x1d
+   103f8: 13 05 e5 be  	addi	a0, a0, -0x412
+   103fc: ef 20 10 3f  	jal	ra, 0x12fec <printf>
+   10400: 13 05 f0 3f  	addi	a0, zero, 0x3ff
+   10404: 52 15        	c.slli	a0, 0x34
+   10406: 23 30 a4 fe  	sd	a0, -0x20(s0)
+   1040a: 83 b5 81 11  	ld	a1, 0x118(gp)
+   1040e: 23 3c b4 fc  	sd	a1, -0x28(s0)
+   10412: 23 38 a4 fc  	sd	a0, -0x30(s0)
+   10416: 37 35 08 f8  	lui	a0, 0xf8083
+   1041a: 0e 15        	c.slli	a0, 0x23
+   1041c: 23 34 a4 fc  	sd	a0, -0x38(s0)
+   10420: 07 35 04 fe  	fld	fa0, -0x20(s0)
+   10424: 87 35 84 fd  	fld	fa1, -0x28(s0)
+   10428: 07 36 04 fd  	fld	fa2, -0x30(s0)
+   1042c: 87 36 84 fc  	fld	fa3, -0x38(s0)
+   10430: 13 05 44 fa  	addi	a0, s0, -0x5c
+   10434: 93 05 04 fb  	addi	a1, s0, -0x50
+   10438: ef 00 00 6e  	jal	ra, 0x10b18 <SolveCubic>
+   1043c: 37 d5 01 00  	lui	a0, 0x1d
+   10440: 13 05 f5 b6  	addi	a0, a0, -0x491
+   10444: ef 20 90 3a  	jal	ra, 0x12fec <printf>
+   10448: 01 45        	c.li	a0, 0x0
+   1044a: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   1044e: 6f 00 40 00  	jal	zero, 0x10452 <main+0x27a>
+   10452: 03 25 04 fa  	lw	a0, -0x60(s0)
+   10456: 83 25 44 fa  	lw	a1, -0x5c(s0)
+   1045a: 63 44 b5 00  	blt	a0, a1, 0x10462 <main+0x28a>
+   1045e: 6f 00 60 03  	jal	zero, 0x10494 <main+0x2bc>
+   10462: 6f 00 40 00  	jal	zero, 0x10466 <main+0x28e>
+   10466: 03 25 04 fa  	lw	a0, -0x60(s0)
+   1046a: 93 15 35 00  	slli	a1, a0, 0x3
+   1046e: 13 05 04 fb  	addi	a0, s0, -0x50
+   10472: 2e 95        	c.add	a0, a1
+   10474: 0c 61        	c.ld	a1, 0x0(a0)
+   10476: 37 d5 01 00  	lui	a0, 0x1d
+   1047a: 13 05 a5 b7  	addi	a0, a0, -0x486
+   1047e: ef 20 f0 36  	jal	ra, 0x12fec <printf>
+   10482: 6f 00 40 00  	jal	zero, 0x10486 <main+0x2ae>
+   10486: 03 25 04 fa  	lw	a0, -0x60(s0)
+   1048a: 05 25        	c.addiw	a0, 0x1
+   1048c: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   10490: 6f f0 3f fc  	jal	zero, 0x10452 <main+0x27a>
+   10494: 37 d5 01 00  	lui	a0, 0x1d
+   10498: 13 05 e5 be  	addi	a0, a0, -0x412
+   1049c: ef 20 10 35  	jal	ra, 0x12fec <printf>
+   104a0: 37 15 80 00  	lui	a0, 0x801
+   104a4: 1e 15        	c.slli	a0, 0x27
+   104a6: 23 30 a4 fe  	sd	a0, -0x20(s0)
+   104aa: 03 b5 01 12  	ld	a0, 0x120(gp)
+   104ae: 23 3c a4 fc  	sd	a0, -0x28(s0)
+   104b2: 37 55 00 01  	lui	a0, 0x1005
+   104b6: 1a 15        	c.slli	a0, 0x26
+   104b8: 23 38 a4 fc  	sd	a0, -0x30(s0)
+   104bc: 37 55 80 00  	lui	a0, 0x805
+   104c0: 1e 15        	c.slli	a0, 0x27
+   104c2: 23 34 a4 fc  	sd	a0, -0x38(s0)
+   104c6: 07 35 04 fe  	fld	fa0, -0x20(s0)
+   104ca: 87 35 84 fd  	fld	fa1, -0x28(s0)
+   104ce: 07 36 04 fd  	fld	fa2, -0x30(s0)
+   104d2: 87 36 84 fc  	fld	fa3, -0x38(s0)
+   104d6: 13 05 44 fa  	addi	a0, s0, -0x5c
+   104da: 93 05 04 fb  	addi	a1, s0, -0x50
+   104de: ef 00 a0 63  	jal	ra, 0x10b18 <SolveCubic>
+   104e2: 37 d5 01 00  	lui	a0, 0x1d
+   104e6: 13 05 f5 b6  	addi	a0, a0, -0x491
+   104ea: ef 20 30 30  	jal	ra, 0x12fec <printf>
+   104ee: 01 45        	c.li	a0, 0x0
+   104f0: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   104f4: 6f 00 40 00  	jal	zero, 0x104f8 <main+0x320>
+   104f8: 03 25 04 fa  	lw	a0, -0x60(s0)
+   104fc: 83 25 44 fa  	lw	a1, -0x5c(s0)
+   10500: 63 44 b5 00  	blt	a0, a1, 0x10508 <main+0x330>
+   10504: 6f 00 60 03  	jal	zero, 0x1053a <main+0x362>
+   10508: 6f 00 40 00  	jal	zero, 0x1050c <main+0x334>
+   1050c: 03 25 04 fa  	lw	a0, -0x60(s0)
+   10510: 93 15 35 00  	slli	a1, a0, 0x3
+   10514: 13 05 04 fb  	addi	a0, s0, -0x50
+   10518: 2e 95        	c.add	a0, a1
+   1051a: 0c 61        	c.ld	a1, 0x0(a0)
+   1051c: 37 d5 01 00  	lui	a0, 0x1d
+   10520: 13 05 a5 b7  	addi	a0, a0, -0x486
+   10524: ef 20 90 2c  	jal	ra, 0x12fec <printf>
+   10528: 6f 00 40 00  	jal	zero, 0x1052c <main+0x354>
+   1052c: 03 25 04 fa  	lw	a0, -0x60(s0)
+   10530: 05 25        	c.addiw	a0, 0x1
+   10532: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   10536: 6f f0 3f fc  	jal	zero, 0x104f8 <main+0x320>
+   1053a: 37 d5 01 00  	lui	a0, 0x1d
+   1053e: 13 05 e5 be  	addi	a0, a0, -0x412
+   10542: ef 20 b0 2a  	jal	ra, 0x12fec <printf>
+   10546: 13 05 10 e0  	addi	a0, zero, -0x1ff
+   1054a: 56 15        	c.slli	a0, 0x35
+   1054c: 23 30 a4 fe  	sd	a0, -0x20(s0)
+   10550: 03 b5 81 12  	ld	a0, 0x128(gp)
+   10554: 23 3c a4 fc  	sd	a0, -0x28(s0)
+   10558: 37 35 80 00  	lui	a0, 0x803
+   1055c: 1e 15        	c.slli	a0, 0x27
+   1055e: 23 38 a4 fc  	sd	a0, -0x30(s0)
+   10562: 03 b5 01 13  	ld	a0, 0x130(gp)
+   10566: 23 34 a4 fc  	sd	a0, -0x38(s0)
+   1056a: 07 35 04 fe  	fld	fa0, -0x20(s0)
+   1056e: 87 35 84 fd  	fld	fa1, -0x28(s0)
+   10572: 07 36 04 fd  	fld	fa2, -0x30(s0)
+   10576: 87 36 84 fc  	fld	fa3, -0x38(s0)
+   1057a: 13 05 44 fa  	addi	a0, s0, -0x5c
+   1057e: 93 05 04 fb  	addi	a1, s0, -0x50
+   10582: ef 00 60 59  	jal	ra, 0x10b18 <SolveCubic>
+   10586: 37 d5 01 00  	lui	a0, 0x1d
+   1058a: 13 05 f5 b6  	addi	a0, a0, -0x491
+   1058e: ef 20 f0 25  	jal	ra, 0x12fec <printf>
+   10592: 01 45        	c.li	a0, 0x0
+   10594: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   10598: 6f 00 40 00  	jal	zero, 0x1059c <main+0x3c4>
+   1059c: 03 25 04 fa  	lw	a0, -0x60(s0)
+   105a0: 83 25 44 fa  	lw	a1, -0x5c(s0)
+   105a4: 63 44 b5 00  	blt	a0, a1, 0x105ac <main+0x3d4>
+   105a8: 6f 00 60 03  	jal	zero, 0x105de <main+0x406>
+   105ac: 6f 00 40 00  	jal	zero, 0x105b0 <main+0x3d8>
+   105b0: 03 25 04 fa  	lw	a0, -0x60(s0)
+   105b4: 93 15 35 00  	slli	a1, a0, 0x3
+   105b8: 13 05 04 fb  	addi	a0, s0, -0x50
+   105bc: 2e 95        	c.add	a0, a1
+   105be: 0c 61        	c.ld	a1, 0x0(a0)
+   105c0: 37 d5 01 00  	lui	a0, 0x1d
+   105c4: 13 05 a5 b7  	addi	a0, a0, -0x486
+   105c8: ef 20 50 22  	jal	ra, 0x12fec <printf>
+   105cc: 6f 00 40 00  	jal	zero, 0x105d0 <main+0x3f8>
+   105d0: 03 25 04 fa  	lw	a0, -0x60(s0)
+   105d4: 05 25        	c.addiw	a0, 0x1
+   105d6: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   105da: 6f f0 3f fc  	jal	zero, 0x1059c <main+0x3c4>
+   105de: 37 d5 01 00  	lui	a0, 0x1d
+   105e2: 13 05 e5 be  	addi	a0, a0, -0x412
+   105e6: ef 20 70 20  	jal	ra, 0x12fec <printf>
+   105ea: 37 d5 08 08  	lui	a0, 0x808d
+   105ee: 0e 15        	c.slli	a0, 0x23
+   105f0: 23 30 a4 fe  	sd	a0, -0x20(s0)
+   105f4: 03 b5 81 13  	ld	a0, 0x138(gp)
+   105f8: 23 3c a4 fc  	sd	a0, -0x28(s0)
+   105fc: 37 f5 00 02  	lui	a0, 0x200f
+   10600: 16 15        	c.slli	a0, 0x25
+   10602: 23 38 a4 fc  	sd	a0, -0x30(s0)
+   10606: 37 15 04 04  	lui	a0, 0x4041
+   1060a: 12 15        	c.slli	a0, 0x24
+   1060c: 23 34 a4 fc  	sd	a0, -0x38(s0)
+   10610: 07 35 04 fe  	fld	fa0, -0x20(s0)
+   10614: 87 35 84 fd  	fld	fa1, -0x28(s0)
+   10618: 07 36 04 fd  	fld	fa2, -0x30(s0)
+   1061c: 87 36 84 fc  	fld	fa3, -0x38(s0)
+   10620: 13 05 44 fa  	addi	a0, s0, -0x5c
+   10624: 93 05 04 fb  	addi	a1, s0, -0x50
+   10628: ef 00 00 4f  	jal	ra, 0x10b18 <SolveCubic>
+   1062c: 37 d5 01 00  	lui	a0, 0x1d
+   10630: 13 05 f5 b6  	addi	a0, a0, -0x491
+   10634: ef 20 90 1b  	jal	ra, 0x12fec <printf>
+   10638: 01 45        	c.li	a0, 0x0
+   1063a: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   1063e: 6f 00 40 00  	jal	zero, 0x10642 <main+0x46a>
+   10642: 03 25 04 fa  	lw	a0, -0x60(s0)
+   10646: 83 25 44 fa  	lw	a1, -0x5c(s0)
+   1064a: 63 44 b5 00  	blt	a0, a1, 0x10652 <main+0x47a>
+   1064e: 6f 00 60 03  	jal	zero, 0x10684 <main+0x4ac>
+   10652: 6f 00 40 00  	jal	zero, 0x10656 <main+0x47e>
+   10656: 03 25 04 fa  	lw	a0, -0x60(s0)
+   1065a: 93 15 35 00  	slli	a1, a0, 0x3
+   1065e: 13 05 04 fb  	addi	a0, s0, -0x50
+   10662: 2e 95        	c.add	a0, a1
+   10664: 0c 61        	c.ld	a1, 0x0(a0)
+   10666: 37 d5 01 00  	lui	a0, 0x1d
+   1066a: 13 05 a5 b7  	addi	a0, a0, -0x486
+   1066e: ef 20 f0 17  	jal	ra, 0x12fec <printf>
+   10672: 6f 00 40 00  	jal	zero, 0x10676 <main+0x49e>
+   10676: 03 25 04 fa  	lw	a0, -0x60(s0)
+   1067a: 05 25        	c.addiw	a0, 0x1
+   1067c: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   10680: 6f f0 3f fc  	jal	zero, 0x10642 <main+0x46a>
+   10684: 37 d5 01 00  	lui	a0, 0x1d
+   10688: 13 05 e5 be  	addi	a0, a0, -0x412
+   1068c: ef 20 10 16  	jal	ra, 0x12fec <printf>
+   10690: 13 05 50 80  	addi	a0, zero, -0x7fb
+   10694: 4e 15        	c.slli	a0, 0x33
+   10696: 23 30 a4 fe  	sd	a0, -0x20(s0)
+   1069a: 03 b5 01 14  	ld	a0, 0x140(gp)
+   1069e: 23 3c a4 fc  	sd	a0, -0x28(s0)
+   106a2: 03 b5 81 14  	ld	a0, 0x148(gp)
+   106a6: 23 38 a4 fc  	sd	a0, -0x30(s0)
+   106aa: 13 05 30 40  	addi	a0, zero, 0x403
+   106ae: 52 15        	c.slli	a0, 0x34
+   106b0: 23 34 a4 fc  	sd	a0, -0x38(s0)
+   106b4: 07 35 04 fe  	fld	fa0, -0x20(s0)
+   106b8: 87 35 84 fd  	fld	fa1, -0x28(s0)
+   106bc: 07 36 04 fd  	fld	fa2, -0x30(s0)
+   106c0: 87 36 84 fc  	fld	fa3, -0x38(s0)
+   106c4: 13 05 44 fa  	addi	a0, s0, -0x5c
+   106c8: 93 05 04 fb  	addi	a1, s0, -0x50
+   106cc: ef 00 c0 44  	jal	ra, 0x10b18 <SolveCubic>
+   106d0: 37 d5 01 00  	lui	a0, 0x1d
+   106d4: 13 05 f5 b6  	addi	a0, a0, -0x491
+   106d8: ef 20 50 11  	jal	ra, 0x12fec <printf>
+   106dc: 01 45        	c.li	a0, 0x0
+   106de: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   106e2: 6f 00 40 00  	jal	zero, 0x106e6 <main+0x50e>
+   106e6: 03 25 04 fa  	lw	a0, -0x60(s0)
+   106ea: 83 25 44 fa  	lw	a1, -0x5c(s0)
+   106ee: 63 44 b5 00  	blt	a0, a1, 0x106f6 <main+0x51e>
+   106f2: 6f 00 60 03  	jal	zero, 0x10728 <main+0x550>
+   106f6: 6f 00 40 00  	jal	zero, 0x106fa <main+0x522>
+   106fa: 03 25 04 fa  	lw	a0, -0x60(s0)
+   106fe: 93 15 35 00  	slli	a1, a0, 0x3
+   10702: 13 05 04 fb  	addi	a0, s0, -0x50
+   10706: 2e 95        	c.add	a0, a1
+   10708: 0c 61        	c.ld	a1, 0x0(a0)
+   1070a: 37 d5 01 00  	lui	a0, 0x1d
+   1070e: 13 05 a5 b7  	addi	a0, a0, -0x486
+   10712: ef 20 b0 0d  	jal	ra, 0x12fec <printf>
+   10716: 6f 00 40 00  	jal	zero, 0x1071a <main+0x542>
+   1071a: 03 25 04 fa  	lw	a0, -0x60(s0)
+   1071e: 05 25        	c.addiw	a0, 0x1
+   10720: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   10724: 6f f0 3f fc  	jal	zero, 0x106e6 <main+0x50e>
+   10728: 37 d5 01 00  	lui	a0, 0x1d
+   1072c: 13 05 e5 be  	addi	a0, a0, -0x412
+   10730: ef 20 d0 0b  	jal	ra, 0x12fec <printf>
+   10734: 13 05 f0 3f  	addi	a0, zero, 0x3ff
+   10738: 52 15        	c.slli	a0, 0x34
+   1073a: 23 30 a4 fe  	sd	a0, -0x20(s0)
+   1073e: 6f 00 40 00  	jal	zero, 0x10742 <main+0x56a>
+   10742: 87 37 04 fe  	fld	fa5, -0x20(s0)
+   10746: 07 b7 01 15  	fld	fa4, 0x150(gp)
+   1074a: 53 95 e7 a2  	flt.d	a0, fa5, fa4
+   1074e: 19 e1        	c.bnez	a0, 0x10754 <main+0x57c>
+   10750: 6f 00 40 15  	jal	zero, 0x108a4 <main+0x6cc>
+   10754: 6f 00 40 00  	jal	zero, 0x10758 <main+0x580>
+   10758: 37 95 00 01  	lui	a0, 0x1009
+   1075c: 1a 15        	c.slli	a0, 0x26
+   1075e: 23 3c a4 fc  	sd	a0, -0x28(s0)
+   10762: 6f 00 40 00  	jal	zero, 0x10766 <main+0x58e>
+   10766: 07 37 84 fd  	fld	fa4, -0x28(s0)
+   1076a: d3 07 00 f2  	fmv.d.x	fa5, zero
+   1076e: 53 95 e7 a2  	flt.d	a0, fa5, fa4
+   10772: 19 e1        	c.bnez	a0, 0x10778 <main+0x5a0>
+   10774: 6f 00 80 11  	jal	zero, 0x1088c <main+0x6b4>
+   10778: 6f 00 40 00  	jal	zero, 0x1077c <main+0x5a4>
+   1077c: 37 55 00 01  	lui	a0, 0x1005
+   10780: 1a 15        	c.slli	a0, 0x26
+   10782: 23 38 a4 fc  	sd	a0, -0x30(s0)
+   10786: 6f 00 40 00  	jal	zero, 0x1078a <main+0x5b2>
+   1078a: 87 37 04 fd  	fld	fa5, -0x30(s0)
+   1078e: 07 b7 81 19  	fld	fa4, 0x198(gp)
+   10792: 53 95 e7 a2  	flt.d	a0, fa5, fa4
+   10796: 19 e1        	c.bnez	a0, 0x1079c <main+0x5c4>
+   10798: 6f 00 c0 0d  	jal	zero, 0x10874 <main+0x69c>
+   1079c: 6f 00 40 00  	jal	zero, 0x107a0 <main+0x5c8>
+   107a0: 13 05 f0 bf  	addi	a0, zero, -0x401
+   107a4: 52 15        	c.slli	a0, 0x34
+   107a6: 23 34 a4 fc  	sd	a0, -0x38(s0)
+   107aa: 6f 00 40 00  	jal	zero, 0x107ae <main+0x5d6>
+   107ae: 07 37 84 fc  	fld	fa4, -0x38(s0)
+   107b2: 87 b7 81 1a  	fld	fa5, 0x1a8(gp)
+   107b6: 53 95 e7 a2  	flt.d	a0, fa5, fa4
+   107ba: 19 e1        	c.bnez	a0, 0x107c0 <main+0x5e8>
+   107bc: 6f 00 00 0a  	jal	zero, 0x1085c <main+0x684>
+   107c0: 6f 00 40 00  	jal	zero, 0x107c4 <main+0x5ec>
+   107c4: 07 35 04 fe  	fld	fa0, -0x20(s0)
+   107c8: 87 35 84 fd  	fld	fa1, -0x28(s0)
+   107cc: 07 36 04 fd  	fld	fa2, -0x30(s0)
+   107d0: 87 36 84 fc  	fld	fa3, -0x38(s0)
+   107d4: 13 05 44 fa  	addi	a0, s0, -0x5c
+   107d8: 93 05 04 fb  	addi	a1, s0, -0x50
+   107dc: ef 00 c0 33  	jal	ra, 0x10b18 <SolveCubic>
+   107e0: 37 d5 01 00  	lui	a0, 0x1d
+   107e4: 13 05 f5 b6  	addi	a0, a0, -0x491
+   107e8: ef 20 50 00  	jal	ra, 0x12fec <printf>
+   107ec: 01 45        	c.li	a0, 0x0
+   107ee: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   107f2: 6f 00 40 00  	jal	zero, 0x107f6 <main+0x61e>
+   107f6: 03 25 04 fa  	lw	a0, -0x60(s0)
+   107fa: 83 25 44 fa  	lw	a1, -0x5c(s0)
+   107fe: 63 44 b5 00  	blt	a0, a1, 0x10806 <main+0x62e>
+   10802: 6f 00 60 03  	jal	zero, 0x10838 <main+0x660>
+   10806: 6f 00 40 00  	jal	zero, 0x1080a <main+0x632>
+   1080a: 03 25 04 fa  	lw	a0, -0x60(s0)
+   1080e: 93 15 35 00  	slli	a1, a0, 0x3
+   10812: 13 05 04 fb  	addi	a0, s0, -0x50
+   10816: 2e 95        	c.add	a0, a1
+   10818: 0c 61        	c.ld	a1, 0x0(a0)
+   1081a: 37 d5 01 00  	lui	a0, 0x1d
+   1081e: 13 05 a5 b7  	addi	a0, a0, -0x486
+   10822: ef 20 a0 7c  	jal	ra, 0x12fec <printf>
+   10826: 6f 00 40 00  	jal	zero, 0x1082a <main+0x652>
+   1082a: 03 25 04 fa  	lw	a0, -0x60(s0)
+   1082e: 05 25        	c.addiw	a0, 0x1
+   10830: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   10834: 6f f0 3f fc  	jal	zero, 0x107f6 <main+0x61e>
+   10838: 37 d5 01 00  	lui	a0, 0x1d
+   1083c: 13 05 e5 be  	addi	a0, a0, -0x412
+   10840: ef 20 c0 7a  	jal	ra, 0x12fec <printf>
+   10844: 6f 00 40 00  	jal	zero, 0x10848 <main+0x670>
+   10848: 87 37 84 fc  	fld	fa5, -0x38(s0)
+   1084c: 07 b7 81 1b  	fld	fa4, 0x1b8(gp)
+   10850: d3 f7 e7 02  	fadd.d	fa5, fa5, fa4, dyn
+   10854: 27 34 f4 fc  	fsd	fa5, -0x38(s0)
+   10858: 6f f0 7f f5  	jal	zero, 0x107ae <main+0x5d6>
+   1085c: 6f 00 40 00  	jal	zero, 0x10860 <main+0x688>
+   10860: 87 37 04 fd  	fld	fa5, -0x30(s0)
+   10864: 07 b7 01 1b  	fld	fa4, 0x1b0(gp)
+   10868: d3 f7 e7 02  	fadd.d	fa5, fa5, fa4, dyn
+   1086c: 27 38 f4 fc  	fsd	fa5, -0x30(s0)
+   10870: 6f f0 bf f1  	jal	zero, 0x1078a <main+0x5b2>
+   10874: 6f 00 40 00  	jal	zero, 0x10878 <main+0x6a0>
+   10878: 87 37 84 fd  	fld	fa5, -0x28(s0)
+   1087c: 07 b7 01 1a  	fld	fa4, 0x1a0(gp)
+   10880: d3 f7 e7 02  	fadd.d	fa5, fa5, fa4, dyn
+   10884: 27 3c f4 fc  	fsd	fa5, -0x28(s0)
+   10888: 6f f0 ff ed  	jal	zero, 0x10766 <main+0x58e>
+   1088c: 6f 00 40 00  	jal	zero, 0x10890 <main+0x6b8>
+   10890: 87 37 04 fe  	fld	fa5, -0x20(s0)
+   10894: 07 b7 01 16  	fld	fa4, 0x160(gp)
+   10898: d3 f7 e7 02  	fadd.d	fa5, fa5, fa4, dyn
+   1089c: 27 30 f4 fe  	fsd	fa5, -0x20(s0)
+   108a0: 6f f0 3f ea  	jal	zero, 0x10742 <main+0x56a>
+   108a4: 37 d5 01 00  	lui	a0, 0x1d
+   108a8: 13 05 e5 b7  	addi	a0, a0, -0x482
+   108ac: ef 20 00 74  	jal	ra, 0x12fec <printf>
+   108b0: 01 45        	c.li	a0, 0x0
+   108b2: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   108b6: 6f 00 40 00  	jal	zero, 0x108ba <main+0x6e2>
+   108ba: 83 25 04 fa  	lw	a1, -0x60(s0)
+   108be: 61 65        	c.lui	a0, 0x18
+   108c0: 1b 05 f5 69  	addiw	a0, a0, 0x69f
+   108c4: 63 54 b5 00  	bge	a0, a1, 0x108cc <main+0x6f4>
+   108c8: 6f 00 a0 03  	jal	zero, 0x10902 <main+0x72a>
+   108cc: 6f 00 40 00  	jal	zero, 0x108d0 <main+0x6f8>
+   108d0: 03 25 04 fa  	lw	a0, -0x60(s0)
+   108d4: 93 05 04 f9  	addi	a1, s0, -0x70
+   108d8: ef 00 a0 75  	jal	ra, 0x11032 <usqrt>
+   108dc: 83 25 04 fa  	lw	a1, -0x60(s0)
+   108e0: 03 26 04 f9  	lw	a2, -0x70(s0)
+   108e4: 37 d5 01 00  	lui	a0, 0x1d
+   108e8: 13 05 75 ba  	addi	a0, a0, -0x459
+   108ec: ef 20 00 70  	jal	ra, 0x12fec <printf>
+   108f0: 6f 00 40 00  	jal	zero, 0x108f4 <main+0x71c>
+   108f4: 03 25 04 fa  	lw	a0, -0x60(s0)
+   108f8: 09 25        	c.addiw	a0, 0x2
+   108fa: 23 20 a4 fa  	sw	a0, -0x60(s0)
+   108fe: 6f f0 df fb  	jal	zero, 0x108ba <main+0x6e2>
+   10902: 37 d5 01 00  	lui	a0, 0x1d
+   10906: 13 05 e5 be  	addi	a0, a0, -0x412
+   1090a: ef 20 20 6e  	jal	ra, 0x12fec <printf>
+   1090e: 37 05 ed 3f  	lui	a0, 0x3fed0
+   10912: 1b 05 95 16  	addiw	a0, a0, 0x169
+   10916: 23 3c a4 f8  	sd	a0, -0x68(s0)
+   1091a: 6f 00 40 00  	jal	zero, 0x1091e <main+0x746>
+   1091e: 83 35 84 f9  	ld	a1, -0x68(s0)
+   10922: 37 45 ed 3f  	lui	a0, 0x3fed4
+   10926: 1b 05 85 16  	addiw	a0, a0, 0x168
+   1092a: 63 74 b5 00  	bgeu	a0, a1, 0x10932 <main+0x75a>
+   1092e: 6f 00 a0 03  	jal	zero, 0x10968 <main+0x790>
+   10932: 6f 00 40 00  	jal	zero, 0x10936 <main+0x75e>
+   10936: 03 35 84 f9  	ld	a0, -0x68(s0)
+   1093a: 93 05 04 f9  	addi	a1, s0, -0x70
+   1093e: ef 00 40 6f  	jal	ra, 0x11032 <usqrt>
+   10942: 83 35 84 f9  	ld	a1, -0x68(s0)
+   10946: 03 26 04 f9  	lw	a2, -0x70(s0)
+   1094a: 37 d5 01 00  	lui	a0, 0x1d
+   1094e: 13 05 85 bb  	addi	a0, a0, -0x448
+   10952: ef 20 a0 69  	jal	ra, 0x12fec <printf>
+   10956: 6f 00 40 00  	jal	zero, 0x1095a <main+0x782>
+   1095a: 03 35 84 f9  	ld	a0, -0x68(s0)
+   1095e: 05 05        	c.addi	a0, 0x1
+   10960: 23 3c a4 f8  	sd	a0, -0x68(s0)
+   10964: 6f f0 bf fb  	jal	zero, 0x1091e <main+0x746>
+   10968: 37 d5 01 00  	lui	a0, 0x1d
+   1096c: 13 05 85 bc  	addi	a0, a0, -0x438
+   10970: ef 20 c0 67  	jal	ra, 0x12fec <printf>
+   10974: 01 45        	c.li	a0, 0x0
+   10976: 23 34 a4 fa  	sd	a0, -0x58(s0)
+   1097a: 6f 00 40 00  	jal	zero, 0x1097e <main+0x7a6>
+   1097e: 87 37 84 fa  	fld	fa5, -0x58(s0)
+   10982: 07 b7 81 15  	fld	fa4, 0x158(gp)
+   10986: 53 85 e7 a2  	fle.d	a0, fa5, fa4
+   1098a: 19 e1        	c.bnez	a0, 0x10990 <main+0x7b8>
+   1098c: 6f 00 c0 05  	jal	zero, 0x109e8 <main+0x810>
+   10990: 6f 00 40 00  	jal	zero, 0x10994 <main+0x7bc>
+   10994: 87 37 84 fa  	fld	fa5, -0x58(s0)
+   10998: 27 3c f4 f6  	fsd	fa5, -0x88(s0)
+   1099c: 07 b5 01 16  	fld	fa0, 0x160(gp)
+   109a0: ef 00 30 0b  	jal	ra, 0x11252 <atan>
+   109a4: 87 37 84 f7  	fld	fa5, -0x88(s0)
+   109a8: 07 b7 81 16  	fld	fa4, 0x168(gp)
+   109ac: 53 77 e5 12  	fmul.d	fa4, fa0, fa4, dyn
+   109b0: 53 f7 e7 12  	fmul.d	fa4, fa5, fa4, dyn
+   109b4: 87 b6 01 18  	fld	fa3, 0x180(gp)
+   109b8: 53 77 d7 1a  	fdiv.d	fa4, fa4, fa3, dyn
+   109bc: 53 06 07 e2  	fmv.x.d	a2, fa4
+   109c0: 37 d5 01 00  	lui	a0, 0x1d
+   109c4: 13 05 05 bf  	addi	a0, a0, -0x410
+   109c8: d3 85 07 e2  	fmv.x.d	a1, fa5
+   109cc: ef 20 00 62  	jal	ra, 0x12fec <printf>
+   109d0: 6f 00 40 00  	jal	zero, 0x109d4 <main+0x7fc>
+   109d4: 87 37 84 fa  	fld	fa5, -0x58(s0)
+   109d8: 07 b7 01 19  	fld	fa4, 0x190(gp)
+   109dc: d3 f7 e7 02  	fadd.d	fa5, fa5, fa4, dyn
+   109e0: 27 34 f4 fa  	fsd	fa5, -0x58(s0)
+   109e4: 6f f0 bf f9  	jal	zero, 0x1097e <main+0x7a6>
+   109e8: 37 d5 01 00  	lui	a0, 0x1d
+   109ec: 13 05 f5 be  	addi	a0, a0, -0x411
+   109f0: ef 20 80 6a  	jal	ra, 0x13098 <puts>
+   109f4: 01 45        	c.li	a0, 0x0
+   109f6: 23 34 a4 fa  	sd	a0, -0x58(s0)
+   109fa: 6f 00 40 00  	jal	zero, 0x109fe <main+0x826>
+   109fe: 87 37 84 fa  	fld	fa5, -0x58(s0)
+   10a02: 27 38 f4 f6  	fsd	fa5, -0x90(s0)
+   10a06: 07 b5 01 16  	fld	fa0, 0x160(gp)
+   10a0a: ef 00 90 04  	jal	ra, 0x11252 <atan>
+   10a0e: 87 37 04 f7  	fld	fa5, -0x90(s0)
+   10a12: 07 b7 81 16  	fld	fa4, 0x168(gp)
+   10a16: 53 77 e5 12  	fmul.d	fa4, fa0, fa4, dyn
+   10a1a: 07 b6 01 17  	fld	fa2, 0x170(gp)
+   10a1e: 87 b6 81 17  	fld	fa3, 0x178(gp)
+   10a22: 43 77 d7 62  	fmadd.d	fa4, fa4, fa3, fa2, dyn
+   10a26: 53 85 e7 a2  	fle.d	a0, fa5, fa4
+   10a2a: 19 e1        	c.bnez	a0, 0x10a30 <main+0x858>
+   10a2c: 6f 00 80 07  	jal	zero, 0x10aa4 <main+0x8cc>
+   10a30: 6f 00 40 00  	jal	zero, 0x10a34 <main+0x85c>
+   10a34: 87 37 84 fa  	fld	fa5, -0x58(s0)
+   10a38: 27 34 f4 f6  	fsd	fa5, -0x98(s0)
+   10a3c: 07 b7 01 18  	fld	fa4, 0x180(gp)
+   10a40: d3 f7 e7 12  	fmul.d	fa5, fa5, fa4, dyn
+   10a44: 27 30 f4 f6  	fsd	fa5, -0xa0(s0)
+   10a48: 07 b5 01 16  	fld	fa0, 0x160(gp)
+   10a4c: ef 00 70 00  	jal	ra, 0x11252 <atan>
+   10a50: 07 37 04 f6  	fld	fa4, -0xa0(s0)
+   10a54: 87 37 84 f6  	fld	fa5, -0x98(s0)
+   10a58: 87 b6 81 16  	fld	fa3, 0x168(gp)
+   10a5c: d3 76 d5 12  	fmul.d	fa3, fa0, fa3, dyn
+   10a60: 53 77 d7 1a  	fdiv.d	fa4, fa4, fa3, dyn
+   10a64: 53 06 07 e2  	fmv.x.d	a2, fa4
+   10a68: 37 d5 01 00  	lui	a0, 0x1d
+   10a6c: 13 05 f5 c0  	addi	a0, a0, -0x3f1
+   10a70: d3 85 07 e2  	fmv.x.d	a1, fa5
+   10a74: ef 20 80 57  	jal	ra, 0x12fec <printf>
+   10a78: 6f 00 40 00  	jal	zero, 0x10a7c <main+0x8a4>
+   10a7c: 07 b5 01 16  	fld	fa0, 0x160(gp)
+   10a80: ef 00 20 7d  	jal	ra, 0x11252 <atan>
+   10a84: 87 b7 81 16  	fld	fa5, 0x168(gp)
+   10a88: d3 77 f5 12  	fmul.d	fa5, fa0, fa5, dyn
+   10a8c: 07 b7 81 18  	fld	fa4, 0x188(gp)
+   10a90: 53 f7 e7 1a  	fdiv.d	fa4, fa5, fa4, dyn
+   10a94: 87 37 84 fa  	fld	fa5, -0x58(s0)
+   10a98: d3 f7 e7 02  	fadd.d	fa5, fa5, fa4, dyn
+   10a9c: 27 34 f4 fa  	fsd	fa5, -0x58(s0)
+   10aa0: 6f f0 ff f5  	jal	zero, 0x109fe <main+0x826>
+   10aa4: 01 45        	c.li	a0, 0x0
+   10aa6: 49 61        	c.addi16sp	sp, 0x90
+   10aa8: 6f c0 e0 05  	jal	zero, 0x1cb06 <__riscv_restore_1>
+
+0000000000010aac <rad2deg>:
+   10aac: ef c2 00 03  	jal	t0, 0x1cadc <__riscv_save_1>
+   10ab0: 41 11        	c.addi	sp, -0x10
+   10ab2: 00 10        	c.addi4spn	s0, sp, 0x20
+   10ab4: 27 34 a4 fe  	fsd	fa0, -0x18(s0)
+   10ab8: 87 37 84 fe  	fld	fa5, -0x18(s0)
+   10abc: 07 b7 01 1c  	fld	fa4, 0x1c0(gp)
+   10ac0: d3 f7 e7 12  	fmul.d	fa5, fa5, fa4, dyn
+   10ac4: 27 30 f4 fe  	fsd	fa5, -0x20(s0)
+   10ac8: 07 b5 81 1c  	fld	fa0, 0x1c8(gp)
+   10acc: ef 00 60 78  	jal	ra, 0x11252 <atan>
+   10ad0: 87 37 04 fe  	fld	fa5, -0x20(s0)
+   10ad4: 07 b7 01 1d  	fld	fa4, 0x1d0(gp)
+   10ad8: 53 77 e5 12  	fmul.d	fa4, fa0, fa4, dyn
+   10adc: 53 f5 e7 1a  	fdiv.d	fa0, fa5, fa4, dyn
+   10ae0: 41 01        	c.addi	sp, 0x10
+   10ae2: 6f c0 40 02  	jal	zero, 0x1cb06 <__riscv_restore_1>
+
+0000000000010ae6 <deg2rad>:
+   10ae6: ef b2 70 7f  	jal	t0, 0x1cadc <__riscv_save_1>
+   10aea: 41 11        	c.addi	sp, -0x10
+   10aec: 00 10        	c.addi4spn	s0, sp, 0x20
+   10aee: 27 34 a4 fe  	fsd	fa0, -0x18(s0)
+   10af2: 07 b5 81 1d  	fld	fa0, 0x1d8(gp)
+   10af6: ef 00 c0 75  	jal	ra, 0x11252 <atan>
+   10afa: 87 b7 01 1e  	fld	fa5, 0x1e0(gp)
+   10afe: d3 77 f5 12  	fmul.d	fa5, fa0, fa5, dyn
+   10b02: 07 37 84 fe  	fld	fa4, -0x18(s0)
+   10b06: d3 f7 e7 12  	fmul.d	fa5, fa5, fa4, dyn
+   10b0a: 07 b7 81 1e  	fld	fa4, 0x1e8(gp)
+   10b0e: 53 f5 e7 1a  	fdiv.d	fa0, fa5, fa4, dyn
+   10b12: 41 01        	c.addi	sp, 0x10
+   10b14: 6f b0 30 7f  	jal	zero, 0x1cb06 <__riscv_restore_1>
+
+0000000000010b18 <SolveCubic>:
+   10b18: ef b2 50 7c  	jal	t0, 0x1cadc <__riscv_save_1>
+   10b1c: 13 01 01 dd  	addi	sp, sp, -0x230
+   10b20: 80 04        	c.addi4spn	s0, sp, 0x240
+   10b22: 27 34 a4 fe  	fsd	fa0, -0x18(s0)
+   10b26: 27 30 b4 fe  	fsd	fa1, -0x20(s0)
+   10b2a: 27 3c c4 fc  	fsd	fa2, -0x28(s0)
+   10b2e: 27 38 d4 fc  	fsd	fa3, -0x30(s0)
+   10b32: 23 34 a4 fc  	sd	a0, -0x38(s0)
+   10b36: 23 30 b4 fc  	sd	a1, -0x40(s0)
+   10b3a: 87 37 04 fe  	fld	fa5, -0x20(s0)
+   10b3e: 07 37 84 fe  	fld	fa4, -0x18(s0)
+   10b42: 53 f5 e7 1a  	fdiv.d	fa0, fa5, fa4, dyn
+   10b46: ef b0 50 47  	jal	ra, 0x1c7ba <__extenddftf2>
+   10b4a: 23 3c b4 fa  	sd	a1, -0x48(s0)
+   10b4e: 23 38 a4 fa  	sd	a0, -0x50(s0)
+   10b52: 87 37 84 fd  	fld	fa5, -0x28(s0)
+   10b56: 07 37 84 fe  	fld	fa4, -0x18(s0)
+   10b5a: 53 f5 e7 1a  	fdiv.d	fa0, fa5, fa4, dyn
+   10b5e: ef b0 d0 45  	jal	ra, 0x1c7ba <__extenddftf2>
+   10b62: 23 34 b4 fa  	sd	a1, -0x58(s0)
+   10b66: 23 30 a4 fa  	sd	a0, -0x60(s0)
+   10b6a: 87 37 04 fd  	fld	fa5, -0x30(s0)
+   10b6e: 07 37 84 fe  	fld	fa4, -0x18(s0)
+   10b72: 53 f5 e7 1a  	fdiv.d	fa0, fa5, fa4, dyn
+   10b76: ef b0 50 44  	jal	ra, 0x1c7ba <__extenddftf2>
+   10b7a: 23 3c b4 f8  	sd	a1, -0x68(s0)
+   10b7e: 23 38 a4 f8  	sd	a0, -0x70(s0)
+   10b82: 03 35 04 fb  	ld	a0, -0x50(s0)
+   10b86: 23 30 a4 ec  	sd	a0, -0x140(s0)
+   10b8a: 03 35 84 fb  	ld	a0, -0x48(s0)
+   10b8e: 23 34 a4 ec  	sd	a0, -0x138(s0)
+   10b92: 03 35 04 fa  	ld	a0, -0x60(s0)
+   10b96: 83 35 84 fa  	ld	a1, -0x58(s0)
+   10b9a: 37 16 00 f8  	lui	a2, 0xf8001
+   10b9e: 93 16 36 02  	slli	a3, a2, 0x23
+   10ba2: 01 46        	c.li	a2, 0x0
+   10ba4: 23 34 c4 f2  	sd	a2, -0xd8(s0)
+   10ba8: ef a0 90 4e  	jal	ra, 0x1b890 <__multf3>
+   10bac: 03 36 04 ec  	ld	a2, -0x140(s0)
+   10bb0: 83 36 84 ec  	ld	a3, -0x138(s0)
+   10bb4: 23 38 a4 ec  	sd	a0, -0x130(s0)
+   10bb8: 23 3c b4 ec  	sd	a1, -0x128(s0)
+   10bbc: 32 85        	c.mv	a0, a2
+   10bbe: b6 85        	c.mv	a1, a3
+   10bc0: ef a0 10 4d  	jal	ra, 0x1b890 <__multf3>
+   10bc4: 03 36 04 ed  	ld	a2, -0x130(s0)
+   10bc8: 83 36 84 ed  	ld	a3, -0x128(s0)
+   10bcc: ef 90 10 47  	jal	ra, 0x1a83c <__addtf3>
+   10bd0: 03 36 84 f2  	ld	a2, -0xd8(s0)
+   10bd4: b7 16 01 20  	lui	a3, 0x20011
+   10bd8: 86 16        	c.slli	a3, 0x21
+   10bda: 23 30 d4 ee  	sd	a3, -0x120(s0)
+   10bde: ef a0 60 44  	jal	ra, 0x1b024 <__divtf3>
+   10be2: 23 34 b4 f8  	sd	a1, -0x78(s0)
+   10be6: 23 30 a4 f8  	sd	a0, -0x80(s0)
+   10bea: 03 36 04 fb  	ld	a2, -0x50(s0)
+   10bee: 23 34 c4 ee  	sd	a2, -0x118(s0)
+   10bf2: 83 36 84 fb  	ld	a3, -0x48(s0)
+   10bf6: 23 38 d4 ee  	sd	a3, -0x110(s0)
+   10bfa: 32 85        	c.mv	a0, a2
+   10bfc: b6 85        	c.mv	a1, a3
+   10bfe: ef 90 f0 43  	jal	ra, 0x1a83c <__addtf3>
+   10c02: 03 36 84 ee  	ld	a2, -0x118(s0)
+   10c06: 83 36 04 ef  	ld	a3, -0x110(s0)
+   10c0a: ef a0 70 48  	jal	ra, 0x1b890 <__multf3>
+   10c0e: 83 36 04 ee  	ld	a3, -0x120(s0)
+   10c12: 03 36 84 f2  	ld	a2, -0xd8(s0)
+   10c16: 2a 87        	c.mv	a4, a0
+   10c18: 03 35 84 ee  	ld	a0, -0x118(s0)
+   10c1c: 23 3c e4 ee  	sd	a4, -0x108(s0)
+   10c20: 2e 87        	c.mv	a4, a1
+   10c22: 83 35 04 ef  	ld	a1, -0x110(s0)
+   10c26: 23 30 e4 f0  	sd	a4, -0x100(s0)
+   10c2a: ef a0 70 46  	jal	ra, 0x1b890 <__multf3>
+   10c2e: 03 36 04 fa  	ld	a2, -0x60(s0)
+   10c32: 83 36 84 fa  	ld	a3, -0x58(s0)
+   10c36: ef a0 b0 45  	jal	ra, 0x1b890 <__multf3>
+   10c3a: 03 36 84 ee  	ld	a2, -0x118(s0)
+   10c3e: 83 36 04 ef  	ld	a3, -0x110(s0)
+   10c42: 2a 87        	c.mv	a4, a0
+   10c44: 03 35 84 ef  	ld	a0, -0x108(s0)
+   10c48: 23 34 e4 f0  	sd	a4, -0xf8(s0)
+   10c4c: 2e 87        	c.mv	a4, a1
+   10c4e: 83 35 04 f0  	ld	a1, -0x100(s0)
+   10c52: 23 38 e4 f0  	sd	a4, -0xf0(s0)
+   10c56: ef a0 b0 43  	jal	ra, 0x1b890 <__multf3>
+   10c5a: 03 36 84 f0  	ld	a2, -0xf8(s0)
+   10c5e: 83 36 04 f1  	ld	a3, -0xf0(s0)
+   10c62: ef b0 40 22  	jal	ra, 0x1be86 <__subtf3>
+   10c66: 03 36 84 f2  	ld	a2, -0xd8(s0)
+   10c6a: 23 3c a4 f0  	sd	a0, -0xe8(s0)
+   10c6e: 23 30 b4 f2  	sd	a1, -0xe0(s0)
+   10c72: 03 35 04 f9  	ld	a0, -0x70(s0)
+   10c76: 83 35 84 f9  	ld	a1, -0x68(s0)
+   10c7a: b7 b6 03 40  	lui	a3, 0x4003b
+   10c7e: 82 16        	c.slli	a3, 0x20
+   10c80: ef a0 10 41  	jal	ra, 0x1b890 <__multf3>
+   10c84: 03 36 84 f1  	ld	a2, -0xe8(s0)
+   10c88: 83 36 04 f2  	ld	a3, -0xe0(s0)
+   10c8c: ef 90 10 3b  	jal	ra, 0x1a83c <__addtf3>
+   10c90: 03 36 84 f2  	ld	a2, -0xd8(s0)
+   10c94: b7 b6 04 40  	lui	a3, 0x4004b
+   10c98: 82 16        	c.slli	a3, 0x20
+   10c9a: ef a0 a0 38  	jal	ra, 0x1b024 <__divtf3>
+   10c9e: 23 3c b4 f6  	sd	a1, -0x88(s0)
+   10ca2: 23 38 a4 f6  	sd	a0, -0x90(s0)
+   10ca6: 03 35 04 f7  	ld	a0, -0x90(s0)
+   10caa: 23 30 a4 f4  	sd	a0, -0xc0(s0)
+   10cae: 03 35 84 f7  	ld	a0, -0x88(s0)
+   10cb2: 23 34 a4 f4  	sd	a0, -0xb8(s0)
+   10cb6: 03 36 04 f8  	ld	a2, -0x80(s0)
+   10cba: 23 38 c4 f2  	sd	a2, -0xd0(s0)
+   10cbe: 83 36 84 f8  	ld	a3, -0x78(s0)
+   10cc2: 23 3c d4 f2  	sd	a3, -0xc8(s0)
+   10cc6: 32 85        	c.mv	a0, a2
+   10cc8: b6 85        	c.mv	a1, a3
+   10cca: ef a0 70 3c  	jal	ra, 0x1b890 <__multf3>
+   10cce: 03 36 04 f3  	ld	a2, -0xd0(s0)
+   10cd2: 83 36 84 f3  	ld	a3, -0xc8(s0)
+   10cd6: ef a0 b0 3b  	jal	ra, 0x1b890 <__multf3>
+   10cda: 03 36 04 f4  	ld	a2, -0xc0(s0)
+   10cde: 83 36 84 f4  	ld	a3, -0xb8(s0)
+   10ce2: 23 38 a4 f4  	sd	a0, -0xb0(s0)
+   10ce6: 23 3c b4 f4  	sd	a1, -0xa8(s0)
+   10cea: 32 85        	c.mv	a0, a2
+   10cec: b6 85        	c.mv	a1, a3
+   10cee: ef a0 30 3a  	jal	ra, 0x1b890 <__multf3>
+   10cf2: 03 36 04 f5  	ld	a2, -0xb0(s0)
+   10cf6: 83 36 84 f5  	ld	a3, -0xa8(s0)
+   10cfa: ef b0 c0 18  	jal	ra, 0x1be86 <__subtf3>
+   10cfe: ef b0 d0 37  	jal	ra, 0x1c87a <__trunctfdf2>
+   10d02: 27 34 a4 f6  	fsd	fa0, -0x98(s0)
+   10d06: 87 37 84 f6  	fld	fa5, -0x98(s0)
+   10d0a: 53 07 00 f2  	fmv.d.x	fa4, zero
+   10d0e: 53 85 e7 a2  	fle.d	a0, fa5, fa4
+   10d12: 19 e1        	c.bnez	a0, 0x10d18 <SolveCubic+0x200>
+   10d14: 6f 00 40 21  	jal	zero, 0x10f28 <SolveCubic+0x410>
+   10d18: 6f 00 40 00  	jal	zero, 0x10d1c <SolveCubic+0x204>
+   10d1c: 83 35 84 fc  	ld	a1, -0x38(s0)
+   10d20: 0d 45        	c.li	a0, 0x3
+   10d22: 88 c1        	c.sw	a0, 0x0(a1)
+   10d24: 03 35 84 f7  	ld	a0, -0x88(s0)
+   10d28: 23 38 a4 e2  	sd	a0, -0x1d0(s0)
+   10d2c: 03 35 04 f7  	ld	a0, -0x90(s0)
+   10d30: 23 34 a4 e2  	sd	a0, -0x1d8(s0)
+   10d34: 03 36 04 f8  	ld	a2, -0x80(s0)
+   10d38: 23 3c c4 e0  	sd	a2, -0x1e8(s0)
+   10d3c: 83 36 84 f8  	ld	a3, -0x78(s0)
+   10d40: 23 30 d4 e2  	sd	a3, -0x1e0(s0)
+   10d44: 32 85        	c.mv	a0, a2
+   10d46: b6 85        	c.mv	a1, a3
+   10d48: ef a0 90 34  	jal	ra, 0x1b890 <__multf3>
+   10d4c: 03 36 84 e1  	ld	a2, -0x1e8(s0)
+   10d50: 83 36 04 e2  	ld	a3, -0x1e0(s0)
+   10d54: ef a0 d0 33  	jal	ra, 0x1b890 <__multf3>
+   10d58: ef b0 30 32  	jal	ra, 0x1c87a <__trunctfdf2>
+   10d5c: ef 00 40 4b  	jal	ra, 0x11210 <sqrt>
+   10d60: ef b0 b0 25  	jal	ra, 0x1c7ba <__extenddftf2>
+   10d64: 2a 86        	c.mv	a2, a0
+   10d66: 03 35 84 e2  	ld	a0, -0x1d8(s0)
+   10d6a: ae 86        	c.mv	a3, a1
+   10d6c: 83 35 04 e3  	ld	a1, -0x1d0(s0)
+   10d70: ef a0 40 2b  	jal	ra, 0x1b024 <__divtf3>
+   10d74: ef b0 70 30  	jal	ra, 0x1c87a <__trunctfdf2>
+   10d78: ef 00 c0 37  	jal	ra, 0x110f4 <acos>
+   10d7c: 27 30 a4 f6  	fsd	fa0, -0xa0(s0)
+   10d80: 03 35 04 f8  	ld	a0, -0x80(s0)
+   10d84: 83 35 84 f8  	ld	a1, -0x78(s0)
+   10d88: ef b0 30 2f  	jal	ra, 0x1c87a <__trunctfdf2>
+   10d8c: ef 00 40 48  	jal	ra, 0x11210 <sqrt>
+   10d90: 87 b7 81 1f  	fld	fa5, 0x1f8(gp)
+   10d94: 27 38 f4 e6  	fsd	fa5, -0x190(s0)
+   10d98: d3 77 f5 12  	fmul.d	fa5, fa0, fa5, dyn
+   10d9c: 27 3c f4 e2  	fsd	fa5, -0x1c8(s0)
+   10da0: 87 37 04 f6  	fld	fa5, -0xa0(s0)
+   10da4: 07 b7 01 20  	fld	fa4, 0x200(gp)
+   10da8: 27 38 e4 e8  	fsd	fa4, -0x170(s0)
+   10dac: 53 f5 e7 1a  	fdiv.d	fa0, fa5, fa4, dyn
+   10db0: ef 00 e0 65  	jal	ra, 0x1140e <cos>
+   10db4: 87 37 84 e3  	fld	fa5, -0x1c8(s0)
+   10db8: 53 f5 a7 12  	fmul.d	fa0, fa5, fa0, dyn
+   10dbc: ef b0 f0 1f  	jal	ra, 0x1c7ba <__extenddftf2>
+   10dc0: 23 30 a4 e4  	sd	a0, -0x1c0(s0)
+   10dc4: 23 34 b4 e4  	sd	a1, -0x1b8(s0)
+   10dc8: 03 35 04 fb  	ld	a0, -0x50(s0)
+   10dcc: 83 35 84 fb  	ld	a1, -0x48(s0)
+   10dd0: 37 16 00 08  	lui	a2, 0x8001
+   10dd4: 93 16 36 02  	slli	a3, a2, 0x23
+   10dd8: 23 34 d4 ea  	sd	a3, -0x158(s0)
+   10ddc: 01 46        	c.li	a2, 0x0
+   10dde: 23 30 c4 ea  	sd	a2, -0x160(s0)
+   10de2: ef a0 20 24  	jal	ra, 0x1b024 <__divtf3>
+   10de6: 2a 86        	c.mv	a2, a0
+   10de8: 03 35 04 e4  	ld	a0, -0x1c0(s0)
+   10dec: ae 86        	c.mv	a3, a1
+   10dee: 83 35 84 e4  	ld	a1, -0x1b8(s0)
+   10df2: ef b0 40 09  	jal	ra, 0x1be86 <__subtf3>
+   10df6: ef b0 50 28  	jal	ra, 0x1c87a <__trunctfdf2>
+   10dfa: 03 35 04 fc  	ld	a0, -0x40(s0)
+   10dfe: 08 a1        	c.fsd	fa0, 0x0(a0)
+   10e00: 03 35 04 f8  	ld	a0, -0x80(s0)
+   10e04: 83 35 84 f8  	ld	a1, -0x78(s0)
+   10e08: ef b0 30 27  	jal	ra, 0x1c87a <__trunctfdf2>
+   10e0c: ef 00 40 40  	jal	ra, 0x11210 <sqrt>
+   10e10: 87 37 04 e7  	fld	fa5, -0x190(s0)
+   10e14: d3 77 f5 12  	fmul.d	fa5, fa0, fa5, dyn
+   10e18: 27 3c f4 e4  	fsd	fa5, -0x1a8(s0)
+   10e1c: 87 37 04 f6  	fld	fa5, -0xa0(s0)
+   10e20: 27 38 f4 e4  	fsd	fa5, -0x1b0(s0)
+   10e24: 07 b5 81 20  	fld	fa0, 0x208(gp)
+   10e28: 27 3c a4 e6  	fsd	fa0, -0x188(s0)
+   10e2c: ef 00 60 42  	jal	ra, 0x11252 <atan>
+   10e30: 07 36 04 e5  	fld	fa2, -0x1b0(s0)
+   10e34: 07 37 04 e9  	fld	fa4, -0x170(s0)
+   10e38: 87 b7 01 21  	fld	fa5, 0x210(gp)
+   10e3c: 27 34 f4 e8  	fsd	fa5, -0x178(s0)
+   10e40: d3 77 f5 12  	fmul.d	fa5, fa0, fa5, dyn
+   10e44: 87 b6 81 21  	fld	fa3, 0x218(gp)
+   10e48: c3 f7 d7 62  	fmadd.d	fa5, fa5, fa3, fa2, dyn
+   10e4c: 53 f5 e7 1a  	fdiv.d	fa0, fa5, fa4, dyn
+   10e50: ef 00 e0 5b  	jal	ra, 0x1140e <cos>
+   10e54: 87 37 84 e5  	fld	fa5, -0x1a8(s0)
+   10e58: 53 f5 a7 12  	fmul.d	fa0, fa5, fa0, dyn
+   10e5c: ef b0 f0 15  	jal	ra, 0x1c7ba <__extenddftf2>
+   10e60: 03 36 04 ea  	ld	a2, -0x160(s0)
+   10e64: 83 36 84 ea  	ld	a3, -0x158(s0)
+   10e68: 23 30 a4 e6  	sd	a0, -0x1a0(s0)
+   10e6c: 23 34 b4 e6  	sd	a1, -0x198(s0)
+   10e70: 03 35 04 fb  	ld	a0, -0x50(s0)
+   10e74: 83 35 84 fb  	ld	a1, -0x48(s0)
+   10e78: ef a0 c0 1a  	jal	ra, 0x1b024 <__divtf3>
+   10e7c: 2a 86        	c.mv	a2, a0
+   10e7e: 03 35 04 e6  	ld	a0, -0x1a0(s0)
+   10e82: ae 86        	c.mv	a3, a1
+   10e84: 83 35 84 e6  	ld	a1, -0x198(s0)
+   10e88: ef a0 f0 7f  	jal	ra, 0x1be86 <__subtf3>
+   10e8c: ef b0 f0 1e  	jal	ra, 0x1c87a <__trunctfdf2>
+   10e90: 03 35 04 fc  	ld	a0, -0x40(s0)
+   10e94: 08 a5        	c.fsd	fa0, 0x8(a0)
+   10e96: 03 35 04 f8  	ld	a0, -0x80(s0)
+   10e9a: 83 35 84 f8  	ld	a1, -0x78(s0)
+   10e9e: ef b0 d0 1d  	jal	ra, 0x1c87a <__trunctfdf2>
+   10ea2: ef 00 e0 36  	jal	ra, 0x11210 <sqrt>
+   10ea6: 07 37 04 e7  	fld	fa4, -0x190(s0)
+   10eaa: d3 07 a5 22  	fsgnj.d	fa5, fa0, fa0
+   10eae: 07 35 84 e7  	fld	fa0, -0x188(s0)
+   10eb2: d3 f7 e7 12  	fmul.d	fa5, fa5, fa4, dyn
+   10eb6: 27 3c f4 e8  	fsd	fa5, -0x168(s0)
+   10eba: 87 37 04 f6  	fld	fa5, -0xa0(s0)
+   10ebe: 27 30 f4 e8  	fsd	fa5, -0x180(s0)
+   10ec2: ef 00 00 39  	jal	ra, 0x11252 <atan>
+   10ec6: 07 36 04 e8  	fld	fa2, -0x180(s0)
+   10eca: 87 36 84 e8  	fld	fa3, -0x178(s0)
+   10ece: 07 37 04 e9  	fld	fa4, -0x170(s0)
+   10ed2: d3 77 d5 12  	fmul.d	fa5, fa0, fa3, dyn
+   10ed6: c3 f7 d7 62  	fmadd.d	fa5, fa5, fa3, fa2, dyn
+   10eda: 53 f5 e7 1a  	fdiv.d	fa0, fa5, fa4, dyn
+   10ede: ef 00 00 53  	jal	ra, 0x1140e <cos>
+   10ee2: 87 37 84 e9  	fld	fa5, -0x168(s0)
+   10ee6: 53 f5 a7 12  	fmul.d	fa0, fa5, fa0, dyn
+   10eea: ef b0 10 0d  	jal	ra, 0x1c7ba <__extenddftf2>
+   10eee: 03 36 04 ea  	ld	a2, -0x160(s0)
+   10ef2: 83 36 84 ea  	ld	a3, -0x158(s0)
+   10ef6: 23 38 a4 ea  	sd	a0, -0x150(s0)
+   10efa: 23 3c b4 ea  	sd	a1, -0x148(s0)
+   10efe: 03 35 04 fb  	ld	a0, -0x50(s0)
+   10f02: 83 35 84 fb  	ld	a1, -0x48(s0)
+   10f06: ef a0 e0 11  	jal	ra, 0x1b024 <__divtf3>
+   10f0a: 2a 86        	c.mv	a2, a0
+   10f0c: 03 35 04 eb  	ld	a0, -0x150(s0)
+   10f10: ae 86        	c.mv	a3, a1
+   10f12: 83 35 84 eb  	ld	a1, -0x148(s0)
+   10f16: ef a0 10 77  	jal	ra, 0x1be86 <__subtf3>
+   10f1a: ef b0 10 16  	jal	ra, 0x1c87a <__trunctfdf2>
+   10f1e: 03 35 04 fc  	ld	a0, -0x40(s0)
+   10f22: 08 a9        	c.fsd	fa0, 0x10(a0)
+   10f24: 6f 00 60 10  	jal	zero, 0x1102a <SolveCubic+0x512>
+   10f28: 83 35 84 fc  	ld	a1, -0x38(s0)
+   10f2c: 05 45        	c.li	a0, 0x1
+   10f2e: 88 c1        	c.sw	a0, 0x0(a1)
+   10f30: 07 35 84 f6  	fld	fa0, -0x98(s0)
+   10f34: ef 00 c0 2d  	jal	ra, 0x11210 <sqrt>
+   10f38: 27 34 a4 dc  	fsd	fa0, -0x238(s0)
+   10f3c: 03 35 04 f7  	ld	a0, -0x90(s0)
+   10f40: 83 35 84 f7  	ld	a1, -0x88(s0)
+   10f44: ef b0 70 13  	jal	ra, 0x1c87a <__trunctfdf2>
+   10f48: d3 07 a5 22  	fsgnj.d	fa5, fa0, fa0
+   10f4c: 07 35 84 dc  	fld	fa0, -0x238(s0)
+   10f50: d3 a7 f7 22  	fsgnjx.d	fa5, fa5, fa5
+   10f54: 53 75 f5 02  	fadd.d	fa0, fa0, fa5, dyn
+   10f58: 87 b5 01 1f  	fld	fa1, 0x1f0(gp)
+   10f5c: ef 00 c0 1e  	jal	ra, 0x11148 <pow>
+   10f60: 03 35 04 fc  	ld	a0, -0x40(s0)
+   10f64: 08 a1        	c.fsd	fa0, 0x0(a0)
+   10f66: 03 35 04 f8  	ld	a0, -0x80(s0)
+   10f6a: 23 38 a4 dc  	sd	a0, -0x230(s0)
+   10f6e: 03 35 84 f8  	ld	a0, -0x78(s0)
+   10f72: 23 3c a4 dc  	sd	a0, -0x228(s0)
+   10f76: 03 35 04 fc  	ld	a0, -0x40(s0)
+   10f7a: 23 38 a4 de  	sd	a0, -0x210(s0)
+   10f7e: 08 21        	c.fld	fa0, 0x0(a0)
+   10f80: ef b0 b0 03  	jal	ra, 0x1c7ba <__extenddftf2>
+   10f84: 2a 86        	c.mv	a2, a0
+   10f86: 03 35 04 dd  	ld	a0, -0x230(s0)
+   10f8a: 23 30 c4 de  	sd	a2, -0x220(s0)
+   10f8e: ae 86        	c.mv	a3, a1
+   10f90: 83 35 84 dd  	ld	a1, -0x228(s0)
+   10f94: 23 34 d4 de  	sd	a3, -0x218(s0)
+   10f98: ef a0 c0 08  	jal	ra, 0x1b024 <__divtf3>
+   10f9c: 2a 86        	c.mv	a2, a0
+   10f9e: 03 35 04 de  	ld	a0, -0x220(s0)
+   10fa2: ae 86        	c.mv	a3, a1
+   10fa4: 83 35 84 de  	ld	a1, -0x218(s0)
+   10fa8: ef 90 50 09  	jal	ra, 0x1a83c <__addtf3>
+   10fac: ef b0 f0 0c  	jal	ra, 0x1c87a <__trunctfdf2>
+   10fb0: 03 35 04 df  	ld	a0, -0x210(s0)
+   10fb4: 08 a1        	c.fsd	fa0, 0x0(a0)
+   10fb6: 03 35 04 f7  	ld	a0, -0x90(s0)
+   10fba: 83 35 84 f7  	ld	a1, -0x88(s0)
+   10fbe: 81 46        	c.li	a3, 0x0
+   10fc0: 23 3c d4 de  	sd	a3, -0x208(s0)
+   10fc4: 36 86        	c.mv	a2, a3
+   10fc6: ef a0 d0 02  	jal	ra, 0x1b7f2 <__lttf2>
+   10fca: 03 36 84 df  	ld	a2, -0x208(s0)
+   10fce: 13 25 05 00  	slti	a0, a0, 0x0
+   10fd2: 7d 35        	c.addiw	a0, -0x1
+   10fd4: 13 65 15 00  	ori	a0, a0, 0x1
+   10fd8: 53 07 05 d2  	fcvt.d.w	fa4, a0
+   10fdc: 03 35 04 fc  	ld	a0, -0x40(s0)
+   10fe0: 1c 21        	c.fld	fa5, 0x0(a0)
+   10fe2: d3 f7 e7 12  	fmul.d	fa5, fa5, fa4, dyn
+   10fe6: 1c a1        	c.fsd	fa5, 0x0(a0)
+   10fe8: 03 35 04 fb  	ld	a0, -0x50(s0)
+   10fec: 83 35 84 fb  	ld	a1, -0x48(s0)
+   10ff0: b7 16 00 f8  	lui	a3, 0xf8001
+   10ff4: 8e 16        	c.slli	a3, 0x23
+   10ff6: ef a0 e0 02  	jal	ra, 0x1b024 <__divtf3>
+   10ffa: 23 30 a4 e0  	sd	a0, -0x200(s0)
+   10ffe: 23 34 b4 e0  	sd	a1, -0x1f8(s0)
+   11002: 03 35 04 fc  	ld	a0, -0x40(s0)
+   11006: 23 38 a4 e0  	sd	a0, -0x1f0(s0)
+   1100a: 08 21        	c.fld	fa0, 0x0(a0)
+   1100c: ef b0 e0 7a  	jal	ra, 0x1c7ba <__extenddftf2>
+   11010: 03 36 04 e0  	ld	a2, -0x200(s0)
+   11014: 83 36 84 e0  	ld	a3, -0x1f8(s0)
+   11018: ef 90 50 02  	jal	ra, 0x1a83c <__addtf3>
+   1101c: ef b0 f0 05  	jal	ra, 0x1c87a <__trunctfdf2>
+   11020: 03 35 04 e1  	ld	a0, -0x1f0(s0)
+   11024: 08 a1        	c.fsd	fa0, 0x0(a0)
+   11026: 6f 00 40 00  	jal	zero, 0x1102a <SolveCubic+0x512>
+   1102a: 13 01 01 23  	addi	sp, sp, 0x230
+   1102e: 6f b0 90 2d  	jal	zero, 0x1cb06 <__riscv_restore_1>
+
+0000000000011032 <usqrt>:
+   11032: ef b2 b0 2a  	jal	t0, 0x1cadc <__riscv_save_1>
+   11036: 79 71        	c.addi16sp	sp, -0x30
+   11038: 80 00        	c.addi4spn	s0, sp, 0x40
+   1103a: 23 34 a4 fe  	sd	a0, -0x18(s0)
+   1103e: 23 30 b4 fe  	sd	a1, -0x20(s0)
+   11042: 01 45        	c.li	a0, 0x0
+   11044: 23 3c a4 fc  	sd	a0, -0x28(s0)
+   11048: 23 38 a4 fc  	sd	a0, -0x30(s0)
+   1104c: 23 34 a4 fc  	sd	a0, -0x38(s0)
+   11050: 23 22 a4 fc  	sw	a0, -0x3c(s0)
+   11054: 6f 00 40 00  	jal	zero, 0x11058 <usqrt+0x26>
+   11058: 83 25 44 fc  	lw	a1, -0x3c(s0)
+   1105c: 7d 45        	c.li	a0, 0x1f
+   1105e: 63 54 b5 00  	bge	a0, a1, 0x11066 <usqrt+0x34>
+   11062: 6f 00 c0 07  	jal	zero, 0x110de <usqrt+0xac>
+   11066: 6f 00 40 00  	jal	zero, 0x1106a <usqrt+0x38>
+   1106a: 03 35 04 fd  	ld	a0, -0x30(s0)
+   1106e: 0a 05        	c.slli	a0, 0x2
+   11070: 83 65 84 fe  	lwu	a1, -0x18(s0)
+   11074: f9 81        	c.srli	a1, 0x1e
+   11076: 4d 8d        	c.or	a0, a1
+   11078: 23 38 a4 fc  	sd	a0, -0x30(s0)
+   1107c: 03 35 84 fe  	ld	a0, -0x18(s0)
+   11080: 0a 05        	c.slli	a0, 0x2
+   11082: 23 34 a4 fe  	sd	a0, -0x18(s0)
+   11086: 03 35 84 fd  	ld	a0, -0x28(s0)
+   1108a: 06 05        	c.slli	a0, 0x1
+   1108c: 23 3c a4 fc  	sd	a0, -0x28(s0)
+   11090: 03 35 84 fd  	ld	a0, -0x28(s0)
+   11094: 06 05        	c.slli	a0, 0x1
+   11096: 05 05        	c.addi	a0, 0x1
+   11098: 23 34 a4 fc  	sd	a0, -0x38(s0)
+   1109c: 03 35 04 fd  	ld	a0, -0x30(s0)
+   110a0: 83 35 84 fc  	ld	a1, -0x38(s0)
+   110a4: 63 74 b5 00  	bgeu	a0, a1, 0x110ac <usqrt+0x7a>
+   110a8: 6f 00 40 02  	jal	zero, 0x110cc <usqrt+0x9a>
+   110ac: 6f 00 40 00  	jal	zero, 0x110b0 <usqrt+0x7e>
+   110b0: 83 35 84 fc  	ld	a1, -0x38(s0)
+   110b4: 03 35 04 fd  	ld	a0, -0x30(s0)
+   110b8: 0d 8d        	c.sub	a0, a1
+   110ba: 23 38 a4 fc  	sd	a0, -0x30(s0)
+   110be: 03 35 84 fd  	ld	a0, -0x28(s0)
+   110c2: 05 05        	c.addi	a0, 0x1
+   110c4: 23 3c a4 fc  	sd	a0, -0x28(s0)
+   110c8: 6f 00 40 00  	jal	zero, 0x110cc <usqrt+0x9a>
+   110cc: 6f 00 40 00  	jal	zero, 0x110d0 <usqrt+0x9e>
+   110d0: 03 25 44 fc  	lw	a0, -0x3c(s0)
+   110d4: 05 25        	c.addiw	a0, 0x1
+   110d6: 23 22 a4 fc  	sw	a0, -0x3c(s0)
+   110da: 6f f0 ff f7  	jal	zero, 0x11058 <usqrt+0x26>
+   110de: 83 35 04 fe  	ld	a1, -0x20(s0)
+   110e2: 03 25 c4 fd  	lw	a0, -0x24(s0)
+   110e6: c8 c1        	c.sw	a0, 0x4(a1)
+   110e8: 03 25 84 fd  	lw	a0, -0x28(s0)
+   110ec: 88 c1        	c.sw	a0, 0x0(a1)
+   110ee: 45 61        	c.addi16sp	sp, 0x30
+   110f0: 6f b0 70 21  	jal	zero, 0x1cb06 <__riscv_restore_1>

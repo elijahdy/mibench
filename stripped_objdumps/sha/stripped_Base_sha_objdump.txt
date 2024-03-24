@@ -1,0 +1,374 @@
+00000000000101d8 <main>:
+   101d8: ef 92 30 24  	jal	t0, 0x19c1a <__riscv_save_5>
+   101dc: 13 01 01 f4  	addi	sp, sp, -0xc0
+   101e0: 13 06 20 00  	addi	a2, zero, 0x2
+   101e4: 63 50 c5 02  	bge	a0, a2, 0x10204 <main+0x2c>
+   101e8: 03 b5 01 22  	ld	a0, 0x220(gp)
+   101ec: 83 35 85 00  	ld	a1, 0x8(a0)
+   101f0: 13 05 81 00  	addi	a0, sp, 0x8
+   101f4: ef 00 40 48  	jal	ra, 0x10678 <sha_stream>
+   101f8: 13 05 81 00  	addi	a0, sp, 0x8
+   101fc: ef 00 00 56  	jal	ra, 0x1075c <sha_print>
+   10200: 6f 00 40 07  	jal	zero, 0x10274 <main+0x9c>
+   10204: 93 89 85 00  	addi	s3, a1, 0x8
+   10208: 13 05 e5 ff  	addi	a0, a0, -0x2
+   1020c: 13 15 05 02  	slli	a0, a0, 0x20
+   10210: 13 55 d5 01  	srli	a0, a0, 0x1d
+   10214: 33 05 b5 00  	add	a0, a0, a1
+   10218: 13 0a 05 01  	addi	s4, a0, 0x10
+   1021c: 37 a5 01 00  	lui	a0, 0x1a
+   10220: 13 04 85 ca  	addi	s0, a0, -0x358
+   10224: 37 a5 01 00  	lui	a0, 0x1a
+   10228: 93 04 b5 ca  	addi	s1, a0, -0x355
+   1022c: 03 b5 09 00  	ld	a0, 0x0(s3)
+   10230: 93 05 04 00  	addi	a1, s0, 0x0
+   10234: ef 00 30 33  	jal	ra, 0x10d66 <fopen>
+   10238: 63 04 05 02  	beq	a0, zero, 0x10260 <main+0x88>
+   1023c: 13 09 05 00  	addi	s2, a0, 0x0
+   10240: 13 05 81 00  	addi	a0, sp, 0x8
+   10244: 93 05 09 00  	addi	a1, s2, 0x0
+   10248: ef 00 00 43  	jal	ra, 0x10678 <sha_stream>
+   1024c: 13 05 81 00  	addi	a0, sp, 0x8
+   10250: ef 00 c0 50  	jal	ra, 0x1075c <sha_print>
+   10254: 13 05 09 00  	addi	a0, s2, 0x0
+   10258: ef 00 c0 5c  	jal	ra, 0x10824 <fclose>
+   1025c: 6f 00 00 01  	jal	zero, 0x1026c <main+0x94>
+   10260: 83 b5 09 00  	ld	a1, 0x0(s3)
+   10264: 13 85 04 00  	addi	a0, s1, 0x0
+   10268: ef 00 10 58  	jal	ra, 0x10fe8 <printf>
+   1026c: 93 89 89 00  	addi	s3, s3, 0x8
+   10270: e3 9e 49 fb  	bne	s3, s4, 0x1022c <main+0x54>
+   10274: 13 05 00 00  	addi	a0, zero, 0x0
+   10278: 13 01 01 0c  	addi	sp, sp, 0xc0
+   1027c: 6f 90 90 1d  	jal	zero, 0x19c54 <__riscv_restore_5>
+
+0000000000010280 <sha_init>:
+   10280: b7 25 45 67  	lui	a1, 0x67452
+   10284: 9b 85 15 30  	addiw	a1, a1, 0x301
+   10288: 23 30 b5 00  	sd	a1, 0x0(a0)
+   1028c: b7 05 0f 00  	lui	a1, 0xf0
+   10290: 9b 85 b5 cd  	addiw	a1, a1, -0x325
+   10294: 93 95 c5 00  	slli	a1, a1, 0xc
+   10298: 93 85 95 b8  	addi	a1, a1, -0x477
+   1029c: 23 34 b5 00  	sd	a1, 0x8(a0)
+   102a0: b7 75 5d 4c  	lui	a1, 0x4c5d7
+   102a4: 93 95 15 00  	slli	a1, a1, 0x1
+   102a8: 93 85 e5 cf  	addi	a1, a1, -0x302
+   102ac: 23 38 b5 00  	sd	a1, 0x10(a0)
+   102b0: b7 55 32 10  	lui	a1, 0x10325
+   102b4: 9b 85 65 47  	addiw	a1, a1, 0x476
+   102b8: 23 3c b5 00  	sd	a1, 0x18(a0)
+   102bc: b7 75 e9 61  	lui	a1, 0x61e97
+   102c0: 93 95 15 00  	slli	a1, a1, 0x1
+   102c4: 93 85 05 1f  	addi	a1, a1, 0x1f0
+   102c8: 23 30 b5 02  	sd	a1, 0x20(a0)
+   102cc: 23 34 05 02  	sd	zero, 0x28(a0)
+   102d0: 23 38 05 02  	sd	zero, 0x30(a0)
+   102d4: 67 80 00 00  	jalr	zero, 0x0(ra)
+
+00000000000102d8 <sha_update>:
+   102d8: 13 01 01 fd  	addi	sp, sp, -0x30
+   102dc: 23 34 11 02  	sd	ra, 0x28(sp)
+   102e0: 23 30 81 02  	sd	s0, 0x20(sp)
+   102e4: 23 3c 91 00  	sd	s1, 0x18(sp)
+   102e8: 23 38 21 01  	sd	s2, 0x10(sp)
+   102ec: 23 34 31 01  	sd	s3, 0x8(sp)
+   102f0: 23 30 41 01  	sd	s4, 0x0(sp)
+   102f4: 13 09 05 00  	addi	s2, a0, 0x0
+   102f8: 03 35 85 02  	ld	a0, 0x28(a0)
+   102fc: 93 04 06 00  	addi	s1, a2, 0x0
+   10300: 13 84 05 00  	addi	s0, a1, 0x0
+   10304: 93 15 36 00  	slli	a1, a2, 0x3
+   10308: 13 46 f5 ff  	xori	a2, a0, -0x1
+   1030c: 33 36 b6 00  	sltu	a2, a2, a1
+   10310: 83 36 09 03  	ld	a3, 0x30(s2)
+   10314: 33 05 b5 00  	add	a0, a0, a1
+   10318: 23 34 a9 02  	sd	a0, 0x28(s2)
+   1031c: 13 d5 d4 01  	srli	a0, s1, 0x1d
+   10320: 33 85 a6 00  	add	a0, a3, a0
+   10324: 33 05 c5 00  	add	a0, a0, a2
+   10328: 23 38 a9 02  	sd	a0, 0x30(s2)
+   1032c: 13 05 00 04  	addi	a0, zero, 0x40
+   10330: 93 09 89 03  	addi	s3, s2, 0x38
+   10334: 63 ce a4 02  	blt	s1, a0, 0x10370 <sha_update+0x98>
+   10338: 13 85 04 fc  	addi	a0, s1, -0x40
+   1033c: 9b 55 65 00  	srliw	a1, a0, 0x6
+   10340: 93 95 65 00  	slli	a1, a1, 0x6
+   10344: 93 74 f5 03  	andi	s1, a0, 0x3f
+   10348: b3 85 85 00  	add	a1, a1, s0
+   1034c: 13 8a 05 04  	addi	s4, a1, 0x40
+   10350: 13 06 00 04  	addi	a2, zero, 0x40
+   10354: 13 85 09 00  	addi	a0, s3, 0x0
+   10358: 93 05 04 00  	addi	a1, s0, 0x0
+   1035c: ef 10 20 51  	jal	ra, 0x1186e <memcpy>
+   10360: 13 05 09 00  	addi	a0, s2, 0x0
+   10364: ef 00 80 03  	jal	ra, 0x1039c <sha_transform>
+   10368: 13 04 04 04  	addi	s0, s0, 0x40
+   1036c: e3 12 44 ff  	bne	s0, s4, 0x10350 <sha_update+0x78>
+   10370: 13 85 09 00  	addi	a0, s3, 0x0
+   10374: 93 05 04 00  	addi	a1, s0, 0x0
+   10378: 13 86 04 00  	addi	a2, s1, 0x0
+   1037c: 83 30 81 02  	ld	ra, 0x28(sp)
+   10380: 03 34 01 02  	ld	s0, 0x20(sp)
+   10384: 83 34 81 01  	ld	s1, 0x18(sp)
+   10388: 03 39 01 01  	ld	s2, 0x10(sp)
+   1038c: 83 39 81 00  	ld	s3, 0x8(sp)
+   10390: 03 3a 01 00  	ld	s4, 0x0(sp)
+   10394: 13 01 01 03  	addi	sp, sp, 0x30
+   10398: 6f 10 60 4d  	jal	zero, 0x1186e <memcpy>
+
+000000000001039c <sha_transform>:
+   1039c: ef 92 f0 07  	jal	t0, 0x19c1a <__riscv_save_5>
+   103a0: 13 01 01 d8  	addi	sp, sp, -0x280
+   103a4: 13 04 05 00  	addi	s0, a0, 0x0
+   103a8: 93 04 01 08  	addi	s1, sp, 0x80
+   103ac: 93 05 85 03  	addi	a1, a0, 0x38
+   103b0: 13 05 01 00  	addi	a0, sp, 0x0
+   103b4: 13 06 00 08  	addi	a2, zero, 0x80
+   103b8: ef 10 60 4b  	jal	ra, 0x1186e <memcpy>
+   103bc: 13 05 01 28  	addi	a0, sp, 0x280
+   103c0: 83 b5 84 fe  	ld	a1, -0x18(s1)
+   103c4: 03 b6 04 fc  	ld	a2, -0x40(s1)
+   103c8: 83 b6 04 f9  	ld	a3, -0x70(s1)
+   103cc: 03 b7 04 f8  	ld	a4, -0x80(s1)
+   103d0: b3 45 b6 00  	xor	a1, a2, a1
+   103d4: b3 c6 e6 00  	xor	a3, a3, a4
+   103d8: b3 c5 d5 00  	xor	a1, a1, a3
+   103dc: 23 b0 b4 00  	sd	a1, 0x0(s1)
+   103e0: 93 84 84 00  	addi	s1, s1, 0x8
+   103e4: e3 9e a4 fc  	bne	s1, a0, 0x103c0 <sha_transform+0x24>
+   103e8: 83 37 04 00  	ld	a5, 0x0(s0)
+   103ec: 03 37 84 00  	ld	a4, 0x8(s0)
+   103f0: 83 36 04 01  	ld	a3, 0x10(s0)
+   103f4: 03 36 84 01  	ld	a2, 0x18(s0)
+   103f8: 83 35 04 02  	ld	a1, 0x20(s0)
+   103fc: 93 02 01 00  	addi	t0, sp, 0x0
+   10400: 13 03 01 0a  	addi	t1, sp, 0xa0
+   10404: 37 88 82 5a  	lui	a6, 0x5a828
+   10408: 9b 03 98 99  	addiw	t2, a6, -0x667
+   1040c: 13 8f 05 00  	addi	t5, a1, 0x0
+   10410: 13 09 06 00  	addi	s2, a2, 0x0
+   10414: 93 88 06 00  	addi	a7, a3, 0x0
+   10418: 93 04 07 00  	addi	s1, a4, 0x0
+   1041c: 13 88 07 00  	addi	a6, a5, 0x0
+   10420: 13 0e 08 00  	addi	t3, a6, 0x0
+   10424: 93 8f 08 00  	addi	t6, a7, 0x0
+   10428: 93 0e 09 00  	addi	t4, s2, 0x0
+   1042c: 13 18 58 00  	slli	a6, a6, 0x5
+   10430: 93 58 be 01  	srli	a7, t3, 0x1b
+   10434: 33 68 18 01  	or	a6, a6, a7
+   10438: b3 f8 9f 00  	and	a7, t6, s1
+   1043c: 13 c9 f4 ff  	xori	s2, s1, -0x1
+   10440: 33 f9 2e 01  	and	s2, t4, s2
+   10444: 83 b9 02 00  	ld	s3, 0x0(t0)
+   10448: b3 68 19 01  	or	a7, s2, a7
+   1044c: 33 08 e8 01  	add	a6, a6, t5
+   10450: 33 08 18 01  	add	a6, a6, a7
+   10454: 33 08 38 01  	add	a6, a6, s3
+   10458: 33 08 78 00  	add	a6, a6, t2
+   1045c: 93 98 e4 01  	slli	a7, s1, 0x1e
+   10460: 93 d4 24 00  	srli	s1, s1, 0x2
+   10464: 93 82 82 00  	addi	t0, t0, 0x8
+   10468: b3 e8 98 00  	or	a7, a7, s1
+   1046c: 13 8f 0e 00  	addi	t5, t4, 0x0
+   10470: 13 89 0f 00  	addi	s2, t6, 0x0
+   10474: 93 04 0e 00  	addi	s1, t3, 0x0
+   10478: e3 94 62 fa  	bne	t0, t1, 0x10420 <sha_transform+0x84>
+   1047c: 93 02 01 14  	addi	t0, sp, 0x140
+   10480: b7 f3 d9 6e  	lui	t2, 0x6ed9f
+   10484: 1b 89 13 ba  	addiw	s2, t2, -0x45f
+   10488: 93 03 08 00  	addi	t2, a6, 0x0
+   1048c: 93 84 08 00  	addi	s1, a7, 0x0
+   10490: 13 8f 0f 00  	addi	t5, t6, 0x0
+   10494: 13 18 58 00  	slli	a6, a6, 0x5
+   10498: 93 d8 b3 01  	srli	a7, t2, 0x1b
+   1049c: 33 68 18 01  	or	a6, a6, a7
+   104a0: b3 c8 c4 01  	xor	a7, s1, t3
+   104a4: 83 3f 03 00  	ld	t6, 0x0(t1)
+   104a8: b3 c8 e8 01  	xor	a7, a7, t5
+   104ac: 33 08 18 01  	add	a6, a6, a7
+   104b0: 33 08 d8 01  	add	a6, a6, t4
+   104b4: 33 08 f8 01  	add	a6, a6, t6
+   104b8: 33 08 28 01  	add	a6, a6, s2
+   104bc: 93 18 ee 01  	slli	a7, t3, 0x1e
+   104c0: 13 5e 2e 00  	srli	t3, t3, 0x2
+   104c4: 13 03 83 00  	addi	t1, t1, 0x8
+   104c8: b3 e8 c8 01  	or	a7, a7, t3
+   104cc: 93 0e 0f 00  	addi	t4, t5, 0x0
+   104d0: 93 8f 04 00  	addi	t6, s1, 0x0
+   104d4: 13 8e 03 00  	addi	t3, t2, 0x0
+   104d8: e3 18 53 fa  	bne	t1, t0, 0x10488 <sha_transform+0xec>
+   104dc: 13 03 01 1e  	addi	t1, sp, 0x1e0
+   104e0: 37 fe c6 23  	lui	t3, 0x23c6f
+   104e4: 13 1e 2e 00  	slli	t3, t3, 0x2
+   104e8: 13 09 ce cd  	addi	s2, t3, -0x324
+   104ec: 13 0e 08 00  	addi	t3, a6, 0x0
+   104f0: 93 8f 08 00  	addi	t6, a7, 0x0
+   104f4: 93 8e 04 00  	addi	t4, s1, 0x0
+   104f8: 13 18 58 00  	slli	a6, a6, 0x5
+   104fc: 93 58 be 01  	srli	a7, t3, 0x1b
+   10500: 33 68 18 01  	or	a6, a6, a7
+   10504: b3 e8 f4 01  	or	a7, s1, t6
+   10508: b3 f8 78 00  	and	a7, a7, t2
+   1050c: b3 f4 f4 01  	and	s1, s1, t6
+   10510: 83 b9 02 00  	ld	s3, 0x0(t0)
+   10514: b3 e8 98 00  	or	a7, a7, s1
+   10518: 33 08 e8 01  	add	a6, a6, t5
+   1051c: 33 08 18 01  	add	a6, a6, a7
+   10520: 33 08 38 01  	add	a6, a6, s3
+   10524: 33 08 28 01  	add	a6, a6, s2
+   10528: 93 98 e3 01  	slli	a7, t2, 0x1e
+   1052c: 93 d3 23 00  	srli	t2, t2, 0x2
+   10530: 93 82 82 00  	addi	t0, t0, 0x8
+   10534: b3 e8 78 00  	or	a7, a7, t2
+   10538: 13 8f 0e 00  	addi	t5, t4, 0x0
+   1053c: 93 84 0f 00  	addi	s1, t6, 0x0
+   10540: 93 03 0e 00  	addi	t2, t3, 0x0
+   10544: e3 94 62 fa  	bne	t0, t1, 0x104ec <sha_transform+0x150>
+   10548: b7 b2 98 32  	lui	t0, 0x3298b
+   1054c: 93 92 22 00  	slli	t0, t0, 0x2
+   10550: 93 82 62 1d  	addi	t0, t0, 0x1d6
+   10554: 93 04 08 00  	addi	s1, a6, 0x0
+   10558: 13 8f 08 00  	addi	t5, a7, 0x0
+   1055c: 93 83 0f 00  	addi	t2, t6, 0x0
+   10560: 13 18 58 00  	slli	a6, a6, 0x5
+   10564: 93 d8 b4 01  	srli	a7, s1, 0x1b
+   10568: 33 68 18 01  	or	a6, a6, a7
+   1056c: b3 48 cf 01  	xor	a7, t5, t3
+   10570: 83 3f 03 00  	ld	t6, 0x0(t1)
+   10574: b3 c8 78 00  	xor	a7, a7, t2
+   10578: 33 08 18 01  	add	a6, a6, a7
+   1057c: 33 08 d8 01  	add	a6, a6, t4
+   10580: 33 08 f8 01  	add	a6, a6, t6
+   10584: 33 08 58 00  	add	a6, a6, t0
+   10588: 93 18 ee 01  	slli	a7, t3, 0x1e
+   1058c: 13 5e 2e 00  	srli	t3, t3, 0x2
+   10590: 13 03 83 00  	addi	t1, t1, 0x8
+   10594: b3 e8 c8 01  	or	a7, a7, t3
+   10598: 93 8e 03 00  	addi	t4, t2, 0x0
+   1059c: 93 0f 0f 00  	addi	t6, t5, 0x0
+   105a0: 13 8e 04 00  	addi	t3, s1, 0x0
+   105a4: e3 18 a3 fa  	bne	t1, a0, 0x10554 <sha_transform+0x1b8>
+   105a8: b3 07 f8 00  	add	a5, a6, a5
+   105ac: 23 30 f4 00  	sd	a5, 0x0(s0)
+   105b0: 33 87 e4 00  	add	a4, s1, a4
+   105b4: 23 34 e4 00  	sd	a4, 0x8(s0)
+   105b8: b3 86 d8 00  	add	a3, a7, a3
+   105bc: 23 38 d4 00  	sd	a3, 0x10(s0)
+   105c0: 33 06 cf 00  	add	a2, t5, a2
+   105c4: 23 3c c4 00  	sd	a2, 0x18(s0)
+   105c8: b3 85 b3 00  	add	a1, t2, a1
+   105cc: 23 30 b4 02  	sd	a1, 0x20(s0)
+   105d0: 13 01 01 28  	addi	sp, sp, 0x280
+   105d4: 6f 90 00 68  	jal	zero, 0x19c54 <__riscv_restore_5>
+
+00000000000105d8 <sha_final>:
+   105d8: 13 01 01 fd  	addi	sp, sp, -0x30
+   105dc: 23 34 11 02  	sd	ra, 0x28(sp)
+   105e0: 23 30 81 02  	sd	s0, 0x20(sp)
+   105e4: 23 3c 91 00  	sd	s1, 0x18(sp)
+   105e8: 23 38 21 01  	sd	s2, 0x10(sp)
+   105ec: 23 34 31 01  	sd	s3, 0x8(sp)
+   105f0: 13 04 05 00  	addi	s0, a0, 0x0
+   105f4: 03 39 85 02  	ld	s2, 0x28(a0)
+   105f8: 83 39 05 03  	ld	s3, 0x30(a0)
+   105fc: 93 15 79 03  	slli	a1, s2, 0x37
+   10600: 93 d5 a5 03  	srli	a1, a1, 0x3a
+   10604: 93 04 85 03  	addi	s1, a0, 0x38
+   10608: 33 85 b4 00  	add	a0, s1, a1
+   1060c: 13 06 00 08  	addi	a2, zero, 0x80
+   10610: 23 00 c5 00  	sb	a2, 0x0(a0)
+   10614: 13 06 80 03  	addi	a2, zero, 0x38
+   10618: 13 05 15 00  	addi	a0, a0, 0x1
+   1061c: 63 e2 c5 02  	bltu	a1, a2, 0x10640 <sha_final+0x68>
+   10620: 13 c6 f5 03  	xori	a2, a1, 0x3f
+   10624: 93 05 00 00  	addi	a1, zero, 0x0
+   10628: ef 10 c0 19  	jal	ra, 0x117c4 <memset>
+   1062c: 13 05 04 00  	addi	a0, s0, 0x0
+   10630: ef f0 df d6  	jal	ra, 0x1039c <sha_transform>
+   10634: 13 06 80 03  	addi	a2, zero, 0x38
+   10638: 13 85 04 00  	addi	a0, s1, 0x0
+   1063c: 6f 00 c0 00  	jal	zero, 0x10648 <sha_final+0x70>
+   10640: 13 06 70 03  	addi	a2, zero, 0x37
+   10644: 33 06 b6 40  	sub	a2, a2, a1
+   10648: 93 05 00 00  	addi	a1, zero, 0x0
+   1064c: ef 10 80 17  	jal	ra, 0x117c4 <memset>
+   10650: 23 34 34 0b  	sd	s3, 0xa8(s0)
+   10654: 23 38 24 0b  	sd	s2, 0xb0(s0)
+   10658: 13 05 04 00  	addi	a0, s0, 0x0
+   1065c: 83 30 81 02  	ld	ra, 0x28(sp)
+   10660: 03 34 01 02  	ld	s0, 0x20(sp)
+   10664: 83 34 81 01  	ld	s1, 0x18(sp)
+   10668: 03 39 01 01  	ld	s2, 0x10(sp)
+   1066c: 83 39 81 00  	ld	s3, 0x8(sp)
+   10670: 13 01 01 03  	addi	sp, sp, 0x30
+   10674: 6f f0 9f d2  	jal	zero, 0x1039c <sha_transform>
+
+0000000000010678 <sha_stream>:
+   10678: 13 01 01 81  	addi	sp, sp, -0x7f0
+   1067c: 23 34 11 7e  	sd	ra, 0x7e8(sp)
+   10680: 23 30 81 7e  	sd	s0, 0x7e0(sp)
+   10684: 23 3c 91 7c  	sd	s1, 0x7d8(sp)
+   10688: 37 26 00 00  	lui	a2, 0x2
+   1068c: 1b 06 06 83  	addiw	a2, a2, -0x7d0
+   10690: 33 01 c1 40  	sub	sp, sp, a2
+   10694: 93 84 05 00  	addi	s1, a1, 0x0
+   10698: 13 04 05 00  	addi	s0, a0, 0x0
+   1069c: 37 25 45 67  	lui	a0, 0x67452
+   106a0: 1b 05 15 30  	addiw	a0, a0, 0x301
+   106a4: 23 30 a4 00  	sd	a0, 0x0(s0)
+   106a8: 37 05 0f 00  	lui	a0, 0xf0
+   106ac: 1b 05 b5 cd  	addiw	a0, a0, -0x325
+   106b0: 13 15 c5 00  	slli	a0, a0, 0xc
+   106b4: 13 05 95 b8  	addi	a0, a0, -0x477
+   106b8: 23 34 a4 00  	sd	a0, 0x8(s0)
+   106bc: 37 75 5d 4c  	lui	a0, 0x4c5d7
+   106c0: 13 15 15 00  	slli	a0, a0, 0x1
+   106c4: 13 05 e5 cf  	addi	a0, a0, -0x302
+   106c8: 23 38 a4 00  	sd	a0, 0x10(s0)
+   106cc: 37 55 32 10  	lui	a0, 0x10325
+   106d0: 1b 05 65 47  	addiw	a0, a0, 0x476
+   106d4: 23 3c a4 00  	sd	a0, 0x18(s0)
+   106d8: 37 75 e9 61  	lui	a0, 0x61e97
+   106dc: 13 15 15 00  	slli	a0, a0, 0x1
+   106e0: 13 05 05 1f  	addi	a0, a0, 0x1f0
+   106e4: 23 30 a4 02  	sd	a0, 0x20(s0)
+   106e8: 23 34 04 02  	sd	zero, 0x28(s0)
+   106ec: 23 38 04 02  	sd	zero, 0x30(s0)
+   106f0: 13 05 81 00  	addi	a0, sp, 0x8
+   106f4: 93 05 10 00  	addi	a1, zero, 0x1
+   106f8: 37 26 00 00  	lui	a2, 0x2
+   106fc: 93 86 04 00  	addi	a3, s1, 0x0
+   10700: ef 00 50 02  	jal	ra, 0x10f24 <fread>
+   10704: 9b 05 05 00  	addiw	a1, a0, 0x0
+   10708: 63 58 b0 02  	bge	zero, a1, 0x10738 <sha_stream+0xc0>
+   1070c: 1b 06 05 00  	addiw	a2, a0, 0x0
+   10710: 93 05 81 00  	addi	a1, sp, 0x8
+   10714: 13 05 04 00  	addi	a0, s0, 0x0
+   10718: ef f0 1f bc  	jal	ra, 0x102d8 <sha_update>
+   1071c: 13 05 81 00  	addi	a0, sp, 0x8
+   10720: 93 05 10 00  	addi	a1, zero, 0x1
+   10724: 37 26 00 00  	lui	a2, 0x2
+   10728: 93 86 04 00  	addi	a3, s1, 0x0
+   1072c: ef 00 80 7f  	jal	ra, 0x10f24 <fread>
+   10730: 1b 05 05 00  	addiw	a0, a0, 0x0
+   10734: e3 4c a0 fc  	blt	zero, a0, 0x1070c <sha_stream+0x94>
+   10738: 13 05 04 00  	addi	a0, s0, 0x0
+   1073c: b7 25 00 00  	lui	a1, 0x2
+   10740: 9b 85 05 83  	addiw	a1, a1, -0x7d0
+   10744: 33 01 b1 00  	add	sp, sp, a1
+   10748: 83 30 81 7e  	ld	ra, 0x7e8(sp)
+   1074c: 03 34 01 7e  	ld	s0, 0x7e0(sp)
+   10750: 83 34 81 7d  	ld	s1, 0x7d8(sp)
+   10754: 13 01 01 7f  	addi	sp, sp, 0x7f0
+   10758: 6f f0 1f e8  	jal	zero, 0x105d8 <sha_final>
+
+000000000001075c <sha_print>:
+   1075c: 83 35 05 00  	ld	a1, 0x0(a0)
+   10760: 03 36 85 00  	ld	a2, 0x8(a0)
+   10764: 83 36 05 01  	ld	a3, 0x10(a0)
+   10768: 03 37 85 01  	ld	a4, 0x18(a0)
+   1076c: 83 37 05 02  	ld	a5, 0x20(a0)
+   10770: 37 a5 01 00  	lui	a0, 0x1a
+   10774: 13 05 95 cc  	addi	a0, a0, -0x337
+   10778: 6f 00 10 07  	jal	zero, 0x10fe8 <printf>

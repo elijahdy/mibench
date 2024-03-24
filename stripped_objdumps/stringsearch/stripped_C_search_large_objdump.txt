@@ -1,0 +1,500 @@
+00000000000101da <bmha_init>:
+   101da: ef 92 80 53  	jal	t0, 0x19712 <__riscv_save_3>
+   101de: 2a 89        	c.mv	s2, a0
+   101e0: 23 b8 21 89  	sd	s2, -0x770(gp)
+   101e4: 4a 85        	c.mv	a0, s2
+   101e6: ef 10 70 09  	jal	ra, 0x11a7c <strlen>
+   101ea: 01 4e        	c.li	t3, 0x0
+   101ec: 23 ac a1 88  	sw	a0, -0x768(gp)
+   101f0: 93 15 05 02  	slli	a1, a0, 0x20
+   101f4: 81 91        	c.srli	a1, 0x20
+   101f6: ca 95        	c.add	a1, s2
+   101f8: 93 82 f5 ff  	addi	t0, a1, -0x1
+   101fc: b7 25 02 00  	lui	a1, 0x22
+   10200: 13 83 05 23  	addi	t1, a1, 0x230
+   10204: b7 15 02 00  	lui	a1, 0x21
+   10208: 13 87 85 4b  	addi	a4, a1, 0x4b8
+   1020c: 21 68        	c.lui	a6, 0x8
+   1020e: 7d 18        	c.addi	a6, -0x1
+   10210: 93 08 00 10  	addi	a7, zero, 0x100
+   10214: 01 46        	c.li	a2, 0x0
+   10216: 93 16 2e 00  	slli	a3, t3, 0x2
+   1021a: b3 03 d3 00  	add	t2, t1, a3
+   1021e: 23 a0 a3 00  	sw	a0, 0x0(t2)
+   10222: b3 05 c7 01  	add	a1, a4, t3
+   10226: 16 84        	c.mv	s0, t0
+   10228: b2 84        	c.mv	s1, a2
+   1022a: 29 9e        	c.addw	a2, a0
+   1022c: 63 52 c0 02  	bge	zero, a2, 0x10250 <bmha_init+0x76>
+   10230: 03 46 04 00  	lbu	a2, 0x0(s0)
+   10234: 83 c6 05 00  	lbu	a3, 0x0(a1)
+   10238: 3a 96        	c.add	a2, a4
+   1023a: 83 47 06 00  	lbu	a5, 0x0(a2)
+   1023e: 1b 86 f4 ff  	addiw	a2, s1, -0x1
+   10242: 7d 14        	c.addi	s0, -0x1
+   10244: e3 92 f6 fe  	bne	a3, a5, 0x10228 <bmha_init+0x4e>
+   10248: 93 45 f6 ff  	xori	a1, a2, -0x1
+   1024c: 23 a0 b3 00  	sw	a1, 0x0(t2)
+   10250: 99 e0        	c.bnez	s1, 0x10256 <bmha_init+0x7c>
+   10252: 23 a0 03 01  	sw	a6, 0x0(t2)
+   10256: 05 0e        	c.addi	t3, 0x1
+   10258: e3 1e 1e fb  	bne	t3, a7, 0x10214 <bmha_init+0x3a>
+   1025c: 1b 06 05 00  	addiw	a2, a0, 0x0
+   10260: 89 46        	c.li	a3, 0x2
+   10262: 23 ae a1 88  	sw	a0, -0x764(gp)
+   10266: 63 4f d6 02  	blt	a2, a3, 0x102a4 <bmha_init+0xca>
+   1026a: 7d 35        	c.addiw	a0, -0x1
+   1026c: 33 06 a9 00  	add	a2, s2, a0
+   10270: 83 46 06 00  	lbu	a3, 0x0(a2)
+   10274: 37 16 02 00  	lui	a2, 0x21
+   10278: 13 06 86 4b  	addi	a2, a2, 0x4b8
+   1027c: b2 96        	c.add	a3, a2
+   1027e: 83 c6 06 00  	lbu	a3, 0x0(a3)
+   10282: 13 17 05 02  	slli	a4, a0, 0x20
+   10286: 01 93        	c.srli	a4, 0x20
+   10288: 4a 97        	c.add	a4, s2
+   1028a: 83 47 09 00  	lbu	a5, 0x0(s2)
+   1028e: b2 97        	c.add	a5, a2
+   10290: 83 c7 07 00  	lbu	a5, 0x0(a5)
+   10294: 63 94 d7 00  	bne	a5, a3, 0x1029c <bmha_init+0xc2>
+   10298: 23 ae a1 88  	sw	a0, -0x764(gp)
+   1029c: 05 09        	c.addi	s2, 0x1
+   1029e: 7d 15        	c.addi	a0, -0x1
+   102a0: e3 15 e9 fe  	bne	s2, a4, 0x1028a <bmha_init+0xb0>
+   102a4: 6f 90 40 4a  	jal	zero, 0x19748 <__riscv_restore_3>
+
+00000000000102a8 <bmha_search>:
+   102a8: 03 af 81 89  	lw	t5, -0x768(gp)
+   102ac: 13 c6 f5 ff  	xori	a2, a1, -0x1
+   102b0: bb 07 cf 00  	addw	a5, t5, a2
+   102b4: 63 c4 07 00  	blt	a5, zero, 0x102bc <bmha_search+0x14>
+   102b8: 01 45        	c.li	a0, 0x0
+   102ba: 82 80        	c.jr	ra
+   102bc: ef 92 80 46  	jal	t0, 0x19724 <__riscv_save_1>
+   102c0: b3 0e b5 00  	add	t4, a0, a1
+   102c4: 21 66        	c.lui	a2, 0x8
+   102c6: 7d 16        	c.addi	a2, -0x1
+   102c8: bb 08 b6 40  	subw	a7, a2, a1
+   102cc: 7d 3f        	c.addiw	t5, -0x1
+   102ce: 03 b6 01 89  	ld	a2, -0x770(gp)
+   102d2: 03 a8 c1 89  	lw	a6, -0x764(gp)
+   102d6: 93 16 0f 02  	slli	a3, t5, 0x20
+   102da: 81 92        	c.srli	a3, 0x20
+   102dc: 36 96        	c.add	a2, a3
+   102de: 93 02 f6 ff  	addi	t0, a2, -0x1
+   102e2: 13 46 ff ff  	xori	a2, t5, -0x1
+   102e6: b2 95        	c.add	a1, a2
+   102e8: b6 95        	c.add	a1, a3
+   102ea: 33 03 b5 00  	add	t1, a0, a1
+   102ee: 37 25 02 00  	lui	a0, 0x22
+   102f2: 13 0e 05 23  	addi	t3, a0, 0x230
+   102f6: e1 73        	c.lui	t2, 0xffff8
+   102f8: 85 03        	c.addi	t2, 0x1
+   102fa: 37 15 02 00  	lui	a0, 0x21
+   102fe: 93 05 85 4b  	addi	a1, a0, 0x4b8
+   10302: 33 85 fe 00  	add	a0, t4, a5
+   10306: 03 45 05 00  	lbu	a0, 0x0(a0)
+   1030a: 0a 05        	c.slli	a0, 0x2
+   1030c: 72 95        	c.add	a0, t3
+   1030e: 08 41        	c.lw	a0, 0x0(a0)
+   10310: a9 9f        	c.addw	a5, a0
+   10312: e3 c8 07 fe  	blt	a5, zero, 0x10302 <bmha_search+0x5a>
+   10316: 63 c0 17 05  	blt	a5, a7, 0x10356 <bmha_search+0xae>
+   1031a: bb 8f 77 00  	addw	t6, a5, t2
+   1031e: 3b 85 ef 41  	subw	a0, t6, t5
+   10322: 76 95        	c.add	a0, t4
+   10324: b3 07 f3 01  	add	a5, t1, t6
+   10328: 16 86        	c.mv	a2, t0
+   1032a: 7a 87        	c.mv	a4, t5
+   1032c: 63 56 e0 02  	bge	zero, a4, 0x10358 <bmha_search+0xb0>
+   10330: 83 c6 07 00  	lbu	a3, 0x0(a5)
+   10334: 03 44 06 00  	lbu	s0, 0x0(a2)
+   10338: ae 96        	c.add	a3, a1
+   1033a: 83 c6 06 00  	lbu	a3, 0x0(a3)
+   1033e: 2e 94        	c.add	s0, a1
+   10340: 03 44 04 00  	lbu	s0, 0x0(s0)
+   10344: 7d 37        	c.addiw	a4, -0x1
+   10346: 7d 16        	c.addi	a2, -0x1
+   10348: fd 17        	c.addi	a5, -0x1
+   1034a: e3 81 86 fe  	beq	a3, s0, 0x1032c <bmha_search+0x84>
+   1034e: bb 07 f8 01  	addw	a5, a6, t6
+   10352: e3 c8 07 fa  	blt	a5, zero, 0x10302 <bmha_search+0x5a>
+   10356: 01 45        	c.li	a0, 0x0
+   10358: 6f 90 60 3f  	jal	zero, 0x1974e <__riscv_restore_1>
+   1035c: 09 a0        	c.j	0x1035e <bmha_search+0xb6>
+   1035e: 82 80        	c.jr	ra
+
+0000000000010360 <bmhi_init>:
+   10360: ef 92 20 3b  	jal	t0, 0x19712 <__riscv_save_3>
+   10364: 2a 84        	c.mv	s0, a0
+   10366: ef 10 60 71  	jal	ra, 0x11a7c <strlen>
+   1036a: 03 b6 81 8a  	ld	a2, -0x758(gp)
+   1036e: 23 a0 a1 8a  	sw	a0, -0x760(gp)
+   10372: 9b 05 05 00  	addiw	a1, a0, 0x0
+   10376: 32 85        	c.mv	a0, a2
+   10378: ef 00 b0 26  	jal	ra, 0x10de2 <realloc>
+   1037c: 23 b4 a1 8a  	sd	a0, -0x758(gp)
+   10380: 63 0b 05 10  	beq	a0, zero, 0x10496 <bmhi_init+0x136>
+   10384: 41 65        	c.lui	a0, 0x10
+   10386: 13 05 c5 49  	addi	a0, a0, 0x49c
+   1038a: ef 00 60 42  	jal	ra, 0x107b0 <atexit>
+   1038e: 83 a2 01 8a  	lw	t0, -0x760(gp)
+   10392: 63 5e 50 02  	bge	zero, t0, 0x103ce <bmhi_init+0x6e>
+   10396: 03 b5 81 8a  	ld	a0, -0x758(gp)
+   1039a: b3 05 55 00  	add	a1, a0, t0
+   1039e: 37 06 02 00  	lui	a2, 0x20
+   103a2: 13 06 06 a9  	addi	a2, a2, -0x570
+   103a6: 83 46 04 00  	lbu	a3, 0x0(s0)
+   103aa: 33 07 d6 00  	add	a4, a2, a3
+   103ae: 03 47 17 00  	lbu	a4, 0x1(a4)
+   103b2: 0d 8b        	c.andi	a4, 0x3
+   103b4: 79 17        	c.addi	a4, -0x2
+   103b6: 33 37 e0 00  	sltu	a4, zero, a4
+   103ba: 7d 17        	c.addi	a4, -0x1
+   103bc: 13 77 07 0e  	andi	a4, a4, 0xe0
+   103c0: ba 96        	c.add	a3, a4
+   103c2: 23 00 d5 00  	sb	a3, 0x0(a0)
+   103c6: 05 05        	c.addi	a0, 0x1
+   103c8: 05 04        	c.addi	s0, 0x1
+   103ca: e3 1e b5 fc  	bne	a0, a1, 0x103a6 <bmhi_init+0x46>
+   103ce: 13 85 01 d5  	addi	a0, gp, -0x2b0
+   103d2: 93 05 05 40  	addi	a1, a0, 0x400
+   103d6: 23 20 55 00  	sw	t0, 0x0(a0)
+   103da: 11 05        	c.addi	a0, 0x4
+   103dc: e3 1d b5 fe  	bne	a0, a1, 0x103d6 <bmhi_init+0x76>
+   103e0: 83 b7 81 8a  	ld	a5, -0x758(gp)
+   103e4: 1b 85 f2 ff  	addiw	a0, t0, -0x1
+   103e8: 09 48        	c.li	a6, 0x2
+   103ea: 93 18 05 02  	slli	a7, a0, 0x20
+   103ee: 63 c5 02 05  	blt	t0, a6, 0x10438 <bmhi_init+0xd8>
+   103f2: 93 d6 08 02  	srli	a3, a7, 0x20
+   103f6: 33 83 d7 00  	add	t1, a5, a3
+   103fa: 13 84 01 d5  	addi	s0, gp, -0x2b0
+   103fe: b7 05 02 00  	lui	a1, 0x20
+   10402: 93 83 05 a9  	addi	t2, a1, -0x570
+   10406: be 85        	c.mv	a1, a5
+   10408: 2a 86        	c.mv	a2, a0
+   1040a: 83 c6 05 00  	lbu	a3, 0x0(a1)
+   1040e: 33 87 d3 00  	add	a4, t2, a3
+   10412: 03 47 17 00  	lbu	a4, 0x1(a4)
+   10416: 93 94 26 00  	slli	s1, a3, 0x2
+   1041a: a2 94        	c.add	s1, s0
+   1041c: 90 c0        	c.sw	a2, 0x0(s1)
+   1041e: 0d 8b        	c.andi	a4, 0x3
+   10420: 7d 17        	c.addi	a4, -0x1
+   10422: 13 37 17 00  	sltiu	a4, a4, 0x1
+   10426: 16 07        	c.slli	a4, 0x5
+   10428: ba 96        	c.add	a3, a4
+   1042a: 8a 06        	c.slli	a3, 0x2
+   1042c: a2 96        	c.add	a3, s0
+   1042e: 90 c2        	c.sw	a2, 0x0(a3)
+   10430: 85 05        	c.addi	a1, 0x1
+   10432: 7d 16        	c.addi	a2, -0x1
+   10434: e3 9b 65 fc  	bne	a1, t1, 0x1040a <bmhi_init+0xaa>
+   10438: b3 85 a7 00  	add	a1, a5, a0
+   1043c: 83 c5 05 00  	lbu	a1, 0x0(a1)
+   10440: 13 96 25 00  	slli	a2, a1, 0x2
+   10444: 93 86 01 d5  	addi	a3, gp, -0x2b0
+   10448: 36 96        	c.add	a2, a3
+   1044a: 37 07 02 00  	lui	a4, 0x20
+   1044e: 13 07 07 a9  	addi	a4, a4, -0x570
+   10452: 2e 97        	c.add	a4, a1
+   10454: 03 47 17 00  	lbu	a4, 0x1(a4)
+   10458: a1 64        	c.lui	s1, 0x8
+   1045a: fd 14        	c.addi	s1, -0x1
+   1045c: 04 c2        	c.sw	s1, 0x0(a2)
+   1045e: 0d 8b        	c.andi	a4, 0x3
+   10460: 7d 17        	c.addi	a4, -0x1
+   10462: 13 36 17 00  	sltiu	a2, a4, 0x1
+   10466: 16 06        	c.slli	a2, 0x5
+   10468: 2e 96        	c.add	a2, a1
+   1046a: 0a 06        	c.slli	a2, 0x2
+   1046c: 36 96        	c.add	a2, a3
+   1046e: 04 c2        	c.sw	s1, 0x0(a2)
+   10470: 23 a8 51 8a  	sw	t0, -0x750(gp)
+   10474: 63 cf 02 01  	blt	t0, a6, 0x10492 <bmhi_init+0x132>
+   10478: 93 d6 08 02  	srli	a3, a7, 0x20
+   1047c: be 96        	c.add	a3, a5
+   1047e: 03 c7 07 00  	lbu	a4, 0x0(a5)
+   10482: 63 14 b7 00  	bne	a4, a1, 0x1048a <bmhi_init+0x12a>
+   10486: 23 a8 a1 8a  	sw	a0, -0x750(gp)
+   1048a: 85 07        	c.addi	a5, 0x1
+   1048c: 7d 15        	c.addi	a0, -0x1
+   1048e: e3 98 d7 fe  	bne	a5, a3, 0x1047e <bmhi_init+0x11e>
+   10492: 6f 90 60 2b  	jal	zero, 0x19748 <__riscv_restore_3>
+   10496: 05 45        	c.li	a0, 0x1
+   10498: ef f0 9f c8  	jal	ra, 0x10120 <exit>
+
+000000000001049c <bhmi_cleanup>:
+   1049c: 03 b5 81 8a  	ld	a0, -0x758(gp)
+   104a0: 15 a6        	c.j	0x107c4 <free>
+
+00000000000104a2 <bmhi_search>:
+   104a2: 03 af 01 8a  	lw	t5, -0x760(gp)
+   104a6: 13 c6 f5 ff  	xori	a2, a1, -0x1
+   104aa: bb 07 cf 00  	addw	a5, t5, a2
+   104ae: 63 c4 07 00  	blt	a5, zero, 0x104b6 <bmhi_search+0x14>
+   104b2: 01 45        	c.li	a0, 0x0
+   104b4: 82 80        	c.jr	ra
+   104b6: ef 92 c0 25  	jal	t0, 0x19712 <__riscv_save_3>
+   104ba: b3 0e b5 00  	add	t4, a0, a1
+   104be: 21 66        	c.lui	a2, 0x8
+   104c0: 7d 16        	c.addi	a2, -0x1
+   104c2: bb 08 b6 40  	subw	a7, a2, a1
+   104c6: 7d 3f        	c.addiw	t5, -0x1
+   104c8: 03 b6 81 8a  	ld	a2, -0x758(gp)
+   104cc: 03 a8 01 8b  	lw	a6, -0x750(gp)
+   104d0: 93 16 0f 02  	slli	a3, t5, 0x20
+   104d4: 81 92        	c.srli	a3, 0x20
+   104d6: 36 96        	c.add	a2, a3
+   104d8: 93 02 f6 ff  	addi	t0, a2, -0x1
+   104dc: 13 46 ff ff  	xori	a2, t5, -0x1
+   104e0: b2 95        	c.add	a1, a2
+   104e2: b6 95        	c.add	a1, a3
+   104e4: 33 03 b5 00  	add	t1, a0, a1
+   104e8: 13 8e 01 d5  	addi	t3, gp, -0x2b0
+   104ec: e1 73        	c.lui	t2, 0xffff8
+   104ee: 85 03        	c.addi	t2, 0x1
+   104f0: 37 05 02 00  	lui	a0, 0x20
+   104f4: 93 05 05 a9  	addi	a1, a0, -0x570
+   104f8: 33 85 fe 00  	add	a0, t4, a5
+   104fc: 03 45 05 00  	lbu	a0, 0x0(a0)
+   10500: 0a 05        	c.slli	a0, 0x2
+   10502: 72 95        	c.add	a0, t3
+   10504: 08 41        	c.lw	a0, 0x0(a0)
+   10506: a9 9f        	c.addw	a5, a0
+   10508: e3 c8 07 fe  	blt	a5, zero, 0x104f8 <bmhi_search+0x56>
+   1050c: 63 c5 17 05  	blt	a5, a7, 0x10556 <bmhi_search+0xb4>
+   10510: bb 8f 77 00  	addw	t6, a5, t2
+   10514: 3b 85 ef 41  	subw	a0, t6, t5
+   10518: 76 95        	c.add	a0, t4
+   1051a: b3 07 f3 01  	add	a5, t1, t6
+   1051e: 16 86        	c.mv	a2, t0
+   10520: 7a 87        	c.mv	a4, t5
+   10522: 63 5b e0 02  	bge	zero, a4, 0x10558 <bmhi_search+0xb6>
+   10526: 83 c6 07 00  	lbu	a3, 0x0(a5)
+   1052a: 33 84 d5 00  	add	s0, a1, a3
+   1052e: 03 44 14 00  	lbu	s0, 0x1(s0)
+   10532: 0d 88        	c.andi	s0, 0x3
+   10534: 79 14        	c.addi	s0, -0x2
+   10536: 33 34 80 00  	sltu	s0, zero, s0
+   1053a: 7d 14        	c.addi	s0, -0x1
+   1053c: 01 98        	c.andi	s0, -0x20
+   1053e: 83 44 06 00  	lbu	s1, 0x0(a2)
+   10542: a2 96        	c.add	a3, s0
+   10544: 7d 37        	c.addiw	a4, -0x1
+   10546: 7d 16        	c.addi	a2, -0x1
+   10548: fd 17        	c.addi	a5, -0x1
+   1054a: e3 8c 96 fc  	beq	a3, s1, 0x10522 <bmhi_search+0x80>
+   1054e: bb 07 f8 01  	addw	a5, a6, t6
+   10552: e3 c3 07 fa  	blt	a5, zero, 0x104f8 <bmhi_search+0x56>
+   10556: 01 45        	c.li	a0, 0x0
+   10558: 6f 90 00 1f  	jal	zero, 0x19748 <__riscv_restore_3>
+   1055c: 09 a0        	c.j	0x1055e <bmhi_search+0xbc>
+   1055e: 82 80        	c.jr	ra
+
+0000000000010560 <bmh_init>:
+   10560: ef 92 20 1b  	jal	t0, 0x19712 <__riscv_save_3>
+   10564: aa 84        	c.mv	s1, a0
+   10566: 23 bc 91 8a  	sd	s1, -0x748(gp)
+   1056a: 26 85        	c.mv	a0, s1
+   1056c: ef 10 00 51  	jal	ra, 0x11a7c <strlen>
+   10570: 23 a0 a1 8c  	sw	a0, -0x740(gp)
+   10574: 93 85 01 15  	addi	a1, gp, 0x150
+   10578: 13 86 05 40  	addi	a2, a1, 0x400
+   1057c: 88 c1        	c.sw	a0, 0x0(a1)
+   1057e: 91 05        	c.addi	a1, 0x4
+   10580: e3 9e c5 fe  	bne	a1, a2, 0x1057c <bmh_init+0x1c>
+   10584: 1b 06 05 00  	addiw	a2, a0, 0x0
+   10588: fd 55        	c.li	a1, -0x1
+   1058a: 13 d8 05 02  	srli	a6, a1, 0x20
+   1058e: 63 53 c0 02  	bge	zero, a2, 0x105b4 <bmh_init+0x54>
+   10592: 33 77 05 01  	and	a4, a0, a6
+   10596: 93 06 f5 ff  	addi	a3, a0, -0x1
+   1059a: 26 97        	c.add	a4, s1
+   1059c: 93 87 01 15  	addi	a5, gp, 0x150
+   105a0: 26 84        	c.mv	s0, s1
+   105a2: 83 45 04 00  	lbu	a1, 0x0(s0)
+   105a6: 8a 05        	c.slli	a1, 0x2
+   105a8: be 95        	c.add	a1, a5
+   105aa: 94 c1        	c.sw	a3, 0x0(a1)
+   105ac: 05 04        	c.addi	s0, 0x1
+   105ae: fd 16        	c.addi	a3, -0x1
+   105b0: e3 19 e4 fe  	bne	s0, a4, 0x105a2 <bmh_init+0x42>
+   105b4: b3 85 c4 00  	add	a1, s1, a2
+   105b8: 83 c6 f5 ff  	lbu	a3, -0x1(a1)
+   105bc: 93 95 26 00  	slli	a1, a3, 0x2
+   105c0: 13 87 01 15  	addi	a4, gp, 0x150
+   105c4: ba 95        	c.add	a1, a4
+   105c6: 21 67        	c.lui	a4, 0x8
+   105c8: 7d 17        	c.addi	a4, -0x1
+   105ca: 98 c1        	c.sw	a4, 0x0(a1)
+   105cc: 89 45        	c.li	a1, 0x2
+   105ce: 23 a2 a1 8c  	sw	a0, -0x73c(gp)
+   105d2: 63 42 b6 02  	blt	a2, a1, 0x105f6 <bmh_init+0x96>
+   105d6: 13 06 f5 ff  	addi	a2, a0, -0x1
+   105da: 42 95        	c.add	a0, a6
+   105dc: 33 75 05 01  	and	a0, a0, a6
+   105e0: 26 95        	c.add	a0, s1
+   105e2: 83 c5 04 00  	lbu	a1, 0x0(s1)
+   105e6: 63 94 d5 00  	bne	a1, a3, 0x105ee <bmh_init+0x8e>
+   105ea: 23 a2 c1 8c  	sw	a2, -0x73c(gp)
+   105ee: 85 04        	c.addi	s1, 0x1
+   105f0: 7d 16        	c.addi	a2, -0x1
+   105f2: e3 98 a4 fe  	bne	s1, a0, 0x105e2 <bmh_init+0x82>
+   105f6: 6f 90 20 15  	jal	zero, 0x19748 <__riscv_restore_3>
+
+00000000000105fa <bmh_search>:
+   105fa: 03 a6 01 8c  	lw	a2, -0x740(gp)
+   105fe: 93 c7 f5 ff  	xori	a5, a1, -0x1
+   10602: b1 9f        	c.addw	a5, a2
+   10604: 63 c4 07 00  	blt	a5, zero, 0x1060c <bmh_search+0x12>
+   10608: 01 45        	c.li	a0, 0x0
+   1060a: 82 80        	c.jr	ra
+   1060c: b3 0e b5 00  	add	t4, a0, a1
+   10610: a1 66        	c.lui	a3, 0x8
+   10612: fd 16        	c.addi	a3, -0x1
+   10614: bb 88 b6 40  	subw	a7, a3, a1
+   10618: 1b 0f f6 ff  	addiw	t5, a2, -0x1
+   1061c: 83 b6 81 8b  	ld	a3, -0x748(gp)
+   10620: 03 a8 41 8c  	lw	a6, -0x73c(gp)
+   10624: 13 17 0f 02  	slli	a4, t5, 0x20
+   10628: 01 93        	c.srli	a4, 0x20
+   1062a: ba 96        	c.add	a3, a4
+   1062c: 93 82 f6 ff  	addi	t0, a3, -0x1
+   10630: 93 46 ff ff  	xori	a3, t5, -0x1
+   10634: b6 95        	c.add	a1, a3
+   10636: ba 95        	c.add	a1, a4
+   10638: 33 03 b5 00  	add	t1, a0, a1
+   1063c: 13 8e 01 15  	addi	t3, gp, 0x150
+   10640: e1 73        	c.lui	t2, 0xffff8
+   10642: 85 03        	c.addi	t2, 0x1
+   10644: 33 85 fe 00  	add	a0, t4, a5
+   10648: 03 45 05 00  	lbu	a0, 0x0(a0)
+   1064c: 0a 05        	c.slli	a0, 0x2
+   1064e: 72 95        	c.add	a0, t3
+   10650: 08 41        	c.lw	a0, 0x0(a0)
+   10652: a9 9f        	c.addw	a5, a0
+   10654: e3 c8 07 fe  	blt	a5, zero, 0x10644 <bmh_search+0x4a>
+   10658: e3 c8 17 fb  	blt	a5, a7, 0x10608 <bmh_search+0xe>
+   1065c: bb 8f 77 00  	addw	t6, a5, t2
+   10660: 3b 85 ef 41  	subw	a0, t6, t5
+   10664: 76 95        	c.add	a0, t4
+   10666: b3 07 f3 01  	add	a5, t1, t6
+   1066a: 96 86        	c.mv	a3, t0
+   1066c: 7a 87        	c.mv	a4, t5
+   1066e: e3 5e e0 f8  	bge	zero, a4, 0x1060a <bmh_search+0x10>
+   10672: 03 c6 07 00  	lbu	a2, 0x0(a5)
+   10676: 83 c5 06 00  	lbu	a1, 0x0(a3)
+   1067a: 7d 37        	c.addiw	a4, -0x1
+   1067c: fd 16        	c.addi	a3, -0x1
+   1067e: fd 17        	c.addi	a5, -0x1
+   10680: e3 07 b6 fe  	beq	a2, a1, 0x1066e <bmh_search+0x74>
+   10684: bb 07 f8 01  	addw	a5, a6, t6
+   10688: e3 ce 07 fa  	blt	a5, zero, 0x10644 <bmh_search+0x4a>
+   1068c: b5 bf        	c.j	0x10608 <bmh_search+0xe>
+
+000000000001068e <init_search>:
+   1068e: ef 92 60 09  	jal	t0, 0x19724 <__riscv_save_1>
+   10692: 2a 84        	c.mv	s0, a0
+   10694: ef 10 80 3e  	jal	ra, 0x11a7c <strlen>
+   10698: 23 b4 a1 8c  	sd	a0, -0x738(gp)
+   1069c: b7 35 02 00  	lui	a1, 0x23
+   106a0: 93 85 05 e3  	addi	a1, a1, -0x1d0
+   106a4: 13 86 f5 7f  	addi	a2, a1, 0x7ff
+   106a8: 05 06        	c.addi	a2, 0x1
+   106aa: 88 e1        	c.sd	a0, 0x0(a1)
+   106ac: a1 05        	c.addi	a1, 0x8
+   106ae: e3 9e c5 fe  	bne	a1, a2, 0x106aa <init_search+0x1c>
+   106b2: 0d c1        	c.beqz	a0, 0x106d4 <init_search+0x46>
+   106b4: 7d 15        	c.addi	a0, -0x1
+   106b6: b7 35 02 00  	lui	a1, 0x23
+   106ba: 93 85 05 e3  	addi	a1, a1, -0x1d0
+   106be: 7d 56        	c.li	a2, -0x1
+   106c0: a2 86        	c.mv	a3, s0
+   106c2: 03 c7 06 00  	lbu	a4, 0x0(a3)
+   106c6: 0e 07        	c.slli	a4, 0x3
+   106c8: 2e 97        	c.add	a4, a1
+   106ca: 08 e3        	c.sd	a0, 0x0(a4)
+   106cc: 7d 15        	c.addi	a0, -0x1
+   106ce: 85 06        	c.addi	a3, 0x1
+   106d0: e3 19 c5 fe  	bne	a0, a2, 0x106c2 <init_search+0x34>
+   106d4: 23 b8 81 8c  	sd	s0, -0x730(gp)
+   106d8: 6f 90 60 07  	jal	zero, 0x1974e <__riscv_restore_1>
+
+00000000000106dc <strsearch>:
+   106dc: ef 92 80 01  	jal	t0, 0x196f4 <__riscv_save_9>
+   106e0: 03 b9 81 8c  	ld	s2, -0x738(gp)
+   106e4: 2a 8a        	c.mv	s4, a0
+   106e6: 13 04 f9 ff  	addi	s0, s2, -0x1
+   106ea: ef 10 20 39  	jal	ra, 0x11a7c <strlen>
+   106ee: 63 75 a4 04  	bgeu	s0, a0, 0x10738 <strsearch+0x5c>
+   106f2: aa 8a        	c.mv	s5, a0
+   106f4: 83 b9 01 8d  	ld	s3, -0x730(gp)
+   106f8: 13 0b 1a 00  	addi	s6, s4, 0x1
+   106fc: 37 35 02 00  	lui	a0, 0x23
+   10700: 93 0b 05 e3  	addi	s7, a0, -0x1d0
+   10704: 33 05 8a 00  	add	a0, s4, s0
+   10708: 03 45 05 00  	lbu	a0, 0x0(a0)
+   1070c: 0e 05        	c.slli	a0, 0x3
+   1070e: 5e 95        	c.add	a0, s7
+   10710: 08 61        	c.ld	a0, 0x0(a0)
+   10712: 19 c5        	c.beqz	a0, 0x10720 <strsearch+0x44>
+   10714: 2a 94        	c.add	s0, a0
+   10716: e3 67 54 ff  	bltu	s0, s5, 0x10704 <strsearch+0x28>
+   1071a: e3 65 54 ff  	bltu	s0, s5, 0x10704 <strsearch+0x28>
+   1071e: 29 a8        	c.j	0x10738 <strsearch+0x5c>
+   10720: b3 04 24 41  	sub	s1, s0, s2
+   10724: da 94        	c.add	s1, s6
+   10726: 4e 85        	c.mv	a0, s3
+   10728: a6 85        	c.mv	a1, s1
+   1072a: 4a 86        	c.mv	a2, s2
+   1072c: ef 00 10 72  	jal	ra, 0x1164c <strncmp>
+   10730: 09 c5        	c.beqz	a0, 0x1073a <strsearch+0x5e>
+   10732: 05 04        	c.addi	s0, 0x1
+   10734: e3 68 54 fd  	bltu	s0, s5, 0x10704 <strsearch+0x28>
+   10738: 81 44        	c.li	s1, 0x0
+   1073a: 26 85        	c.mv	a0, s1
+   1073c: 6f 80 b0 7f  	jal	zero, 0x19736 <__riscv_restore_9>
+
+0000000000010740 <main>:
+   10740: ef 82 50 7b  	jal	t0, 0x196f4 <__riscv_save_9>
+   10744: 65 65        	c.lui	a0, 0x19
+   10746: 93 04 85 79  	addi	s1, a0, 0x798
+   1074a: 75 65        	c.lui	a0, 0x1d
+   1074c: 93 0a 05 0f  	addi	s5, a0, 0xf0
+   10750: 69 65        	c.lui	a0, 0x1a
+   10752: 13 0b 05 75  	addi	s6, a0, 0x750
+   10756: 69 65        	c.lui	a0, 0x1a
+   10758: 93 0b 35 73  	addi	s7, a0, 0x733
+   1075c: 69 65        	c.lui	a0, 0x1a
+   1075e: 13 0c 45 73  	addi	s8, a0, 0x734
+   10762: 69 65        	c.lui	a0, 0x1a
+   10764: 93 09 25 72  	addi	s3, a0, 0x722
+   10768: 69 65        	c.lui	a0, 0x1a
+   1076a: 13 09 95 73  	addi	s2, a0, 0x739
+   1076e: 26 85        	c.mv	a0, s1
+   10770: ef f0 ff f1  	jal	ra, 0x1068e <init_search>
+   10774: 03 ba 0a 00  	ld	s4, 0x0(s5)
+   10778: 52 85        	c.mv	a0, s4
+   1077a: ef f0 3f f6  	jal	ra, 0x106dc <strsearch>
+   1077e: 2a 84        	c.mv	s0, a0
+   10780: 62 86        	c.mv	a2, s8
+   10782: 11 c1        	c.beqz	a0, 0x10786 <main+0x46>
+   10784: 5e 86        	c.mv	a2, s7
+   10786: 4e 85        	c.mv	a0, s3
+   10788: a6 85        	c.mv	a1, s1
+   1078a: d2 86        	c.mv	a3, s4
+   1078c: ef 00 b0 59  	jal	ra, 0x11526 <printf>
+   10790: 09 c4        	c.beqz	s0, 0x1079a <main+0x5a>
+   10792: 4a 85        	c.mv	a0, s2
+   10794: a2 85        	c.mv	a1, s0
+   10796: ef 00 10 59  	jal	ra, 0x11526 <printf>
+   1079a: 29 45        	c.li	a0, 0xa
+   1079c: ef 00 d0 5b  	jal	ra, 0x11558 <putchar>
+   107a0: 83 34 0b 00  	ld	s1, 0x0(s6)
+   107a4: a1 0a        	c.addi	s5, 0x8
+   107a6: 21 0b        	c.addi	s6, 0x8
+   107a8: f9 f0        	c.bnez	s1, 0x1076e <main+0x2e>
+   107aa: 01 45        	c.li	a0, 0x0
+   107ac: 6f 80 b0 78  	jal	zero, 0x19736 <__riscv_restore_9>

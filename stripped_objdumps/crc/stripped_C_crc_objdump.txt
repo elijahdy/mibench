@@ -1,0 +1,118 @@
+00000000000101d8 <updateCRC32>:
+   101d8: 2d 8d        	c.xor	a0, a1
+   101da: 13 75 f5 0f  	andi	a0, a0, 0xff
+   101de: 0e 05        	c.slli	a0, 0x3
+   101e0: 69 66        	c.lui	a2, 0x1a
+   101e2: 13 06 86 bb  	addi	a2, a2, -0x448
+   101e6: 32 95        	c.add	a0, a2
+   101e8: 08 61        	c.ld	a0, 0x0(a0)
+   101ea: a1 81        	c.srli	a1, 0x8
+   101ec: 2d 8d        	c.xor	a0, a1
+   101ee: 82 80        	c.jr	ra
+
+00000000000101f0 <crc32file>:
+   101f0: ef 92 10 13  	jal	t0, 0x19b20 <__riscv_save_7>
+   101f4: b2 84        	c.mv	s1, a2
+   101f6: 2e 89        	c.mv	s2, a1
+   101f8: aa 89        	c.mv	s3, a0
+   101fa: 23 30 06 00  	sd	zero, 0x0(a2)
+   101fe: 69 65        	c.lui	a0, 0x1a
+   10200: 93 05 85 3b  	addi	a1, a0, 0x3b8
+   10204: 4e 85        	c.mv	a0, s3
+   10206: ef 00 60 6e  	jal	ra, 0x108ec <fopen>
+   1020a: 29 cd        	c.beqz	a0, 0x10264 <crc32file+0x74>
+   1020c: aa 8a        	c.mv	s5, a0
+   1020e: ef 00 00 7c  	jal	ra, 0x109ce <getc>
+   10212: 7d 5a        	c.li	s4, -0x1
+   10214: 63 0a 45 03  	beq	a0, s4, 0x10248 <crc32file+0x58>
+   10218: 13 54 0a 02  	srli	s0, s4, 0x20
+   1021c: e9 65        	c.lui	a1, 0x1a
+   1021e: 13 8b 85 bb  	addi	s6, a1, -0x448
+   10222: 8c 60        	c.ld	a1, 0x0(s1)
+   10224: 85 05        	c.addi	a1, 0x1
+   10226: 8c e0        	c.sd	a1, 0x0(s1)
+   10228: 21 8d        	c.xor	a0, s0
+   1022a: 13 75 f5 0f  	andi	a0, a0, 0xff
+   1022e: 0e 05        	c.slli	a0, 0x3
+   10230: 5a 95        	c.add	a0, s6
+   10232: 08 61        	c.ld	a0, 0x0(a0)
+   10234: 21 80        	c.srli	s0, 0x8
+   10236: 29 8c        	c.xor	s0, a0
+   10238: 56 85        	c.mv	a0, s5
+   1023a: ef 00 40 79  	jal	ra, 0x109ce <getc>
+   1023e: e3 12 45 ff  	bne	a0, s4, 0x10222 <crc32file+0x32>
+   10242: 13 4a f4 ff  	xori	s4, s0, -0x1
+   10246: 11 a0        	c.j	0x1024a <crc32file+0x5a>
+   10248: 02 1a        	c.slli	s4, 0x20
+   1024a: 03 c5 0a 01  	lbu	a0, 0x10(s5)
+   1024e: 13 75 05 04  	andi	a0, a0, 0x40
+   10252: 19 ed        	c.bnez	a0, 0x10270 <crc32file+0x80>
+   10254: 56 85        	c.mv	a0, s5
+   10256: ef 00 40 15  	jal	ra, 0x103aa <fclose>
+   1025a: 01 45        	c.li	a0, 0x0
+   1025c: 23 30 49 01  	sd	s4, 0x0(s2)
+   10260: 6f 90 f0 0f  	jal	zero, 0x19b5e <__riscv_restore_7>
+   10264: 4e 85        	c.mv	a0, s3
+   10266: ef 00 50 0c  	jal	ra, 0x10b2a <perror>
+   1026a: 7d 55        	c.li	a0, -0x1
+   1026c: 6f 90 30 0f  	jal	zero, 0x19b5e <__riscv_restore_7>
+   10270: 4e 85        	c.mv	a0, s3
+   10272: ef 00 90 0b  	jal	ra, 0x10b2a <perror>
+   10276: 7d 55        	c.li	a0, -0x1
+   10278: 88 e0        	c.sd	a0, 0x0(s1)
+   1027a: e9 bf        	c.j	0x10254 <crc32file+0x64>
+
+000000000001027c <crc32buf>:
+   1027c: 7d 56        	c.li	a2, -0x1
+   1027e: 95 c5        	c.beqz	a1, 0x102aa <crc32buf+0x2e>
+   10280: aa 95        	c.add	a1, a0
+   10282: 01 92        	c.srli	a2, 0x20
+   10284: e9 66        	c.lui	a3, 0x1a
+   10286: 93 86 86 bb  	addi	a3, a3, -0x448
+   1028a: 03 47 05 00  	lbu	a4, 0x0(a0)
+   1028e: 31 8f        	c.xor	a4, a2
+   10290: 13 77 f7 0f  	andi	a4, a4, 0xff
+   10294: 0e 07        	c.slli	a4, 0x3
+   10296: 36 97        	c.add	a4, a3
+   10298: 18 63        	c.ld	a4, 0x0(a4)
+   1029a: 21 82        	c.srli	a2, 0x8
+   1029c: 05 05        	c.addi	a0, 0x1
+   1029e: 39 8e        	c.xor	a2, a4
+   102a0: e3 15 b5 fe  	bne	a0, a1, 0x1028a <crc32buf+0xe>
+   102a4: 13 45 f6 ff  	xori	a0, a2, -0x1
+   102a8: 82 80        	c.jr	ra
+   102aa: 13 15 06 02  	slli	a0, a2, 0x20
+   102ae: 82 80        	c.jr	ra
+
+00000000000102b0 <main>:
+   102b0: 09 46        	c.li	a2, 0x2
+   102b2: 63 46 c5 04  	blt	a0, a2, 0x102fe <main+0x4e>
+   102b6: ef 92 50 07  	jal	t0, 0x19b2a <__riscv_save_5>
+   102ba: 41 11        	c.addi	sp, -0x10
+   102bc: 81 44        	c.li	s1, 0x0
+   102be: 13 84 85 00  	addi	s0, a1, 0x8
+   102c2: 79 15        	c.addi	a0, -0x2
+   102c4: 02 15        	c.slli	a0, 0x20
+   102c6: 75 81        	c.srli	a0, 0x1d
+   102c8: 2e 95        	c.add	a0, a1
+   102ca: 93 09 05 01  	addi	s3, a0, 0x10
+   102ce: 69 65        	c.lui	a0, 0x1a
+   102d0: 13 09 a5 3b  	addi	s2, a0, 0x3ba
+   102d4: 08 60        	c.ld	a0, 0x0(s0)
+   102d6: 2c 00        	c.addi4spn	a1, sp, 0x8
+   102d8: 0a 86        	c.mv	a2, sp
+   102da: ef f0 7f f1  	jal	ra, 0x101f0 <crc32file>
+   102de: a2 65        	c.ldsp	a1, 0x8(sp)
+   102e0: 02 66        	c.ldsp	a2, 0x0(sp)
+   102e2: 14 60        	c.ld	a3, 0x0(s0)
+   102e4: c9 8c        	c.or	s1, a0
+   102e6: 4a 85        	c.mv	a0, s2
+   102e8: ef 00 d0 06  	jal	ra, 0x10b54 <printf>
+   102ec: 21 04        	c.addi	s0, 0x8
+   102ee: e3 13 34 ff  	bne	s0, s3, 0x102d4 <main+0x24>
+   102f2: 33 35 90 00  	sltu	a0, zero, s1
+   102f6: 41 01        	c.addi	sp, 0x10
+   102f8: 6f 90 d0 06  	jal	zero, 0x19b64 <__riscv_restore_5>
+   102fc: 82 80        	c.jr	ra
+   102fe: 01 45        	c.li	a0, 0x0
+   10300: 82 80        	c.jr	ra

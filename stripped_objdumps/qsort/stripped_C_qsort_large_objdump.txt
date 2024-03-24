@@ -1,0 +1,114 @@
+00000000000101dc <compare>:
+   101dc: 1c 29        	c.fld	fa5, 0x10(a0)
+   101de: 98 29        	c.fld	fa4, 0x10(a1)
+   101e0: d3 15 f7 a2  	flt.d	a1, fa4, fa5
+   101e4: 05 45        	c.li	a0, 0x1
+   101e6: 81 e5        	c.bnez	a1, 0x101ee <compare+0x12>
+   101e8: 53 a5 e7 a2  	feq.d	a0, fa5, fa4
+   101ec: 7d 15        	c.addi	a0, -0x1
+   101ee: 82 80        	c.jr	ra
+
+
+00000000000101f0 <main>:
+   101f0: ef 22 f1 3f  	jal	t0, 0x22dee <__riscv_save_7>
+   101f4: 37 06 16 00  	lui	a2, 0x160
+   101f8: 1b 06 06 92  	addiw	a2, a2, -0x6e0
+   101fc: 33 01 c1 40  	sub	sp, sp, a2
+   10200: 05 44        	c.li	s0, 0x1
+   10202: 63 56 a4 10  	bge	s0, a0, 0x1030e <main+0x11e>
+   10206: 88 65        	c.ld	a0, 0x8(a1)
+   10208: b7 35 02 00  	lui	a1, 0x23
+   1020c: 93 85 b5 eb  	addi	a1, a1, -0x145
+   10210: ef 00 b0 22  	jal	ra, 0x10c3a <fopen>
+   10214: 2a 89        	c.mv	s2, a0
+   10216: 37 35 02 00  	lui	a0, 0x23
+   1021a: 93 09 d5 eb  	addi	s3, a0, -0x143
+   1021e: 70 08        	c.addi4spn	a2, sp, 0x1c
+   10220: 4a 85        	c.mv	a0, s2
+   10222: ce 85        	c.mv	a1, s3
+   10224: ef 00 30 22  	jal	ra, 0x10c46 <fscanf>
+   10228: 63 10 85 08  	bne	a0, s0, 0x102a8 <main+0xb8>
+   1022c: 81 44        	c.li	s1, 0x0
+   1022e: 01 4a        	c.li	s4, 0x0
+   10230: 20 10        	c.addi4spn	s0, sp, 0x28
+   10232: 85 4a        	c.li	s5, 0x1
+   10234: 13 0b 20 75  	addi	s6, zero, 0x752
+   10238: 30 08        	c.addi4spn	a2, sp, 0x18
+   1023a: 4a 85        	c.mv	a0, s2
+   1023c: ce 85        	c.mv	a1, s3
+   1023e: ef 00 90 20  	jal	ra, 0x10c46 <fscanf>
+   10242: 63 14 55 07  	bne	a0, s5, 0x102aa <main+0xba>
+   10246: 50 08        	c.addi4spn	a2, sp, 0x14
+   10248: 4a 85        	c.mv	a0, s2
+   1024a: ce 85        	c.mv	a1, s3
+   1024c: ef 00 b0 1f  	jal	ra, 0x10c46 <fscanf>
+   10250: 63 1d 55 05  	bne	a0, s5, 0x102aa <main+0xba>
+   10254: 13 d5 54 00  	srli	a0, s1, 0x5
+   10258: 63 69 ab 04  	bltu	s6, a0, 0x102aa <main+0xba>
+   1025c: 72 45        	c.lwsp	a0, 0x1c(sp)
+   1025e: e2 45        	c.lwsp	a1, 0x18(sp)
+   10260: 52 46        	c.lwsp	a2, 0x14(sp)
+   10262: 23 2c a4 fe  	sw	a0, -0x8(s0)
+   10266: 23 2e b4 fe  	sw	a1, -0x4(s0)
+   1026a: 10 c0        	c.sw	a2, 0x0(s0)
+   1026c: d3 07 05 d2  	fcvt.d.w	fa5, a0
+   10270: d3 f7 f7 12  	fmul.d	fa5, fa5, fa5, dyn
+   10274: 53 87 05 d2  	fcvt.d.w	fa4, a1
+   10278: 53 77 e7 12  	fmul.d	fa4, fa4, fa4, dyn
+   1027c: d3 f7 e7 02  	fadd.d	fa5, fa5, fa4, dyn
+   10280: 53 07 06 d2  	fcvt.d.w	fa4, a2
+   10284: 53 77 e7 12  	fmul.d	fa4, fa4, fa4, dyn
+   10288: d3 f7 e7 02  	fadd.d	fa5, fa5, fa4, dyn
+   1028c: d3 f7 07 5a  	fsqrt.d	fa5, fa5, dyn
+   10290: 1c a4        	c.fsd	fa5, 0x8(s0)
+   10292: 85 04        	c.addi	s1, 0x1
+   10294: 05 2a        	c.addiw	s4, 0x1
+   10296: 70 08        	c.addi4spn	a2, sp, 0x1c
+   10298: 4a 85        	c.mv	a0, s2
+   1029a: ce 85        	c.mv	a1, s3
+   1029c: ef 00 b0 1a  	jal	ra, 0x10c46 <fscanf>
+   102a0: 61 04        	c.addi	s0, 0x18
+   102a2: e3 0b 55 f9  	beq	a0, s5, 0x10238 <main+0x48>
+   102a6: 11 a0        	c.j	0x102aa <main+0xba>
+   102a8: 01 4a        	c.li	s4, 0x0
+   102aa: 37 35 02 00  	lui	a0, 0x23
+   102ae: 13 05 05 ec  	addi	a0, a0, -0x140
+   102b2: d2 85        	c.mv	a1, s4
+   102b4: ef 00 10 39  	jal	ra, 0x10e44 <printf>
+   102b8: 13 14 0a 02  	slli	s0, s4, 0x20
+   102bc: 01 90        	c.srli	s0, 0x20
+   102be: 41 65        	c.lui	a0, 0x10
+   102c0: 93 06 c5 1d  	addi	a3, a0, 0x1dc
+   102c4: 08 10        	c.addi4spn	a0, sp, 0x20
+   102c6: 61 46        	c.li	a2, 0x18
+   102c8: a2 85        	c.mv	a1, s0
+   102ca: ef 00 00 06  	jal	ra, 0x1032a <qsort>
+   102ce: 63 08 0a 02  	beq	s4, zero, 0x102fe <main+0x10e>
+   102d2: 24 10        	c.addi4spn	s1, sp, 0x28
+   102d4: e1 45        	c.li	a1, 0x18
+   102d6: 22 85        	c.mv	a0, s0
+   102d8: ef 20 11 37  	jal	ra, 0x22e48 <__muldi3>
+   102dc: 33 89 a4 00  	add	s2, s1, a0
+   102e0: 37 35 02 00  	lui	a0, 0x23
+   102e4: 13 04 95 ef  	addi	s0, a0, -0x107
+   102e8: 83 a5 84 ff  	lw	a1, -0x8(s1)
+   102ec: 03 a6 c4 ff  	lw	a2, -0x4(s1)
+   102f0: 94 40        	c.lw	a3, 0x0(s1)
+   102f2: 22 85        	c.mv	a0, s0
+   102f4: ef 00 10 35  	jal	ra, 0x10e44 <printf>
+   102f8: e1 04        	c.addi	s1, 0x18
+   102fa: e3 97 24 ff  	bne	s1, s2, 0x102e8 <main+0xf8>
+   102fe: 01 45        	c.li	a0, 0x0
+   10300: b7 05 16 00  	lui	a1, 0x160
+   10304: 9b 85 05 92  	addiw	a1, a1, -0x6e0
+   10308: 2e 91        	c.add	sp, a1
+   1030a: 6f 20 31 32  	jal	zero, 0x22e2c <__riscv_restore_7>
+   1030e: 03 b5 81 21  	ld	a0, 0x218(gp)
+   10312: 14 6d        	c.ld	a3, 0x18(a0)
+   10314: 37 35 02 00  	lui	a0, 0x23
+   10318: 13 05 05 ea  	addi	a0, a0, -0x160
+   1031c: e9 45        	c.li	a1, 0x1a
+   1031e: 05 46        	c.li	a2, 0x1
+   10320: ef 00 10 28  	jal	ra, 0x10da0 <fwrite>
+   10324: 7d 55        	c.li	a0, -0x1
+   10326: ef f0 bf df  	jal	ra, 0x10120 <exit>

@@ -1,0 +1,492 @@
+00000000000101da <bmha_init>:
+   101da: 72 b8        	cm.push	{ra, s0-s2}, -32
+   101dc: 2a 89        	c.mv	s2, a0
+   101de: 23 b8 21 89  	sd	s2, -0x770(gp)
+   101e2: 4a 85        	c.mv	a0, s2
+   101e4: ef 10 d0 03  	jal	ra, 0x11a20 <strlen>
+   101e8: 01 4e        	c.li	t3, 0x0
+   101ea: 23 ac a1 88  	sw	a0, -0x768(gp)
+   101ee: 93 15 05 02  	slli	a1, a0, 0x20
+   101f2: 81 91        	c.srli	a1, 0x20
+   101f4: ca 95        	c.add	a1, s2
+   101f6: 93 82 f5 ff  	addi	t0, a1, -0x1
+   101fa: b7 25 02 00  	lui	a1, 0x22
+   101fe: 13 83 05 03  	addi	t1, a1, 0x30
+   10202: b7 15 02 00  	lui	a1, 0x21
+   10206: 13 87 85 2b  	addi	a4, a1, 0x2b8
+   1020a: 21 68        	c.lui	a6, 0x8
+   1020c: 7d 18        	c.addi	a6, -0x1
+   1020e: 93 08 00 10  	addi	a7, zero, 0x100
+   10212: 01 46        	c.li	a2, 0x0
+   10214: 93 16 2e 00  	slli	a3, t3, 0x2
+   10218: b3 03 d3 00  	add	t2, t1, a3
+   1021c: 23 a0 a3 00  	sw	a0, 0x0(t2)
+   10220: b3 05 c7 01  	add	a1, a4, t3
+   10224: 16 84        	c.mv	s0, t0
+   10226: b2 84        	c.mv	s1, a2
+   10228: 29 9e        	c.addw	a2, a0
+   1022a: 63 5e c0 00  	bge	zero, a2, 0x10246 <bmha_init+0x6c>
+   1022e: 10 80        	c.lbu	a2, 0x0(s0)
+   10230: 94 81        	c.lbu	a3, 0x0(a1)
+   10232: 3a 96        	c.add	a2, a4
+   10234: 1c 82        	c.lbu	a5, 0x0(a2)
+   10236: 1b 86 f4 ff  	addiw	a2, s1, -0x1
+   1023a: 7d 14        	c.addi	s0, -0x1
+   1023c: e3 95 f6 fe  	bne	a3, a5, 0x10226 <bmha_init+0x4c>
+   10240: 75 9e        	c.not	a2
+   10242: 23 a0 c3 00  	sw	a2, 0x0(t2)
+   10246: 99 e0        	c.bnez	s1, 0x1024c <bmha_init+0x72>
+   10248: 23 a0 03 01  	sw	a6, 0x0(t2)
+   1024c: 05 0e        	c.addi	t3, 0x1
+   1024e: e3 12 1e fd  	bne	t3, a7, 0x10212 <bmha_init+0x38>
+   10252: 1b 06 05 00  	addiw	a2, a0, 0x0
+   10256: 89 46        	c.li	a3, 0x2
+   10258: 23 ae a1 88  	sw	a0, -0x764(gp)
+   1025c: 63 4c d6 02  	blt	a2, a3, 0x10294 <bmha_init+0xba>
+   10260: 7d 35        	c.addiw	a0, -0x1
+   10262: 33 06 a9 00  	add	a2, s2, a0
+   10266: 14 82        	c.lbu	a3, 0x0(a2)
+   10268: 37 16 02 00  	lui	a2, 0x21
+   1026c: 13 06 86 2b  	addi	a2, a2, 0x2b8
+   10270: b2 96        	c.add	a3, a2
+   10272: 94 82        	c.lbu	a3, 0x0(a3)
+   10274: 13 17 05 02  	slli	a4, a0, 0x20
+   10278: 01 93        	c.srli	a4, 0x20
+   1027a: 4a 97        	c.add	a4, s2
+   1027c: 83 47 09 00  	lbu	a5, 0x0(s2)
+   10280: b2 97        	c.add	a5, a2
+   10282: 9c 83        	c.lbu	a5, 0x0(a5)
+   10284: 63 94 d7 00  	bne	a5, a3, 0x1028c <bmha_init+0xb2>
+   10288: 23 ae a1 88  	sw	a0, -0x764(gp)
+   1028c: 05 09        	c.addi	s2, 0x1
+   1028e: 7d 15        	c.addi	a0, -0x1
+   10290: e3 16 e9 fe  	bne	s2, a4, 0x1027c <bmha_init+0xa2>
+   10294: 72 be        	cm.popret	{ra, s0-s2}, 32
+
+0000000000010296 <bmha_search>:
+   10296: 03 af 81 89  	lw	t5, -0x768(gp)
+   1029a: 13 c6 f5 ff  	xori	a2, a1, -0x1
+   1029e: bb 07 cf 00  	addw	a5, t5, a2
+   102a2: 63 c4 07 00  	blt	a5, zero, 0x102aa <bmha_search+0x14>
+   102a6: 01 45        	c.li	a0, 0x0
+   102a8: 82 80        	c.jr	ra
+   102aa: 52 b8        	cm.push	{ra, s0}, -16
+   102ac: b3 0e b5 00  	add	t4, a0, a1
+   102b0: 21 66        	c.lui	a2, 0x8
+   102b2: 7d 16        	c.addi	a2, -0x1
+   102b4: bb 08 b6 40  	subw	a7, a2, a1
+   102b8: 7d 3f        	c.addiw	t5, -0x1
+   102ba: 03 b6 01 89  	ld	a2, -0x770(gp)
+   102be: 03 a8 c1 89  	lw	a6, -0x764(gp)
+   102c2: 93 16 0f 02  	slli	a3, t5, 0x20
+   102c6: 81 92        	c.srli	a3, 0x20
+   102c8: 36 96        	c.add	a2, a3
+   102ca: 93 02 f6 ff  	addi	t0, a2, -0x1
+   102ce: 13 46 ff ff  	xori	a2, t5, -0x1
+   102d2: b2 95        	c.add	a1, a2
+   102d4: b6 95        	c.add	a1, a3
+   102d6: 33 03 b5 00  	add	t1, a0, a1
+   102da: 37 25 02 00  	lui	a0, 0x22
+   102de: 13 0e 05 03  	addi	t3, a0, 0x30
+   102e2: e1 73        	c.lui	t2, 0xffff8
+   102e4: 85 03        	c.addi	t2, 0x1
+   102e6: 37 15 02 00  	lui	a0, 0x21
+   102ea: 93 05 85 2b  	addi	a1, a0, 0x2b8
+   102ee: 33 85 fe 00  	add	a0, t4, a5
+   102f2: 08 81        	c.lbu	a0, 0x0(a0)
+   102f4: 0a 05        	c.slli	a0, 0x2
+   102f6: 72 95        	c.add	a0, t3
+   102f8: 08 41        	c.lw	a0, 0x0(a0)
+   102fa: a9 9f        	c.addw	a5, a0
+   102fc: e3 c9 07 fe  	blt	a5, zero, 0x102ee <bmha_search+0x58>
+   10300: 63 cc 17 03  	blt	a5, a7, 0x10338 <bmha_search+0xa2>
+   10304: bb 8f 77 00  	addw	t6, a5, t2
+   10308: 3b 85 ef 41  	subw	a0, t6, t5
+   1030c: 76 95        	c.add	a0, t4
+   1030e: b3 07 f3 01  	add	a5, t1, t6
+   10312: 16 86        	c.mv	a2, t0
+   10314: 7a 87        	c.mv	a4, t5
+   10316: 63 52 e0 02  	bge	zero, a4, 0x1033a <bmha_search+0xa4>
+   1031a: 94 83        	c.lbu	a3, 0x0(a5)
+   1031c: 00 82        	c.lbu	s0, 0x0(a2)
+   1031e: ae 96        	c.add	a3, a1
+   10320: 94 82        	c.lbu	a3, 0x0(a3)
+   10322: 2e 94        	c.add	s0, a1
+   10324: 00 80        	c.lbu	s0, 0x0(s0)
+   10326: 7d 37        	c.addiw	a4, -0x1
+   10328: 7d 16        	c.addi	a2, -0x1
+   1032a: fd 17        	c.addi	a5, -0x1
+   1032c: e3 85 86 fe  	beq	a3, s0, 0x10316 <bmha_search+0x80>
+   10330: bb 07 f8 01  	addw	a5, a6, t6
+   10334: e3 cd 07 fa  	blt	a5, zero, 0x102ee <bmha_search+0x58>
+   10338: 01 45        	c.li	a0, 0x0
+   1033a: 52 be        	cm.popret	{ra, s0}, 16
+
+000000000001033c <bmhi_init>:
+   1033c: 72 b8        	cm.push	{ra, s0-s2}, -32
+   1033e: 2a 84        	c.mv	s0, a0
+   10340: ef 10 00 6e  	jal	ra, 0x11a20 <strlen>
+   10344: 03 b6 81 8a  	ld	a2, -0x758(gp)
+   10348: 23 a0 a1 8a  	sw	a0, -0x760(gp)
+   1034c: 9b 05 05 00  	addiw	a1, a0, 0x0
+   10350: 32 85        	c.mv	a0, a2
+   10352: ef 00 50 23  	jal	ra, 0x10d86 <realloc>
+   10356: 23 b4 a1 8a  	sd	a0, -0x758(gp)
+   1035a: 63 03 05 10  	beq	a0, zero, 0x10460 <bmhi_init+0x124>
+   1035e: 37 05 01 00  	lui	a0, 0x10
+   10362: 13 05 65 46  	addi	a0, a0, 0x466
+   10366: ef 00 e0 3e  	jal	ra, 0x10754 <atexit>
+   1036a: 83 a2 01 8a  	lw	t0, -0x760(gp)
+   1036e: 63 5b 50 02  	bge	zero, t0, 0x103a4 <bmhi_init+0x68>
+   10372: 03 b5 81 8a  	ld	a0, -0x758(gp)
+   10376: b3 05 55 00  	add	a1, a0, t0
+   1037a: 37 06 02 00  	lui	a2, 0x20
+   1037e: 13 06 06 9c  	addi	a2, a2, -0x640
+   10382: 14 80        	c.lbu	a3, 0x0(s0)
+   10384: 33 07 d6 00  	add	a4, a2, a3
+   10388: 58 83        	c.lbu	a4, 0x1(a4)
+   1038a: 0d 8b        	c.andi	a4, 0x3
+   1038c: 79 17        	c.addi	a4, -0x2
+   1038e: 33 37 e0 00  	sltu	a4, zero, a4
+   10392: 7d 17        	c.addi	a4, -0x1
+   10394: 13 77 07 0e  	andi	a4, a4, 0xe0
+   10398: ba 96        	c.add	a3, a4
+   1039a: 14 89        	c.sb	a3, 0x0(a0)
+   1039c: 05 05        	c.addi	a0, 0x1
+   1039e: 05 04        	c.addi	s0, 0x1
+   103a0: e3 11 b5 fe  	bne	a0, a1, 0x10382 <bmhi_init+0x46>
+   103a4: 13 85 01 d5  	addi	a0, gp, -0x2b0
+   103a8: 93 05 05 40  	addi	a1, a0, 0x400
+   103ac: 23 20 55 00  	sw	t0, 0x0(a0)
+   103b0: 11 05        	c.addi	a0, 0x4
+   103b2: e3 1d b5 fe  	bne	a0, a1, 0x103ac <bmhi_init+0x70>
+   103b6: 83 b7 81 8a  	ld	a5, -0x758(gp)
+   103ba: 1b 85 f2 ff  	addiw	a0, t0, -0x1
+   103be: 09 48        	c.li	a6, 0x2
+   103c0: 93 18 05 02  	slli	a7, a0, 0x20
+   103c4: 63 c3 02 05  	blt	t0, a6, 0x1040a <bmhi_init+0xce>
+   103c8: 93 d6 08 02  	srli	a3, a7, 0x20
+   103cc: 33 83 d7 00  	add	t1, a5, a3
+   103d0: 13 84 01 d5  	addi	s0, gp, -0x2b0
+   103d4: b7 05 02 00  	lui	a1, 0x20
+   103d8: 93 83 05 9c  	addi	t2, a1, -0x640
+   103dc: be 85        	c.mv	a1, a5
+   103de: 2a 86        	c.mv	a2, a0
+   103e0: 94 81        	c.lbu	a3, 0x0(a1)
+   103e2: 33 87 d3 00  	add	a4, t2, a3
+   103e6: 58 83        	c.lbu	a4, 0x1(a4)
+   103e8: 93 94 26 00  	slli	s1, a3, 0x2
+   103ec: a2 94        	c.add	s1, s0
+   103ee: 90 c0        	c.sw	a2, 0x0(s1)
+   103f0: 0d 8b        	c.andi	a4, 0x3
+   103f2: 7d 17        	c.addi	a4, -0x1
+   103f4: 13 37 17 00  	sltiu	a4, a4, 0x1
+   103f8: 16 07        	c.slli	a4, 0x5
+   103fa: ba 96        	c.add	a3, a4
+   103fc: 8a 06        	c.slli	a3, 0x2
+   103fe: a2 96        	c.add	a3, s0
+   10400: 90 c2        	c.sw	a2, 0x0(a3)
+   10402: 85 05        	c.addi	a1, 0x1
+   10404: 7d 16        	c.addi	a2, -0x1
+   10406: e3 9d 65 fc  	bne	a1, t1, 0x103e0 <bmhi_init+0xa4>
+   1040a: b3 85 a7 00  	add	a1, a5, a0
+   1040e: 8c 81        	c.lbu	a1, 0x0(a1)
+   10410: 13 96 25 00  	slli	a2, a1, 0x2
+   10414: 93 86 01 d5  	addi	a3, gp, -0x2b0
+   10418: 36 96        	c.add	a2, a3
+   1041a: 37 07 02 00  	lui	a4, 0x20
+   1041e: 13 07 07 9c  	addi	a4, a4, -0x640
+   10422: 2e 97        	c.add	a4, a1
+   10424: 58 83        	c.lbu	a4, 0x1(a4)
+   10426: a1 64        	c.lui	s1, 0x8
+   10428: fd 14        	c.addi	s1, -0x1
+   1042a: 04 c2        	c.sw	s1, 0x0(a2)
+   1042c: 0d 8b        	c.andi	a4, 0x3
+   1042e: 7d 17        	c.addi	a4, -0x1
+   10430: 13 36 17 00  	sltiu	a2, a4, 0x1
+   10434: 16 06        	c.slli	a2, 0x5
+   10436: 2e 96        	c.add	a2, a1
+   10438: 0a 06        	c.slli	a2, 0x2
+   1043a: 36 96        	c.add	a2, a3
+   1043c: 04 c2        	c.sw	s1, 0x0(a2)
+   1043e: 23 a8 51 8a  	sw	t0, -0x750(gp)
+   10442: 63 ce 02 01  	blt	t0, a6, 0x1045e <bmhi_init+0x122>
+   10446: 93 d6 08 02  	srli	a3, a7, 0x20
+   1044a: be 96        	c.add	a3, a5
+   1044c: 98 83        	c.lbu	a4, 0x0(a5)
+   1044e: 63 14 b7 00  	bne	a4, a1, 0x10456 <bmhi_init+0x11a>
+   10452: 23 a8 a1 8a  	sw	a0, -0x750(gp)
+   10456: 85 07        	c.addi	a5, 0x1
+   10458: 7d 15        	c.addi	a0, -0x1
+   1045a: e3 99 d7 fe  	bne	a5, a3, 0x1044c <bmhi_init+0x110>
+   1045e: 72 be        	cm.popret	{ra, s0-s2}, 32
+   10460: 05 45        	c.li	a0, 0x1
+   10462: ef f0 ff cb  	jal	ra, 0x10120 <exit>
+
+0000000000010466 <bhmi_cleanup>:
+   10466: 03 b5 81 8a  	ld	a0, -0x758(gp)
+   1046a: 6f 00 e0 2f  	jal	zero, 0x10768 <free>
+
+000000000001046e <bmhi_search>:
+   1046e: 03 af 01 8a  	lw	t5, -0x760(gp)
+   10472: 13 c6 f5 ff  	xori	a2, a1, -0x1
+   10476: bb 07 cf 00  	addw	a5, t5, a2
+   1047a: 63 c4 07 00  	blt	a5, zero, 0x10482 <bmhi_search+0x14>
+   1047e: 01 45        	c.li	a0, 0x0
+   10480: 82 80        	c.jr	ra
+   10482: 62 b8        	cm.push	{ra, s0-s1}, -32
+   10484: b3 0e b5 00  	add	t4, a0, a1
+   10488: 21 66        	c.lui	a2, 0x8
+   1048a: 7d 16        	c.addi	a2, -0x1
+   1048c: bb 08 b6 40  	subw	a7, a2, a1
+   10490: 7d 3f        	c.addiw	t5, -0x1
+   10492: 03 b6 81 8a  	ld	a2, -0x758(gp)
+   10496: 03 a8 01 8b  	lw	a6, -0x750(gp)
+   1049a: 93 16 0f 02  	slli	a3, t5, 0x20
+   1049e: 81 92        	c.srli	a3, 0x20
+   104a0: 36 96        	c.add	a2, a3
+   104a2: 93 02 f6 ff  	addi	t0, a2, -0x1
+   104a6: 13 46 ff ff  	xori	a2, t5, -0x1
+   104aa: b2 95        	c.add	a1, a2
+   104ac: b6 95        	c.add	a1, a3
+   104ae: 33 03 b5 00  	add	t1, a0, a1
+   104b2: 13 8e 01 d5  	addi	t3, gp, -0x2b0
+   104b6: e1 73        	c.lui	t2, 0xffff8
+   104b8: 85 03        	c.addi	t2, 0x1
+   104ba: 37 05 02 00  	lui	a0, 0x20
+   104be: 93 05 05 9c  	addi	a1, a0, -0x640
+   104c2: 33 85 fe 00  	add	a0, t4, a5
+   104c6: 08 81        	c.lbu	a0, 0x0(a0)
+   104c8: 0a 05        	c.slli	a0, 0x2
+   104ca: 72 95        	c.add	a0, t3
+   104cc: 08 41        	c.lw	a0, 0x0(a0)
+   104ce: a9 9f        	c.addw	a5, a0
+   104d0: e3 c9 07 fe  	blt	a5, zero, 0x104c2 <bmhi_search+0x54>
+   104d4: 63 c2 17 05  	blt	a5, a7, 0x10518 <bmhi_search+0xaa>
+   104d8: bb 8f 77 00  	addw	t6, a5, t2
+   104dc: 3b 85 ef 41  	subw	a0, t6, t5
+   104e0: 76 95        	c.add	a0, t4
+   104e2: b3 07 f3 01  	add	a5, t1, t6
+   104e6: 16 86        	c.mv	a2, t0
+   104e8: 7a 87        	c.mv	a4, t5
+   104ea: 63 58 e0 02  	bge	zero, a4, 0x1051a <bmhi_search+0xac>
+   104ee: 94 83        	c.lbu	a3, 0x0(a5)
+   104f0: 33 84 d5 00  	add	s0, a1, a3
+   104f4: 40 80        	c.lbu	s0, 0x1(s0)
+   104f6: 0d 88        	c.andi	s0, 0x3
+   104f8: 79 14        	c.addi	s0, -0x2
+   104fa: 33 34 80 00  	sltu	s0, zero, s0
+   104fe: 7d 14        	c.addi	s0, -0x1
+   10500: 01 98        	c.andi	s0, -0x20
+   10502: 04 82        	c.lbu	s1, 0x0(a2)
+   10504: a2 96        	c.add	a3, s0
+   10506: 7d 37        	c.addiw	a4, -0x1
+   10508: 7d 16        	c.addi	a2, -0x1
+   1050a: fd 17        	c.addi	a5, -0x1
+   1050c: e3 8f 96 fc  	beq	a3, s1, 0x104ea <bmhi_search+0x7c>
+   10510: bb 07 f8 01  	addw	a5, a6, t6
+   10514: e3 c7 07 fa  	blt	a5, zero, 0x104c2 <bmhi_search+0x54>
+   10518: 01 45        	c.li	a0, 0x0
+   1051a: 62 be        	cm.popret	{ra, s0-s1}, 32
+
+000000000001051c <bmh_init>:
+   1051c: 62 b8        	cm.push	{ra, s0-s1}, -32
+   1051e: aa 84        	c.mv	s1, a0
+   10520: 23 bc 91 8a  	sd	s1, -0x748(gp)
+   10524: 26 85        	c.mv	a0, s1
+   10526: ef 10 a0 4f  	jal	ra, 0x11a20 <strlen>
+   1052a: 23 a0 a1 8c  	sw	a0, -0x740(gp)
+   1052e: 93 85 01 15  	addi	a1, gp, 0x150
+   10532: 13 86 05 40  	addi	a2, a1, 0x400
+   10536: 88 c1        	c.sw	a0, 0x0(a1)
+   10538: 91 05        	c.addi	a1, 0x4
+   1053a: e3 9e c5 fe  	bne	a1, a2, 0x10536 <bmh_init+0x1a>
+   1053e: 1b 06 05 00  	addiw	a2, a0, 0x0
+   10542: fd 55        	c.li	a1, -0x1
+   10544: 13 d8 05 02  	srli	a6, a1, 0x20
+   10548: 63 52 c0 02  	bge	zero, a2, 0x1056c <bmh_init+0x50>
+   1054c: 33 77 05 01  	and	a4, a0, a6
+   10550: 93 06 f5 ff  	addi	a3, a0, -0x1
+   10554: 26 97        	c.add	a4, s1
+   10556: 93 87 01 15  	addi	a5, gp, 0x150
+   1055a: 26 84        	c.mv	s0, s1
+   1055c: 0c 80        	c.lbu	a1, 0x0(s0)
+   1055e: 8a 05        	c.slli	a1, 0x2
+   10560: be 95        	c.add	a1, a5
+   10562: 94 c1        	c.sw	a3, 0x0(a1)
+   10564: 05 04        	c.addi	s0, 0x1
+   10566: fd 16        	c.addi	a3, -0x1
+   10568: e3 1a e4 fe  	bne	s0, a4, 0x1055c <bmh_init+0x40>
+   1056c: b3 85 c4 00  	add	a1, s1, a2
+   10570: 83 c6 f5 ff  	lbu	a3, -0x1(a1)
+   10574: 93 95 26 00  	slli	a1, a3, 0x2
+   10578: 13 87 01 15  	addi	a4, gp, 0x150
+   1057c: ba 95        	c.add	a1, a4
+   1057e: 21 67        	c.lui	a4, 0x8
+   10580: 7d 17        	c.addi	a4, -0x1
+   10582: 98 c1        	c.sw	a4, 0x0(a1)
+   10584: 89 45        	c.li	a1, 0x2
+   10586: 23 a2 a1 8c  	sw	a0, -0x73c(gp)
+   1058a: 63 41 b6 02  	blt	a2, a1, 0x105ac <bmh_init+0x90>
+   1058e: 13 06 f5 ff  	addi	a2, a0, -0x1
+   10592: 42 95        	c.add	a0, a6
+   10594: 33 75 05 01  	and	a0, a0, a6
+   10598: 26 95        	c.add	a0, s1
+   1059a: 8c 80        	c.lbu	a1, 0x0(s1)
+   1059c: 63 94 d5 00  	bne	a1, a3, 0x105a4 <bmh_init+0x88>
+   105a0: 23 a2 c1 8c  	sw	a2, -0x73c(gp)
+   105a4: 85 04        	c.addi	s1, 0x1
+   105a6: 7d 16        	c.addi	a2, -0x1
+   105a8: e3 99 a4 fe  	bne	s1, a0, 0x1059a <bmh_init+0x7e>
+   105ac: 62 be        	cm.popret	{ra, s0-s1}, 32
+
+00000000000105ae <bmh_search>:
+   105ae: 03 a6 01 8c  	lw	a2, -0x740(gp)
+   105b2: 93 c7 f5 ff  	xori	a5, a1, -0x1
+   105b6: b1 9f        	c.addw	a5, a2
+   105b8: 63 c4 07 00  	blt	a5, zero, 0x105c0 <bmh_search+0x12>
+   105bc: 01 45        	c.li	a0, 0x0
+   105be: 82 80        	c.jr	ra
+   105c0: b3 0e b5 00  	add	t4, a0, a1
+   105c4: a1 66        	c.lui	a3, 0x8
+   105c6: fd 16        	c.addi	a3, -0x1
+   105c8: bb 88 b6 40  	subw	a7, a3, a1
+   105cc: 1b 0f f6 ff  	addiw	t5, a2, -0x1
+   105d0: 83 b6 81 8b  	ld	a3, -0x748(gp)
+   105d4: 03 a8 41 8c  	lw	a6, -0x73c(gp)
+   105d8: 13 17 0f 02  	slli	a4, t5, 0x20
+   105dc: 01 93        	c.srli	a4, 0x20
+   105de: ba 96        	c.add	a3, a4
+   105e0: 93 82 f6 ff  	addi	t0, a3, -0x1
+   105e4: 93 46 ff ff  	xori	a3, t5, -0x1
+   105e8: b6 95        	c.add	a1, a3
+   105ea: ba 95        	c.add	a1, a4
+   105ec: 33 03 b5 00  	add	t1, a0, a1
+   105f0: 13 8e 01 15  	addi	t3, gp, 0x150
+   105f4: e1 73        	c.lui	t2, 0xffff8
+   105f6: 85 03        	c.addi	t2, 0x1
+   105f8: 33 85 fe 00  	add	a0, t4, a5
+   105fc: 08 81        	c.lbu	a0, 0x0(a0)
+   105fe: 0a 05        	c.slli	a0, 0x2
+   10600: 72 95        	c.add	a0, t3
+   10602: 08 41        	c.lw	a0, 0x0(a0)
+   10604: a9 9f        	c.addw	a5, a0
+   10606: e3 c9 07 fe  	blt	a5, zero, 0x105f8 <bmh_search+0x4a>
+   1060a: e3 c9 17 fb  	blt	a5, a7, 0x105bc <bmh_search+0xe>
+   1060e: bb 8f 77 00  	addw	t6, a5, t2
+   10612: 3b 85 ef 41  	subw	a0, t6, t5
+   10616: 76 95        	c.add	a0, t4
+   10618: b3 07 f3 01  	add	a5, t1, t6
+   1061c: 96 86        	c.mv	a3, t0
+   1061e: 7a 87        	c.mv	a4, t5
+   10620: e3 5f e0 f8  	bge	zero, a4, 0x105be <bmh_search+0x10>
+   10624: 90 83        	c.lbu	a2, 0x0(a5)
+   10626: 8c 82        	c.lbu	a1, 0x0(a3)
+   10628: 7d 37        	c.addiw	a4, -0x1
+   1062a: fd 16        	c.addi	a3, -0x1
+   1062c: fd 17        	c.addi	a5, -0x1
+   1062e: e3 09 b6 fe  	beq	a2, a1, 0x10620 <bmh_search+0x72>
+   10632: bb 07 f8 01  	addw	a5, a6, t6
+   10636: e3 c1 07 fc  	blt	a5, zero, 0x105f8 <bmh_search+0x4a>
+   1063a: 49 b7        	c.j	0x105bc <bmh_search+0xe>
+
+000000000001063c <init_search>:
+   1063c: 52 b8        	cm.push	{ra, s0}, -16
+   1063e: 2a 84        	c.mv	s0, a0
+   10640: ef 10 00 3e  	jal	ra, 0x11a20 <strlen>
+   10644: 23 b4 a1 8c  	sd	a0, -0x738(gp)
+   10648: b7 35 02 00  	lui	a1, 0x23
+   1064c: 93 85 05 c3  	addi	a1, a1, -0x3d0
+   10650: 13 86 f5 7f  	addi	a2, a1, 0x7ff
+   10654: 05 06        	c.addi	a2, 0x1
+   10656: 88 e1        	c.sd	a0, 0x0(a1)
+   10658: a1 05        	c.addi	a1, 0x8
+   1065a: e3 9e c5 fe  	bne	a1, a2, 0x10656 <init_search+0x1a>
+   1065e: 05 c1        	c.beqz	a0, 0x1067e <init_search+0x42>
+   10660: 7d 15        	c.addi	a0, -0x1
+   10662: b7 35 02 00  	lui	a1, 0x23
+   10666: 93 85 05 c3  	addi	a1, a1, -0x3d0
+   1066a: 7d 56        	c.li	a2, -0x1
+   1066c: a2 86        	c.mv	a3, s0
+   1066e: 98 82        	c.lbu	a4, 0x0(a3)
+   10670: 0e 07        	c.slli	a4, 0x3
+   10672: 2e 97        	c.add	a4, a1
+   10674: 08 e3        	c.sd	a0, 0x0(a4)
+   10676: 7d 15        	c.addi	a0, -0x1
+   10678: 85 06        	c.addi	a3, 0x1
+   1067a: e3 1a c5 fe  	bne	a0, a2, 0x1066e <init_search+0x32>
+   1067e: 23 b8 81 8c  	sd	s0, -0x730(gp)
+   10682: 52 be        	cm.popret	{ra, s0}, 16
+
+0000000000010684 <strsearch>:
+   10684: c2 b8        	cm.push	{ra, s0-s7}, -80
+   10686: 03 b9 81 8c  	ld	s2, -0x738(gp)
+   1068a: 2a 8a        	c.mv	s4, a0
+   1068c: 13 04 f9 ff  	addi	s0, s2, -0x1
+   10690: ef 10 00 39  	jal	ra, 0x11a20 <strlen>
+   10694: 63 73 a4 04  	bgeu	s0, a0, 0x106da <strsearch+0x56>
+   10698: aa 8a        	c.mv	s5, a0
+   1069a: 83 b9 01 8d  	ld	s3, -0x730(gp)
+   1069e: 13 0b 1a 00  	addi	s6, s4, 0x1
+   106a2: 37 35 02 00  	lui	a0, 0x23
+   106a6: 93 0b 05 c3  	addi	s7, a0, -0x3d0
+   106aa: 33 05 8a 00  	add	a0, s4, s0
+   106ae: 08 81        	c.lbu	a0, 0x0(a0)
+   106b0: 0e 05        	c.slli	a0, 0x3
+   106b2: 5e 95        	c.add	a0, s7
+   106b4: 08 61        	c.ld	a0, 0x0(a0)
+   106b6: 19 c5        	c.beqz	a0, 0x106c4 <strsearch+0x40>
+   106b8: 2a 94        	c.add	s0, a0
+   106ba: e3 68 54 ff  	bltu	s0, s5, 0x106aa <strsearch+0x26>
+   106be: e3 66 54 ff  	bltu	s0, s5, 0x106aa <strsearch+0x26>
+   106c2: 21 a8        	c.j	0x106da <strsearch+0x56>
+   106c4: b3 04 24 41  	sub	s1, s0, s2
+   106c8: da 94        	c.add	s1, s6
+   106ca: e6 ad        	cm.mva01s	s3, s1
+   106cc: 4a 86        	c.mv	a2, s2
+   106ce: ef 00 30 72  	jal	ra, 0x115f0 <strncmp>
+   106d2: 09 c5        	c.beqz	a0, 0x106dc <strsearch+0x58>
+   106d4: 05 04        	c.addi	s0, 0x1
+   106d6: e3 6a 54 fd  	bltu	s0, s5, 0x106aa <strsearch+0x26>
+   106da: 81 44        	c.li	s1, 0x0
+   106dc: 26 85        	c.mv	a0, s1
+   106de: c2 be        	cm.popret	{ra, s0-s7}, 80
+
+00000000000106e0 <main>:
+   106e0: d2 b8        	cm.push	{ra, s0-s8}, -80
+   106e2: 37 95 01 00  	lui	a0, 0x19
+   106e6: 93 04 85 6c  	addi	s1, a0, 0x6c8
+   106ea: 37 d5 01 00  	lui	a0, 0x1d
+   106ee: 93 0a 05 02  	addi	s5, a0, 0x20
+   106f2: 37 a5 01 00  	lui	a0, 0x1a
+   106f6: 13 0b 05 68  	addi	s6, a0, 0x680
+   106fa: 37 a5 01 00  	lui	a0, 0x1a
+   106fe: 93 0b 35 66  	addi	s7, a0, 0x663
+   10702: 37 a5 01 00  	lui	a0, 0x1a
+   10706: 13 0c 45 66  	addi	s8, a0, 0x664
+   1070a: 37 a5 01 00  	lui	a0, 0x1a
+   1070e: 93 09 25 65  	addi	s3, a0, 0x652
+   10712: 37 a5 01 00  	lui	a0, 0x1a
+   10716: 13 09 95 66  	addi	s2, a0, 0x669
+   1071a: 26 85        	c.mv	a0, s1
+   1071c: ef f0 1f f2  	jal	ra, 0x1063c <init_search>
+   10720: 03 ba 0a 00  	ld	s4, 0x0(s5)
+   10724: 52 85        	c.mv	a0, s4
+   10726: ef f0 ff f5  	jal	ra, 0x10684 <strsearch>
+   1072a: 2a 84        	c.mv	s0, a0
+   1072c: 62 86        	c.mv	a2, s8
+   1072e: 11 c1        	c.beqz	a0, 0x10732 <main+0x52>
+   10730: 5e 86        	c.mv	a2, s7
+   10732: e6 ad        	cm.mva01s	s3, s1
+   10734: d2 86        	c.mv	a3, s4
+   10736: ef 00 50 59  	jal	ra, 0x114ca <printf>
+   1073a: 01 c4        	c.beqz	s0, 0x10742 <main+0x62>
+   1073c: 62 ad        	cm.mva01s	s2, s0
+   1073e: ef 00 d0 58  	jal	ra, 0x114ca <printf>
+   10742: 29 45        	c.li	a0, 0xa
+   10744: ef 00 90 5b  	jal	ra, 0x114fc <putchar>
+   10748: 83 34 0b 00  	ld	s1, 0x0(s6)
+   1074c: a1 0a        	c.addi	s5, 0x8
+   1074e: 21 0b        	c.addi	s6, 0x8
+   10750: e9 f4        	c.bnez	s1, 0x1071a <main+0x3a>
+   10752: d2 bc        	cm.popretz	{ra, s0-s8}, 80

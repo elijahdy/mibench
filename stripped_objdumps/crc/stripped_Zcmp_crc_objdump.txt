@@ -1,0 +1,114 @@
+00000000000101d8 <updateCRC32>:
+   101d8: 2d 8d        	c.xor	a0, a1
+   101da: 13 75 f5 0f  	andi	a0, a0, 0xff
+   101de: 0e 05        	c.slli	a0, 0x3
+   101e0: 37 a6 01 00  	lui	a2, 0x1a
+   101e4: 13 06 86 b3  	addi	a2, a2, -0x4c8
+   101e8: 32 95        	c.add	a0, a2
+   101ea: 08 61        	c.ld	a0, 0x0(a0)
+   101ec: a1 81        	c.srli	a1, 0x8
+   101ee: 2d 8d        	c.xor	a0, a1
+   101f0: 82 80        	c.jr	ra
+
+00000000000101f2 <crc32file>:
+   101f2: b2 b8        	cm.push	{ra, s0-s6}, -64
+   101f4: b2 84        	c.mv	s1, a2
+   101f6: aa ad        	cm.mvsa01	s3, s2
+   101f8: 23 30 06 00  	sd	zero, 0x0(a2)
+   101fc: 37 a5 01 00  	lui	a0, 0x1a
+   10200: 93 05 85 33  	addi	a1, a0, 0x338
+   10204: 4e 85        	c.mv	a0, s3
+   10206: ef 00 e0 6d  	jal	ra, 0x108e4 <fopen>
+   1020a: 29 cd        	c.beqz	a0, 0x10264 <crc32file+0x72>
+   1020c: aa 8a        	c.mv	s5, a0
+   1020e: ef 00 80 7b  	jal	ra, 0x109c6 <getc>
+   10212: 7d 5a        	c.li	s4, -0x1
+   10214: 63 0b 45 03  	beq	a0, s4, 0x1024a <crc32file+0x58>
+   10218: 13 54 0a 02  	srli	s0, s4, 0x20
+   1021c: b7 a5 01 00  	lui	a1, 0x1a
+   10220: 13 8b 85 b3  	addi	s6, a1, -0x4c8
+   10224: 8c 60        	c.ld	a1, 0x0(s1)
+   10226: 85 05        	c.addi	a1, 0x1
+   10228: 8c e0        	c.sd	a1, 0x0(s1)
+   1022a: 21 8d        	c.xor	a0, s0
+   1022c: 13 75 f5 0f  	andi	a0, a0, 0xff
+   10230: 0e 05        	c.slli	a0, 0x3
+   10232: 5a 95        	c.add	a0, s6
+   10234: 08 61        	c.ld	a0, 0x0(a0)
+   10236: 21 80        	c.srli	s0, 0x8
+   10238: 29 8c        	c.xor	s0, a0
+   1023a: 56 85        	c.mv	a0, s5
+   1023c: ef 00 a0 78  	jal	ra, 0x109c6 <getc>
+   10240: e3 12 45 ff  	bne	a0, s4, 0x10224 <crc32file+0x32>
+   10244: 13 4a f4 ff  	xori	s4, s0, -0x1
+   10248: 11 a0        	c.j	0x1024c <crc32file+0x5a>
+   1024a: 02 1a        	c.slli	s4, 0x20
+   1024c: 03 c5 0a 01  	lbu	a0, 0x10(s5)
+   10250: 13 75 05 04  	andi	a0, a0, 0x40
+   10254: 09 ed        	c.bnez	a0, 0x1026e <crc32file+0x7c>
+   10256: 56 85        	c.mv	a0, s5
+   10258: ef 00 a0 14  	jal	ra, 0x103a2 <fclose>
+   1025c: 01 45        	c.li	a0, 0x0
+   1025e: 23 30 49 01  	sd	s4, 0x0(s2)
+   10262: b2 be        	cm.popret	{ra, s0-s6}, 64
+   10264: 4e 85        	c.mv	a0, s3
+   10266: ef 00 d0 0b  	jal	ra, 0x10b22 <perror>
+   1026a: 7d 55        	c.li	a0, -0x1
+   1026c: dd bf        	c.j	0x10262 <crc32file+0x70>
+   1026e: 4e 85        	c.mv	a0, s3
+   10270: ef 00 30 0b  	jal	ra, 0x10b22 <perror>
+   10274: 7d 55        	c.li	a0, -0x1
+   10276: 88 e0        	c.sd	a0, 0x0(s1)
+   10278: f9 bf        	c.j	0x10256 <crc32file+0x64>
+
+000000000001027a <crc32buf>:
+   1027a: 7d 56        	c.li	a2, -0x1
+   1027c: 9d c5        	c.beqz	a1, 0x102aa <crc32buf+0x30>
+   1027e: aa 95        	c.add	a1, a0
+   10280: 01 92        	c.srli	a2, 0x20
+   10282: b7 a6 01 00  	lui	a3, 0x1a
+   10286: 93 86 86 b3  	addi	a3, a3, -0x4c8
+   1028a: 03 47 05 00  	lbu	a4, 0x0(a0)
+   1028e: 31 8f        	c.xor	a4, a2
+   10290: 13 77 f7 0f  	andi	a4, a4, 0xff
+   10294: 0e 07        	c.slli	a4, 0x3
+   10296: 36 97        	c.add	a4, a3
+   10298: 18 63        	c.ld	a4, 0x0(a4)
+   1029a: 21 82        	c.srli	a2, 0x8
+   1029c: 05 05        	c.addi	a0, 0x1
+   1029e: 39 8e        	c.xor	a2, a4
+   102a0: e3 15 b5 fe  	bne	a0, a1, 0x1028a <crc32buf+0x10>
+   102a4: 13 45 f6 ff  	xori	a0, a2, -0x1
+   102a8: 82 80        	c.jr	ra
+   102aa: 13 15 06 02  	slli	a0, a2, 0x20
+   102ae: 82 80        	c.jr	ra
+
+00000000000102b0 <main>:
+   102b0: 09 46        	c.li	a2, 0x2
+   102b2: 63 42 c5 04  	blt	a0, a2, 0x102f6 <main+0x46>
+   102b6: 86 b8        	cm.push	{ra, s0-s3}, -64
+   102b8: 81 44        	c.li	s1, 0x0
+   102ba: 13 84 85 00  	addi	s0, a1, 0x8
+   102be: 79 15        	c.addi	a0, -0x2
+   102c0: 02 15        	c.slli	a0, 0x20
+   102c2: 75 81        	c.srli	a0, 0x1d
+   102c4: 2e 95        	c.add	a0, a1
+   102c6: 93 09 05 01  	addi	s3, a0, 0x10
+   102ca: 37 a5 01 00  	lui	a0, 0x1a
+   102ce: 13 09 a5 33  	addi	s2, a0, 0x33a
+   102d2: 08 60        	c.ld	a0, 0x0(s0)
+   102d4: 2c 00        	c.addi4spn	a1, sp, 0x8
+   102d6: 0a 86        	c.mv	a2, sp
+   102d8: ef f0 bf f1  	jal	ra, 0x101f2 <crc32file>
+   102dc: a2 65        	c.ldsp	a1, 0x8(sp)
+   102de: 02 66        	c.ldsp	a2, 0x0(sp)
+   102e0: 14 60        	c.ld	a3, 0x0(s0)
+   102e2: c9 8c        	c.or	s1, a0
+   102e4: 4a 85        	c.mv	a0, s2
+   102e6: ef 00 70 06  	jal	ra, 0x10b4c <printf>
+   102ea: 21 04        	c.addi	s0, 0x8
+   102ec: e3 13 34 ff  	bne	s0, s3, 0x102d2 <main+0x22>
+   102f0: 33 35 90 00  	sltu	a0, zero, s1
+   102f4: 86 be        	cm.popret	{ra, s0-s3}, 64
+   102f6: 01 45        	c.li	a0, 0x0
+   102f8: 82 80        	c.jr	ra

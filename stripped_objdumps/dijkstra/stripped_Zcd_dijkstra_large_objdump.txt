@@ -1,0 +1,63 @@
+00000000000103de <main>:
+   103de: ef 22 61 77  	jal	t0, 0x22b54 <__riscv_save_9>
+   103e2: 41 11        	c.addi	sp, -0x10
+   103e4: 05 46        	c.li	a2, 0x1
+   103e6: 2e 84        	c.mv	s0, a1
+   103e8: 63 49 a6 02  	blt	a2, a0, 0x1041a <main+0x3c>
+   103ec: 03 b5 81 8e  	ld	a0, -0x718(gp)
+   103f0: 14 6d        	c.ld	a3, 0x18(a0)
+   103f2: 37 35 02 00  	lui	a0, 0x23
+   103f6: 13 05 45 d0  	addi	a0, a0, -0x2fc
+   103fa: ed 45        	c.li	a1, 0x1b
+   103fc: 05 46        	c.li	a2, 0x1
+   103fe: ef 00 b0 59  	jal	ra, 0x11198 <fwrite>
+   10402: 03 b5 81 8e  	ld	a0, -0x718(gp)
+   10406: 14 6d        	c.ld	a3, 0x18(a0)
+   10408: 37 35 02 00  	lui	a0, 0x23
+   1040c: 13 05 05 d2  	addi	a0, a0, -0x2e0
+   10410: 93 05 80 02  	addi	a1, zero, 0x28
+   10414: 05 46        	c.li	a2, 0x1
+   10416: ef 00 30 58  	jal	ra, 0x11198 <fwrite>
+   1041a: 08 64        	c.ld	a0, 0x8(s0)
+   1041c: b7 35 02 00  	lui	a1, 0x23
+   10420: 93 85 95 d4  	addi	a1, a1, -0x2b7
+   10424: ef 00 f0 40  	jal	ra, 0x11032 <fopen>
+   10428: 2a 8b        	c.mv	s6, a0
+   1042a: 01 49        	c.li	s2, 0x0
+   1042c: 37 65 02 00  	lui	a0, 0x26
+   10430: 93 09 05 2b  	addi	s3, a0, 0x2b0
+   10434: 37 35 02 00  	lui	a0, 0x23
+   10438: 93 0b 95 cc  	addi	s7, a0, -0x337
+   1043c: 13 0a 40 06  	addi	s4, zero, 0x64
+   10440: ce 8a        	c.mv	s5, s3
+   10442: 93 05 00 19  	addi	a1, zero, 0x190
+   10446: 4a 85        	c.mv	a0, s2
+   10448: ef 20 01 77  	jal	ra, 0x22bb8 <__muldi3>
+   1044c: 4e 95        	c.add	a0, s3
+   1044e: 13 04 05 19  	addi	s0, a0, 0x190
+   10452: d6 84        	c.mv	s1, s5
+   10454: 70 00        	c.addi4spn	a2, sp, 0xc
+   10456: 5a 85        	c.mv	a0, s6
+   10458: de 85        	c.mv	a1, s7
+   1045a: ef 00 50 3e  	jal	ra, 0x1103e <fscanf>
+   1045e: 32 45        	c.lwsp	a0, 0xc(sp)
+   10460: 88 c0        	c.sw	a0, 0x0(s1)
+   10462: 91 04        	c.addi	s1, 0x4
+   10464: e3 98 84 fe  	bne	s1, s0, 0x10454 <main+0x76>
+   10468: 05 09        	c.addi	s2, 0x1
+   1046a: 93 8a 0a 19  	addi	s5, s5, 0x190
+   1046e: e3 1a 49 fd  	bne	s2, s4, 0x10442 <main+0x64>
+   10472: 01 44        	c.li	s0, 0x0
+   10474: 13 05 20 03  	addi	a0, zero, 0x32
+   10478: 13 09 40 06  	addi	s2, zero, 0x64
+   1047c: 93 05 40 06  	addi	a1, zero, 0x64
+   10480: ef 20 41 7d  	jal	ra, 0x22c54 <__modsi3>
+   10484: aa 84        	c.mv	s1, a0
+   10486: 22 85        	c.mv	a0, s0
+   10488: a6 85        	c.mv	a1, s1
+   1048a: ef f0 5f e2  	jal	ra, 0x102ae <dijkstra>
+   1048e: 05 24        	c.addiw	s0, 0x1
+   10490: 1b 85 14 00  	addiw	a0, s1, 0x1
+   10494: e3 14 24 ff  	bne	s0, s2, 0x1047c <main+0x9e>
+   10498: 01 45        	c.li	a0, 0x0
+   1049a: ef f0 7f c8  	jal	ra, 0x10120 <exit>

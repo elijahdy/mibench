@@ -7,7 +7,7 @@ all: basicmath_small basicmath_large
 basicmath_small: ${FILE1} Makefile
 	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/clang -static -O -march=rv64ifd -mabi=lp64d -msave-restore ${FILE1} -o basicmath_small -lm
 basicmath: ${FILE2} Makefile
-	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/clang -static -march=rv64ifd --disable-multilib -mabi=lp64d ${FILE2} -o basicmath -lm
+	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/clang -static -march=rv64ifd -mabi=lp64d ${FILE2} -o basicmath -lm
 	mv basicmath non_os_test
 objdump_all: ${FILE3} Makefile
 	/afs/inf.ed.ac.uk/user/s20/s2011935/llvm_install/bin/llvm-objdump -d -M no-aliases dynamic_baseISA_basicmath_large > base_basicmath_objdump.txt
